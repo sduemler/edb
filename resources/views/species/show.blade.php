@@ -60,7 +60,7 @@
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-					Name Type
+					Species Info
 					</h4>
 				</div>
 			</a>
