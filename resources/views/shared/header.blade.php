@@ -73,9 +73,12 @@
                 </div>
             </li>
 
+           
             @if (Auth::guest())
                 <li class="nav-item"><a class="nav-link" href="{{url('/login')}}">Login</a></li>
+                <!--
                 <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Register</a></li>
+                -->
             @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
