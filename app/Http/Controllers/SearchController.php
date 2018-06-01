@@ -36,7 +36,7 @@ class SearchController extends Controller
 		if(!$q || ($type && $type != 'advancedSearch')) return redirect(route('home.index'));
 		$speciesArr = [];
 		if($type != 'advancedSearch') {
-			$speciesArr = Searchy::driver('simple')->search('species')->fields('species_name', 'common_name', 'family')->query($q)->get();
+			$speciesArr = Searchy::driver('simple')->search('species')->fields('species_name', 'common_name')->query($q)->get();
 		} else {
 			$q = json_decode($q, true);
 			if(isset($q['_token'])) unset($q['_token']);
