@@ -405,7 +405,7 @@
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-					Descriptions
+					Archival References
 					</h4>
 				</div>
 			</a>
