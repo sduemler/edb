@@ -3,7 +3,7 @@
 @section('css')
     <style>
         .viewBlock {
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .viewBlock .row:nth-child(2) {
@@ -55,6 +55,7 @@
 	<i>{{$species->species_name}} </i>| {{$species->common_name}}
 	</h1>
 	<br>
+	<!--
 	<div class="panel-group" id="accordion">
         <div class="panel panel-default">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -66,10 +67,11 @@
 			</a>
 			<div id="collapse1" class="panel-collapse collapse in">
 			  <div class="panel-body">
+			  -->
 			  <div class="row">
 			  @foreach ($schemeArr as $scheme)			
 						  @if ($scheme->category == 'name_type' && $scheme->key != 'alt_word_form' && $scheme->key != 'french_name')
-							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
+							  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
 								  <div class="row">
 									  <strong>{{$scheme->name}}:</strong>
 									  <span style="position: absolute; top: 0; right: 18px;">
@@ -91,10 +93,13 @@
 						  @endif
 					  @endforeach
 					  </div>
+        <!--
 			  </div>
 			</div>
 		</div>
-		<br>
+		-->
+		<!--<br>-->
+		<!--
 		<div class="panel panel-default">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
 				<div class="panel-heading">
@@ -105,20 +110,27 @@
 			</a>
 			<div id="collapse2" class="panel-collapse collapse in">
 			  <div class="panel-body">
+			  -->
 			  <div class="row">
 			  <?php $useCount = 0; ?>
+			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                     <div class="row">
+                         <strong>Uses:</strong>
+				            <span style="position: absolute; top: 0; right: 18px;">
+								<a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+				            </span>
+                      </div>
+                </div>
 			  @foreach ($schemeArr as $scheme)		
 						  @if ($scheme->category == 'uses' && $species->getAttribute($scheme->key) == 'TRUE')
 						  <?php $useCount++; ?>
 							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
 								  <div class="row">
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
+
 								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
-										  <strong>{{$scheme->name}}</strong>
+										  {{$scheme->name}}
 									  </div>
 								  </div>
 							  </div>
@@ -128,7 +140,7 @@
 					  @endforeach
 					  @if ($useCount == 0)
 					      <div class="row">
-									  <strong>This species does not have any known uses.</strong>
+									  This species does not have any known uses.
 									  <span style="position: absolute; top: 0; right: 18px;">
 										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 									  </span>
@@ -136,9 +148,12 @@
 				        @else
 				        @endif
 					  </div>
+        <!--
 			  </div>
 			</div>
 		</div>
+		-->
+		<!--
 		<br>
 		<div class="panel panel-default">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
@@ -150,7 +165,13 @@
 			</a>
 			<div id="collapse3" class="panel-collapse collapse in">
 			  <div class="panel-body">
+			  -->
 			  <div class="row">
+			     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                     <div class="row">
+                         <strong>Harvest Seasons:</strong>
+                      </div>
+                </div>
 			  <?php $seasonCount = 0; ?>
 			  @foreach ($schemeArr as $scheme)			
 						  @if ($scheme->category == 'season' && $species->getAttribute($scheme->key) == 'TRUE')
@@ -163,7 +184,7 @@
 								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
-										  <strong>{{$scheme->name}}</strong>
+										  {{$scheme->name}}
 									  </div>
 								  </div>
 							  </div>
@@ -173,7 +194,7 @@
 					  @endforeach
 					  @if ($seasonCount == 0)
 					      <div class="row">
-									  <strong>This species is not harvested in any season.</strong>
+									  This species is not harvested in any season.
 									  <span style="position: absolute; top: 0; right: 18px;">
 										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 									  </span>
@@ -181,9 +202,12 @@
 				        @else
 				        @endif
 					  </div>
+        <!--
 			  </div>
 			</div>
 		</div>
+		-->
+		<!--
 		<br>
 		<div class="panel panel-default">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
@@ -195,7 +219,13 @@
 			</a>
 			<div id="collapse4" class="panel-collapse collapse in">
 			  <div class="panel-body">
+                -->
 			  <div class="row">
+			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                     <div class="row">
+                         <strong>Habitats:</strong>
+                      </div>
+                </div>
 			  <?php $habitatCount = 0; ?>
 			  @foreach ($schemeArr as $scheme)			
 						  @if ($scheme->category == 'habitat' && $species->getAttribute($scheme->key) == 'TRUE')
@@ -208,7 +238,7 @@
 								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
-										  <strong>{{$scheme->name}}</strong>
+										  {{$scheme->name}}
 									  </div>
 								  </div>
 							  </div>
@@ -218,7 +248,7 @@
 					  @endforeach
 					  @if ($habitatCount == 0)
 					      <div class="row">
-									  <strong>This species does not currently have any known habitats.</strong>
+									  This species does not currently have any known habitats.
 									  <span style="position: absolute; top: 0; right: 18px;">
 										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 									  </span>
@@ -226,9 +256,12 @@
 				        @else
 				        @endif
 					  </div>
+				<!--
 			  </div>
 			</div>
 		</div>
+		-->
+		<!--
 		<br>
 		<div class="panel panel-default">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
@@ -240,7 +273,13 @@
 			</a>
 			<div id="collapse5" class="panel-collapse collapse in">
 			  <div class="panel-body">
+			  -->
 			  <div class="row">
+			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                     <div class="row">
+                         <strong>Locations:</strong>
+                      </div>
+                </div>
 			  <?php $locationCount = 0; ?>
 			  @foreach ($schemeArr as $scheme)			
 						  @if ($scheme->category == 'locations' && $species->getAttribute($scheme->key) == 'TRUE')
@@ -253,7 +292,7 @@
 								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
-										  <strong>{{$scheme->name}}</strong>
+										  {{$scheme->name}}
 									  </div>
 								  </div>
 							  </div>
@@ -264,17 +303,20 @@
 					  @endforeach
 					  @if ($locationCount == 0)
 					      <div class="row">
-									  <strong>This species is not located on any known Myaamia property.</strong>
+                              This species is not located on any known Myaamia property.
 									  <span style="position: absolute; top: 0; right: 18px;">
 										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 									  </span>
 				            </div>
 				        @else
 				        @endif
-					  </div>
+					  </div>       
+        <!--
 			  </div>
 			</div>
 		</div>
+		-->
+		<!--
 		<br> 
 		<div class="panel panel-default">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
@@ -286,7 +328,13 @@
 			</a>
 			<div id="collapse6" class="panel-collapse collapse in">
 			  <div class="panel-body">
+			  -->
 			  <div class="row">
+			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+                     <div class="row">
+                         <strong>Growth Form:</strong>
+                      </div>
+                </div>
 			  <?php $growthCount = 0; ?>
 			  @foreach ($schemeArr as $scheme)			
 						  @if ($scheme->category == 'growth_form' && $species->getAttribute($scheme->key) == 'TRUE')
@@ -299,7 +347,7 @@
 								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
-										  <strong>{{$scheme->name}}</strong>
+										  {{$scheme->name}}
 									  </div>
 								  </div>
 							  </div>
@@ -309,7 +357,7 @@
 					  @endforeach
 					  @if ($growthCount == 0)
 					      <div class="row">
-									  <strong>This species doe not have any known growth forms.</strong>
+									  This species doe not have any known growth forms.
 									  <span style="position: absolute; top: 0; right: 18px;">
 										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 									  </span>
@@ -317,9 +365,11 @@
 				        @else
 				        @endif
 					  </div>
+				<!--
 			  </div>
 			</div>
 		</div>
+		-->
 		<br>
 		<!--
 		<div class="panel panel-default">
@@ -400,7 +450,7 @@
                     <a href="#" id="showHistoryBtn" class="no-loading btn btn-outline-primary float-right" style="margin-left: 15px;">Show History Buttons</a>
                     <a href="#" id="hideHistoryBtn" class="no-loading btn btn-outline-primary float-right" style="margin-left: 15px; display: none;">Hide History Buttons</a>
                     <a href="{{route('species.edit', ['id' => $species->id])}}" class="float-right btn btn-outline-primary">Edit This Species</a>
-                </div>
+                c</div>
             @endif
 
         <div class="col-12">
