@@ -268,7 +268,7 @@
         <div class="panel-body">
             <div class="row">
                 @foreach ($schemeArr as $scheme)			
-                @if ($scheme->category == 'long_descr')
+                @if ($scheme->category == 'long_descr' && $scheme->key != 'horticultural_info'  && $scheme->key != 'ecological_info')
                 <div class="viewBlock col-md-12 col-xs-12">
                     <div class="row">
                         <strong>{{$scheme->name}}:</strong>

@@ -58,7 +58,7 @@
 		  <div class="panel panel-default">
 			<div class="panel-heading">
 			  <h4 class="panel-title">
-				<a data-toggle="collapse" href="#collapse1">Name Types</a>
+				<a data-toggle="collapse" href="#collapse1">Names</a>
 			  </h4>
 			</div>
 			<div id="collapse1" class="panel-collapse collapse">
@@ -271,7 +271,7 @@
 		</div>
 	</div>
     <br><br>
-    <a href="#" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</a>
+<!--    <a href="#" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</a>-->
 	<br>
     {{Form::close()}}
 @endsection

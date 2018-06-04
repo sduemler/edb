@@ -20,7 +20,7 @@
 @section('content')
 
     {{Form::open(['route' => ['species.update', $species->id], 'files' => true])}}
-    {{Form::submit('Submit', ['class' => 'btn btn-large btn-primary openbutton', 'style' => 'cursor: pointer;'])}}
+    {{Form::submit('Save', ['class' => 'btn-primary openbutton', 'style' => 'cursor: pointer;'])}}
 
     <input type="hidden" name="_method" value="PUT">
     <div class="row">
@@ -80,7 +80,7 @@
             @endif
         @endforeach
     </div>
-    {{Form::submit('Save', ['class' => 'btn btn-large btn-primary openbutton', 'style' => 'cursor: pointer;'])}}
+    {{Form::submit('Save', ['class' => 'btn-primary openbutton', 'style' => 'cursor: pointer;'])}}
     {{Form::close()}}
 
 @endsection
