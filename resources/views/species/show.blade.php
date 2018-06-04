@@ -5,7 +5,20 @@
         .viewBlock {
             margin-top: 10px;
         }
+        
+        /*These two sections are to put borders and
+          correct spacing for all the fields of 
+          all categories.*/
+        .viewBlock .row:nth-child(1) {
+            padding-right: 15px;
+        }
 
+        .viewBlock .row:nth-child(1) > div {
+            border: 1px solid #D8D8D8;
+        }
+        
+        /*These next two sections are to put the border
+          and spacing around the species info.*/
         .viewBlock .row:nth-child(2) {
             padding-right: 15px;
         }
@@ -13,6 +26,7 @@
         .viewBlock .row:nth-child(2) > div {
             border: 1px solid #D8D8D8;
         }
+        
 		.panel-heading {
 			background-image: none;
 			background-color: #E82000;
@@ -23,6 +37,11 @@
 			width: 200px;
 			text-align: center;
 		}
+        
+        .historyButton {
+            position: relative;
+            left: 10px;
+        }
     </style>
 @endsection
 @section('js')
@@ -74,7 +93,7 @@
 							  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
 								  <div class="row">
 									  <strong>{{$scheme->name}}:</strong>
-									  <span style="position: absolute; top: 0; right: 18px;">
+									  <span class="historyButton">
 										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 									  </span>
 								  </div>
@@ -116,7 +135,7 @@
 			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
                      <div class="row">
                          <strong>Uses:</strong>
-				            <span style="position: absolute; top: 0; right: 18px;">
+				            <span class="historyButton">
 								<a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
 				            </span>
                       </div>
@@ -125,9 +144,6 @@
 						  @if ($scheme->category == 'uses' && $species->getAttribute($scheme->key) == 'TRUE')
 						  <?php $useCount++; ?>
 							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-								  <div class="row">
-
-								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
 										  {{$scheme->name}}
@@ -140,10 +156,7 @@
 					  @endforeach
 					  @if ($useCount == 0)
 					      <div class="row">
-									  This species does not have any known uses.
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
+								This species does not have any known uses.
 				            </div>
 				        @else
 				        @endif
@@ -170,6 +183,9 @@
 			     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
                      <div class="row">
                          <strong>Harvest Seasons:</strong>
+                         <span class="historyButton">
+								<a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+				        </span>
                       </div>
                 </div>
 			  <?php $seasonCount = 0; ?>
@@ -177,11 +193,6 @@
 						  @if ($scheme->category == 'season' && $species->getAttribute($scheme->key) == 'TRUE')
 						      <?php $seasonCount++; ?>
 							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-								  <div class="row">
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
-								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
 										  {{$scheme->name}}
@@ -194,10 +205,7 @@
 					  @endforeach
 					  @if ($seasonCount == 0)
 					      <div class="row">
-									  This species is not harvested in any season.
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
+								This species is not harvested in any season.
 				            </div>
 				        @else
 				        @endif
@@ -224,6 +232,9 @@
 			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
                      <div class="row">
                          <strong>Habitats:</strong>
+                         <span class="historyButton">
+				            <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+				        </span>
                       </div>
                 </div>
 			  <?php $habitatCount = 0; ?>
@@ -231,11 +242,6 @@
 						  @if ($scheme->category == 'habitat' && $species->getAttribute($scheme->key) == 'TRUE')
 						      <?php $habitatCount++; ?>
 							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-								  <div class="row">
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
-								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
 										  {{$scheme->name}}
@@ -248,10 +254,7 @@
 					  @endforeach
 					  @if ($habitatCount == 0)
 					      <div class="row">
-									  This species does not currently have any known habitats.
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
+								This species does not currently have any known habitats.
 				            </div>
 				        @else
 				        @endif
@@ -278,6 +281,9 @@
 			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
                      <div class="row">
                          <strong>Locations:</strong>
+                            <span class="historyButton">
+								<a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+				            </span>
                       </div>
                 </div>
 			  <?php $locationCount = 0; ?>
@@ -285,11 +291,6 @@
 						  @if ($scheme->category == 'locations' && $species->getAttribute($scheme->key) == 'TRUE')
 						      <?php $locationCount++; ?>
 							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-								  <div class="row">
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
-								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
 										  {{$scheme->name}}
@@ -304,9 +305,6 @@
 					  @if ($locationCount == 0)
 					      <div class="row">
                               This species is not located on any known Myaamia property.
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
 				            </div>
 				        @else
 				        @endif
@@ -333,6 +331,9 @@
 			  <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
                      <div class="row">
                          <strong>Growth Form:</strong>
+                             <span class="historyButton">
+								<a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+				            </span>
                       </div>
                 </div>
 			  <?php $growthCount = 0; ?>
@@ -340,11 +341,6 @@
 						  @if ($scheme->category == 'growth_form' && $species->getAttribute($scheme->key) == 'TRUE')
 						      <?php $growthCount++; ?>
 							  <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-								  <div class="row">
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
-								  </div>
 								  <div class="row">
 									  <div class="col-12" style="min-height: 27px;">
 										  {{$scheme->name}}
@@ -357,10 +353,7 @@
 					  @endforeach
 					  @if ($growthCount == 0)
 					      <div class="row">
-									  This species doe not have any known growth forms.
-									  <span style="position: absolute; top: 0; right: 18px;">
-										  <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-									  </span>
+								This species doe not have any known growth forms.
 				            </div>
 				        @else
 				        @endif
