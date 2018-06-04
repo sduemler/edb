@@ -52,7 +52,6 @@ Route::group(['middleware' => ['auth', 'researcher', 'preventDeletedUser']], fun
 	Route::get('/species/approval', 'ApprovalController@index')->name('species.approval'); // Display a listing of the species records which are needed to approve.
 	Route::post('/species/approve/{id}', 'ApprovalController@approve')->name('species.approval.approve'); // Approve a specified species record
 	Route::post('/species/deny/{id}', 'ApprovalController@deny')->name('species.approval.deny'); // Deny a specified species record
-
 });
 
 Route::group(['middleware' => ['auth', 'contributor', 'preventDeletedUser']], function () {
