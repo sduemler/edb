@@ -64,7 +64,6 @@
             $("#showHistoryBtn").show();
             $(".historyBtn").hide();
         });
-        //$('#collapse1').collapse("show");
     });
 
 </script>
