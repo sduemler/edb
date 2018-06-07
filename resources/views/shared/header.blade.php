@@ -21,7 +21,7 @@
                     border: 1px solid #5cb85c !important;
                 }
             </style>
-            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search by Species or Common Name" style="width: 375px;">
+            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search" style="width: 375px;">
             <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-success my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
             <script>
                 $( document ).ready(function() {
