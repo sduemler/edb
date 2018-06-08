@@ -294,8 +294,8 @@
     @if (Auth::guest())
     @else
     <div class="col-12">
-        <a href="#" id="showHistoryBtn" class="no-loading btn btn-outline-primary float-right" style="margin-left: 15px;">Show History Buttons</a>
-        <a href="#" id="hideHistoryBtn" class="no-loading btn btn-outline-primary float-right" style="margin-left: 15px; display: none;">Hide History Buttons</a>
+        <a href="#" id="showHistoryBtn" class="no-loading btn btn-outline-primary float-right" style="margin-left: 15px;">Show Change Log Buttons</a>
+        <a href="#" id="hideHistoryBtn" class="no-loading btn btn-outline-primary float-right" style="margin-left: 15px; display: none;">Hide Change Log Buttons</a>
         <a href="{{route('species.edit', ['id' => $species->id])}}" class="float-right btn btn-outline-primary">Edit This Species</a>
     </div>
     @endif
