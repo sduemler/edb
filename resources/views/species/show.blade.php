@@ -261,7 +261,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
         <div class="panel-heading">
             <h4 class="panel-title">
-                Archival References
+                Sources
             </h4>
         </div>
     </a>
