@@ -70,7 +70,9 @@
 @endsection
 @section('content')
 <h1 style="text-align: center;">
-    <i>{{$species->species_name}} </i>| {{$species->common_name}}
+    <i>{{$species->species_name}} </i>
+    <br>
+    {{$species->common_name}}
 </h1>
 <br>
 <div class="row">
