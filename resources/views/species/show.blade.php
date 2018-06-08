@@ -80,181 +80,170 @@
     @if ($scheme->category == 'name_type' && $scheme->key != 'alt_word_form' && $scheme->key != 'french_name')
     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
         <div class="row">
-            <strong>{{$scheme->name}}:</strong>
+            <strong>{{$scheme->name}}: &nbsp;</strong>
+            @if ($scheme->key == 'species_name')
+                <i>{{$species->getAttribute($scheme->key)}}</i>
+            @else
+                {{$species->getAttribute($scheme->key)}}
+            @endif
             <span class="historyButton">
                 <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
-        <div class="row">
-            <div class="col-12" style="min-height: 27px;">
-                @if ($scheme->key == 'species_name')
-                <i>{{$species->getAttribute($scheme->key)}}</i>
-                @else
-                {{$species->getAttribute($scheme->key)}}
-                @endif
-            </div>
-        </div>
     </div>
     @else
-
     @endif
     @endforeach
 </div>
 <div class="row">
-    <?php $useCount = 0; ?>
-    <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
-        <div class="row">
-            <strong>Uses:</strong>
-            <span class="historyButton">
-                <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-            </span>
-        </div>
-    </div>
+    <?php $uses = array(); ?>
     @foreach ($schemeArr as $scheme)		
     @if ($scheme->category == 'uses' && $species->getAttribute($scheme->key) == 'TRUE')
-    <?php $useCount++; ?>
-    <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="row">
-            <div class="col-12" style="min-height: 27px;">
-                {{$scheme->name}}
-            </div>
-        </div>
-    </div>
+        <?php array_push($uses, $scheme->name);?>
     @else
-
     @endif
     @endforeach
-    @if ($useCount == 0)
-    <div class="row">
+    <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+        <div class="row">
+            <strong>Uses: &nbsp;</strong>
+    @if (count($uses) == 0)
         This species does not have any known uses.
-    </div>
     @else
-    @endif
-</div>
-<div class="row">
-    <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
-        <div class="row">
-            <strong>Harvest Seasons:</strong>
+            <?php $useCount = 0; ?>
+            @foreach($uses as $use)
+                @if ($useCount == count($uses) - 1)
+                    {{$use}}
+                @else
+                    {{$use}},
+                @endif
+                <?php $useCount++; ?>
+            @endforeach
+            @endif
             <span class="historyButton">
                 <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
-    <?php $seasonCount = 0; ?>
-    @foreach ($schemeArr as $scheme)			
+</div>
+<div class="row">
+    <?php $harvestSeasons = array(); ?>
+    @foreach ($schemeArr as $scheme)		
     @if ($scheme->category == 'season' && $species->getAttribute($scheme->key) == 'TRUE')
-    <?php $seasonCount++; ?>
-    <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="row">
-            <div class="col-12" style="min-height: 27px;">
-                {{$scheme->name}}
-            </div>
-        </div>
-    </div>
+        <?php array_push($harvestSeasons, $scheme->name);?>
     @else
-
     @endif
     @endforeach
-    @if ($seasonCount == 0)
-    <div class="row">
-        This species is not harvested in any season.
-    </div>
-    @else
-    @endif
-</div>
-<div class="row">
     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
-        <div class="row">
-            <strong>Habitats:</strong>
+    <div class="row">
+    <strong>Harvest Seasons: &nbsp;</strong>
+    @if (count($harvestSeasons) == 0)
+        This species does not have any known harvest seasons.
+    @else
+            <?php $harvestCount = 0; ?>
+            @foreach($harvestSeasons as $harvest)
+                @if ($harvestCount == count($harvestSeasons) - 1)
+                    {{$harvest}}
+                @else
+                    {{$harvest}},
+                @endif
+                <?php $harvestCount++; ?>
+            @endforeach
+            @endif
             <span class="historyButton">
                 <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
-    <?php $habitatCount = 0; ?>
-    @foreach ($schemeArr as $scheme)			
+</div>
+<div class="row">
+    <?php $habitats = array(); ?>
+    @foreach ($schemeArr as $scheme)		
     @if ($scheme->category == 'habitat' && $species->getAttribute($scheme->key) == 'TRUE')
-    <?php $habitatCount++; ?>
-    <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="row">
-            <div class="col-12" style="min-height: 27px;">
-                {{$scheme->name}}
-            </div>
-        </div>
-    </div>
+        <?php array_push($habitats, $scheme->name);?>
     @else
-
     @endif
     @endforeach
-    @if ($habitatCount == 0)
-    <div class="row">
-        This species does not currently have any known habitats.
-    </div>
-    @else
-    @endif
-</div>
-<div class="row">
     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
-        <div class="row">
-            <strong>Locations:</strong>
+    <div class="row">
+    <strong>Habitats: &nbsp;</strong>
+    @if (count($habitats) == 0)
+        This species does not have any known habitats.
+    @else
+            <?php $habitatCount = 0; ?>
+            @foreach($habitats as $habitat)
+                @if ($habitatCount == count($habitats) - 1)
+                    {{$habitat}}
+                @else
+                    {{$habitat}},
+                @endif
+                <?php $habitatCount++; ?>
+            @endforeach
+            @endif
             <span class="historyButton">
                 <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
-    <?php $locationCount = 0; ?>
-    @foreach ($schemeArr as $scheme)			
+</div>
+<div class="row">
+    <?php $locations = array(); ?>
+    @foreach ($schemeArr as $scheme)		
     @if ($scheme->category == 'locations' && $species->getAttribute($scheme->key) == 'TRUE')
-    <?php $locationCount++; ?>
-    <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="row">
-            <div class="col-12" style="min-height: 27px;">
-                {{$scheme->name}}
-            </div>
+        <?php array_push($locations, $scheme->name);?>
+    @else
+    @endif
+    @endforeach
+    <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
+    <div class="row">
+    <strong>Locations: &nbsp;</strong>
+    @if (count($locations) == 0)
+        This species is not located on any Myaamia property.
+    @else
+            <?php $locationCount = 0; ?>
+            @foreach($locations as $location)
+                @if ($locationCount == count($locations) - 1)
+                    {{$location}}
+                @else
+                    {{$location}},
+                @endif
+                <?php $locationCount++; ?>
+            @endforeach
+            @endif
+            <span class="historyButton">
+                <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+            </span>
         </div>
     </div>
-    @else
-
-    @endif
-
-    @endforeach
-    @if ($locationCount == 0)
-    <div class="row">
-        This species is not located on any known Myaamia property.
-    </div>
-    @else
-    @endif
 </div>       
 <div class="row">
+    <?php $growthForms = array(); ?>
+    @foreach ($schemeArr as $scheme)		
+    @if ($scheme->category == 'growth_form' && $species->getAttribute($scheme->key) == 'TRUE')
+        <?php array_push($growthForms, $scheme->name);?>
+    @else
+    @endif
+    @endforeach
     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
-        <div class="row">
-            <strong>Growth Form:</strong>
+    <div class="row">
+    <strong>Growth Forms: &nbsp;</strong>
+    @if (count($growthForms) == 0)
+        This species does not have any known growth forms.
+    @else
+            <?php $growthCount = 0; ?>
+            @foreach($growthForms as $form)
+                @if ($growthCount == count($growthForms) - 1)
+                    {{$form}}
+                @else
+                    {{$form}},
+                @endif
+                <?php $growthCount++; ?>
+            @endforeach
+            @endif
             <span class="historyButton">
                 <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
-    <?php $growthCount = 0; ?>
-    @foreach ($schemeArr as $scheme)			
-    @if ($scheme->category == 'growth_form' && $species->getAttribute($scheme->key) == 'TRUE')
-    <?php $growthCount++; ?>
-    <div class="viewBlock col-xl-3 col-lg-4 col-md-6 col-xs-12">
-        <div class="row">
-            <div class="col-12" style="min-height: 27px;">
-                {{$scheme->name}}
-            </div>
-        </div>
-    </div>
-    @else
-
-    @endif
-    @endforeach
-    @if ($growthCount == 0)
-    <div class="row">
-        This species doe not have any known growth forms.
-    </div>
-    @else
-    @endif
 </div>
 <br>
 <div class="panel panel-default">
