@@ -3,7 +3,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0;">
-        <img src="{{asset('img/miami.png')}}" style="vertical-align: middle; height: 26px; margin-top: -7px;" alt=".">
+        <!--route is public/img-->
+        <img src="{{asset('img/Miami.png')}}" style="vertical-align: middle; height: 26px; margin-top: -7px;" alt="Myaamia Center logo">
         EDB</a>
     <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
         <form class="form-inline mr-auto">
@@ -21,7 +22,7 @@
                     border: 1px solid #5cb85c !important;
                 }
             </style>
-            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search" style="width: 375px;">
+            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search by Scientific, Common, or Myaamia name" style="width: 386px;">
             <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-success my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
             <script>
                 $( document ).ready(function() {
@@ -41,8 +42,7 @@
             <li class="nav-item"><a class="nav-link" href="{{route('home.index')}}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('search.index')}}">Advanced Search</a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('species.index')}}">All Species</a></li>
-            <li class="nav-item"><a class="nav-link" href="
-            {{route('bibliography.index')}}">Bibliography</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('bibliography.index')}}">Bibliography</a></li>
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

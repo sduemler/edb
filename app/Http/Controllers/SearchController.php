@@ -37,8 +37,7 @@ class SearchController extends Controller
         $speciesArr = [];
         if($type != 'advancedSearch') {
             //The fields() section below is giving the fields that the search function is searching through to find the info
-            $speciesArr = Searchy::driver('simple')->search('species')->fields('species_name', 'common_name', 'miami_name', 'cultural_use',
-                'description', 'habitat', 'related_info')->query($q)->get();
+            $speciesArr = Searchy::driver('simple')->search('species')->fields('species_name', 'common_name', 'miami_name')->query($q)->get();
         } else {
             $q = json_decode($q, true);
             if(isset($q['_token'])) unset($q['_token']);
