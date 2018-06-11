@@ -1,29 +1,29 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: black !important;">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: antiquewhite !important;">
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0;">
-        <!--route is public/img-->
-        <img src="{{asset('img/Miami.png')}}" style="vertical-align: middle; height: 26px; margin-top: -7px;" alt="Myaamia Center logo">
+    <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0; color: darkslategrey;">
+        <img src="{{asset('img/Myaamia_Center.png')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
         EDB</a>
     <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
         <form class="form-inline mr-auto">
             <style>
                 #headerSearchBtn > i {
-                    color: #5cb85c;
+                    color: #c3142d;
                 }
                 #headerSearchBtn:hover > i {
                     color: antiquewhite;
                 }
 
                 #headerSearchBox {
-                    background-color: black !important;
-                    color: antiquewhite !important;
-                    border: 1px solid #5cb85c !important;
+                    background-color: antiquewhite !important;
+                    color: darkslategrey !important;
+                    border: 1px solid #c3142d !important;
+                    margin-left: 100px;
                 }
             </style>
             <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search by Scientific, Common, or Myaamia name" style="width: 386px;">
-            <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-success my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-danger my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
             <script>
                 $( document ).ready(function() {
                     $('#headerSearchBtn').click(function(e) {
@@ -39,13 +39,13 @@
         </form>
 
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="{{route('home.index')}}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('search.index')}}">Advanced Search</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('species.index')}}">All Species</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('bibliography.index')}}">Bibliography</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('home.index')}}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('search.index')}}">Advanced Search</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('species.index')}}">All Species</a></li>
+{{--            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('bibliography.index')}}">Bibliography</a> </li>--}}
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Actions
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarActionsLink">
@@ -63,27 +63,27 @@
             @endif
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDocsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarDocsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Docs
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDocsLink">
                     <a class="dropdown-item" href="{{route('docs.index')}}">About</a>
                     <a class="dropdown-item" href="{{route('docs.user')}}">User FAQs</a>
                     @if(!Auth::guest() && Auth::user()->role_id == 1)
-                    <a class="dropdown-item" href="{{route('docs.admin')}}">Admin Document</a>
+                        <a class="dropdown-item" href="{{route('docs.admin')}}">Admin Document</a>
                     @endif
                 </div>
             </li>
 
-           
+
             @if (Auth::guest())
-                <li class="nav-item"><a class="nav-link" href="{{url('/login')}}">Login</a></li>
-                <!--
+                <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{url('/login')}}">Login</a></li>
+            <!--
                 <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Register</a></li>
                 -->
             @else
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarUserLink">

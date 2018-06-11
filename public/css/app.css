@@ -53,7 +53,7 @@ input:not(.btn):focus, textarea:focus, select:focus {
 }
 
 .dropdown-menu {
-    background-color: black;
+    background-color: darkslategrey;
 }
 
 .dropdown-menu > a {
