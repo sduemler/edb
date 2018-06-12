@@ -13,7 +13,27 @@
                 No Result Found!
             </div>
         @endif
+        <?php $speciesArray = array(); ?>
+        
         @foreach ($speciesArr as $species)
+           <?php $speciesArray[$species->id] = $species; ?>
+            @foreach ($speciesArray as $id => $speciesObject)
+            <?php 
+                if ($species->oid == $speciesObject->oid) {
+                    if ($species->version > $speciesObject->version){
+                        unset($speciesArray[$speciesObject->id]);
+                    } elseif ($species->version < $speciesObject->version) {
+                        unset($speciesArray[$species->id]);
+                    } else {
+                        //do nothing
+                    }
+                } else {
+                    //do nothing, because the oid's are different and 
+                    //the species has already been put in the array
+                } ?>
+            @endforeach
+        @endforeach
+        @foreach($speciesArray as $id => $species)
             <div class="col-md-6 col-xs-12 speciesNameCard" style="padding: 0px 30px; margin-top: 15px;">
                 <div class="row" style="border: 1px solid #DDDDDD; padding: 15px;">
                     <h4><a href="{{route('species.show', ['id' => $species->id])}}"><i>{{$species->species_name ? $species->species_name : 'No Species Name'}}</i></a></h4>
