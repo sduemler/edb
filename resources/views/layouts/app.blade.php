@@ -35,6 +35,7 @@
     </script>
 </head>
 <body>
+    <!--The loading image when the search function is ran-->
     <div id="loading-screen" style="display: none; position: absolute; left: 0; top: 0; z-index: 2000; width: 100%; height: 100vh; background-color: #000000; opacity: 0.75;">
         <div style="width: 150px; height: 150px; background-color: white; position: absolute; left: calc(50% - 75px); top: calc(45% - 75px); border-radius: 200px;">
             <img src="{{ asset('img/loading.gif') }}" alt="loading" style="width: 100px; height: 76px; position: relative; left: calc(50% - 50px); top: calc(50% - 38px);">
