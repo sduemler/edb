@@ -1,5 +1,5 @@
 html *:not(code) {
-    color: antiquewhite;
+    color: darkslategrey;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -10,7 +10,7 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: black;
+    background-color: antiquewhite;
 }
 
 .footer {
