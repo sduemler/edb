@@ -13,10 +13,11 @@
 		.viewBlock .row:nth-child(2) > div {
 			border: 1px solid #D8D8D8;
 		}
+/*
 		.panel-heading {
 			background-image: none;
-			background-color: #E82000;
-			color: white;
+			background-color: #FF6961;
+			color: antiquewhite;
 			border-radius: 10px;
 			border: 1px solid #FFFFFF;
 			padding: 10px;
@@ -24,6 +25,7 @@
 			text-align: center;
 			height: 50px;
 		}
+*/
 	</style>
 @endsection
 @section('js')
@@ -53,20 +55,14 @@
 @section('content')
 
     {{Form::open(['route' => 'species.store', 'id' => 'advancedSearchForm'])}}
-	<a href="#" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</a>
-		<div class="panel-group">
-		  <div class="panel panel-default">
-			<div class="panel-heading">
-			  <h4 class="panel-title">
-				<a data-toggle="collapse" href="#collapse1">Names</a>
-			  </h4>
-			</div>
-			<div id="collapse1" class="panel-collapse collapse">
-			  <div class="panel-body">
+	<button type="submit" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</button>
+		<div class="form-group">
+            <h4>Names</h4>
+			<div class="form-body">
 				<div class="row">
 				
 				@foreach ($schemeArr as $scheme)
-			@if ($scheme->category == 'name_type')
+			@if ($scheme->category == 'name_type' && $scheme->key != 'french_name' && $scheme->key != 'alt_word_form')
 				<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
 					<div class="form-group">
 						{{Form::label($scheme->key, $scheme->displayed_name)}}
@@ -77,201 +73,102 @@
 		@endforeach
 			  </div>
 			  </div>
-			</div>
-		  </div>
 		</div>
 	<br>
-		<div class="panel-group">
-		  <div class="panel panel-default">
-			<div class="panel-heading">
-			  <h4 class="panel-title">
-				<a data-toggle="collapse" href="#collapse2">Uses</a>
-			  </h4>
-			</div>
-			<div id="collapse2" class="panel-collapse collapse">
-			  <div class="panel-body">
-				<div class="row">
-				
-				@foreach ($schemeArr as $scheme)
-					@if ($scheme->category == 'uses')
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-12">
-                                {{Form::label($scheme->key, $scheme->displayed_name)}}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                Yes
-                                {{Form::radio($scheme->key, 'TRUE')}}
-                                No
-                                {{Form::radio($scheme->key, 'FALSE', false)}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-					@endif
-				@endforeach
+    <div class="row">
+		<div class="form-group">
+			  <div style="margin: 5px;">
+				Uses: 
+                <?php 
+                    $uses = array();
+                ?>
+                @foreach($schemeArr as $scheme)
+                    @if($scheme->category == 'uses')
+                        <?php 
+                            array_push($uses, $scheme->name)
+                        ?>
+                    @endif
+
+                @endforeach
+                {{Form::select($scheme, $uses), ['style'=>'background-color: antiquewhite;, color: white;']}}
 			  </div>
+		</div>
+	<br>
+	<div class="form-group">
+			  <div style="margin: 5px;">
+				Habitats: 
+                <?php 
+                    $habitat = array();
+                ?>
+                @foreach($schemeArr as $scheme)
+                    @if($scheme->category == 'habitat')
+                        <?php 
+                            array_push($habitat, $scheme->name)
+                        ?>
+                    @endif
+
+                @endforeach
+                {{Form::select($scheme, $habitat), ['style'=>'background-color: antiquewhite;, color: white;']}}
 			  </div>
-			</div>
-		  </div>
-		</div>
-	<br>
-	<div class="panel-group">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" href="#collapse3">Habitats</a>
-				</h4>
-			</div>
-			<div id="collapse3" class="panel-collapse collapse">
-				<div class="panel-body">
-					<div class="row">
-
-						@foreach ($schemeArr as $scheme)
-							@if ($scheme->category == 'habitat')
-								<div class="col-lg-3 col-md-4 col-xs-6">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-12">
-												{{Form::label($scheme->key, $scheme->displayed_name)}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-12">
-												Yes
-												{{Form::radio($scheme->key, 'TRUE')}}
-												No
-												{{Form::radio($scheme->key, 'FALSE', false)}}
-											</div>
-										</div>
-									</div>
-								</div>
-							@endif
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 	<br>
-	<div class="panel-group">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" href="#collapse4">Locations</a>
-				</h4>
-			</div>
-			<div id="collapse4" class="panel-collapse collapse">
-				<div class="panel-body">
-					<div class="row">
+	<div class="form-group">
+			  <div style="margin: 5px;">
+				Locations: 
+                <?php 
+                    $locations = array();
+                ?>
+                @foreach($schemeArr as $scheme)
+                    @if($scheme->category == 'locations')
+                        <?php 
+                            array_push($locations, $scheme->name)
+                        ?>
+                    @endif
 
-						@foreach ($schemeArr as $scheme)
-							@if ($scheme->category == 'locations')
-								<div class="col-lg-3 col-md-4 col-xs-6">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-12">
-												{{Form::label($scheme->key, $scheme->displayed_name)}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-12">
-												Yes
-												{{Form::radio($scheme->key, 'TRUE')}}
-												No
-												{{Form::radio($scheme->key, 'FALSE', false)}}
-											</div>
-										</div>
-									</div>
-								</div>
-							@endif
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
+                @endforeach
+                {{Form::select($scheme, $locations), ['style'=>'background-color:white']}}
+			  </div>
 	</div>
 	<br>
-	<div class="panel-group">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" href="#collapse5">Growth Forms</a>
-				</h4>
-			</div>
-			<div id="collapse5" class="panel-collapse collapse">
-				<div class="panel-body">
-					<div class="row">
+	<div class="form-group">
+		<div style="margin: 5px;">
+				Growth Forms: 
+                <?php 
+                    $growthForms = array();
+                ?>
+                @foreach($schemeArr as $scheme)
+                    @if($scheme->category == 'growth_form')
+                        <?php 
+                            array_push($growthForms, $scheme->name)
+                        ?>
+                    @endif
 
-						@foreach ($schemeArr as $scheme)
-							@if ($scheme->category == 'growth_form')
-								<div class="col-lg-3 col-md-4 col-xs-6">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-12">
-												{{Form::label($scheme->key, $scheme->displayed_name)}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-12">
-												Yes
-												{{Form::radio($scheme->key, 'TRUE')}}
-												No
-												{{Form::radio($scheme->key, 'FALSE', false)}}
-											</div>
-										</div>
-									</div>
-								</div>
-							@endif
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
+                @endforeach
+                {{Form::select($scheme, $growthForms), ['style'=>'background-color:white']}}
+			  </div>
 	</div>
 	<br>
-	<div class="panel-group">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" href="#collapse6">Season</a>
-				</h4>
-			</div>
-			<div id="collapse6" class="panel-collapse collapse">
-				<div class="panel-body">
-					<div class="row">
+	<div class="form-group">
+		<div style="margin: 5px;">
+				Season: 
+                <?php 
+                    $season = array();
+                ?>
+                @foreach($schemeArr as $scheme)
+                    @if($scheme->category == 'season')
+                        <?php 
+                            array_push($season, $scheme->name)
+                        ?>
+                    @endif
 
-						@foreach ($schemeArr as $scheme)
-							@if ($scheme->category == 'season')
-								<div class="col-lg-3 col-md-4 col-xs-6">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-12">
-												{{Form::label($scheme->key, $scheme->displayed_name)}}
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-12">
-												Yes
-												{{Form::radio($scheme->key, 'TRUE')}}
-												No
-												{{Form::radio($scheme->key, 'FALSE', false)}}
-											</div>
-										</div>
-									</div>
-								</div>
-							@endif
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
+                @endforeach
+                {{Form::select($scheme, $season), ['style'=>'background-color:white']}}
+			  </div>
 	</div>
+    </div>
     <br><br>
-<!--    <a href="#" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</a>-->
+    <a href="#" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</a>
 	<br>
+<!--    {{Form::submit('Search', ['class'=>'btn btn-primary'])}}-->
     {{Form::close()}}
 @endsection

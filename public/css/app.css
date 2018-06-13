@@ -41,15 +41,15 @@ body > .container {
 
 
 input:not(.btn), textarea {
-    background-color: black !important;
-    color: antiquewhite !important;
+    background-color: white!important;
+    color: darkslategrey!important;
     border: 1px solid antiquewhite !important;
 }
 
 input:not(.btn):focus, textarea:focus, select:focus {
     transition-property: border-color;
     transition-duration: 0.4s;
-    border-color: #5cb85c !important;
+    border-color: #C3142D !important;
 }
 
 .dropdown-menu {
