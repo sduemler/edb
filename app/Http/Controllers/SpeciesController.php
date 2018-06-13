@@ -108,8 +108,8 @@ class SpeciesController extends Controller
         $sourceArr = DB::select("
 		select sources.reference_type, sources.content, sources.source, sources.source_date, sources.comments
 		from sources
-		inner join species
-        on sources.oid = '$speciesOid'
+        WHERE sources.oid = '$speciesOid'
+        ORDER BY sources.source_date
         ");
             
             
