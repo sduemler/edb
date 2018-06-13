@@ -101,7 +101,15 @@ class SpeciesController extends Controller
         $schemeArr = Scheme::get();
 
         $species = Species::where('id', $id)->first();
-
+        
+        $sourceArr = DB::select("
+		select sources.reference_type, sources.content, sources.source, sources.source_date, sources.comments
+		from sources
+		join species
+        on sources.oid = species.oid
+        ");
+            
+            
         $photoUrl = '';
         $audioUrl = '';
 
@@ -113,7 +121,7 @@ class SpeciesController extends Controller
             $audioUrl = UrlSigner::sign(url('file/'. $species->audio), Carbon::now()->addSeconds(300));
         }
 
-        return view('species.show', ['species' => $species, 'schemeArr' => $schemeArr, 'photoUrl' => $photoUrl, 'audioUrl' => $audioUrl]);
+        return view('species.show', ['species' => $species, 'schemeArr' => $schemeArr, 'sourceArr' => $sourceArr, 'photoUrl' => $photoUrl, 'audioUrl' => $audioUrl]);
     }
 
     /**

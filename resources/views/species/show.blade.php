@@ -42,6 +42,11 @@
         position: relative;
         left: 10px;
     }
+    
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
 </style>
 @endsection
 @section('js')
@@ -256,6 +261,36 @@
     </a>
     <div id="collapse8" class="panel-collapse collapse in">
         <div class="panel-body">
+         <?php $sourceCount = 1; ?>
+          <table style="margin-top: 15px;">
+              <thead>
+                  <tr>
+                      <th>Number</th>
+                      <th>Reference Type</th>
+                      <th>Content</th>
+                      <th>Source</th>
+                      <th>Comments</th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach($sourceArr as $source)
+                     <tr>
+                         <td>{{$sourceCount}}</td>
+                         <td>{{$source->reference_type}}</td>
+                         <td>{{$source->content}}</td>
+                         <td>{{$source->source}}</td>
+                         <td>{{$source->comments}}</td>
+                     </tr>
+                <?php $sourceCount++; ?>
+                @endforeach
+              </tbody>
+          </table>
+          
+          
+          
+          
+          
+           <!--
             <div class="row">
                 @foreach ($schemeArr as $scheme)			
                 @if ($scheme->category == 'long_descr' && $scheme->key != 'horticultural_info'  && $scheme->key != 'ecological_info' && $scheme->key != 'researcher_note')
@@ -276,6 +311,7 @@
                 @endif
                 @endforeach
             </div>
+            -->
         </div>
     </div>
 </div>
