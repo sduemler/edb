@@ -6,27 +6,27 @@ The ethnobotanical database is for the Myaamia Center and research community. Th
 
 ## Contributors
 #### Senior Design Students:
-Mingchao Liao ([liaom@miamioh.edu](mailto:liaom@miamioh.edu))
+Mingchao Liao
 
-Joshua Dooley ([dooleyj5@miamioh.edu](mailto:dooleyj5@miamioh.edu))
+Joshua Dooley
 
-Meghan Styczynski ([styczymr@miamioh.edu](mailto:styczymr@miamioh.edu))
+Meghan Styczynski
 
-Richard Bodziak ([bodziarr@miamioh.edu](mailto:bodziarr@miamioh.edu))
+Richard Bodziak
 
 #### Agile Launchpad Students:
 ##### 2017:
-Steven Bower ([bowersj@miamioh.edu](mailto:bowersj@miamioh.edu))
+Steven Bower
 
-Thomas Burlett ([burlette@miamioh.edu](mailto:burlette@miamioh.edu))
+Thomas Burlett
 
-Martin Kohlman ([kohlmama@miamioh.edu](mailto:kohlmama@miamioh.edu))
+Martin Kohlman
 
-Addy Shubert ([shubeal@miamioh.edu](mailto:shubeal@miamioh.edu))
+Addy Shubert
 
-Nathan Soundappan ([soundanp@miamioh.edu](mailto:soundanp@miamioh.edu))
+Nathan Soundappan
 
 ##### 2018:
-Samuel Duemler ([duemlese@miamioh.edu](mailto:duemlese@miamioh.edu))
+Samuel Duemler
 
-Colin Evans ([evansct@miamioh.edu](mailto:evansct@miamioh.edu))
+Colin Evans
