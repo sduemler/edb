@@ -102,11 +102,14 @@ class SpeciesController extends Controller
 
         $species = Species::where('id', $id)->first();
         
+        $speciesOid = $species->oid;
+        //$speciesOid = mysql_real_escape_string($speciesOid);
+        
         $sourceArr = DB::select("
 		select sources.reference_type, sources.content, sources.source, sources.source_date, sources.comments
 		from sources
-		join species
-        on sources.oid = species.oid
+		inner join species
+        on sources.oid = '$speciesOid'
         ");
             
             

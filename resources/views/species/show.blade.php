@@ -261,7 +261,10 @@
     </a>
     <div id="collapse8" class="panel-collapse collapse in">
         <div class="panel-body">
-         <?php $sourceCount = 1; ?>
+         <?php $sourceCount = 1; 
+                $tableCount = count($sourceArr);
+            ?>
+         @if ($tableCount > 0)
           <table style="margin-top: 15px;">
               <thead>
                   <tr>
@@ -285,8 +288,9 @@
                 @endforeach
               </tbody>
           </table>
-          
-          
+          @else
+          The data for this species does not have any known sources.
+          @endif
           
           
           
