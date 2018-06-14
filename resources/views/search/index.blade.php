@@ -13,19 +13,6 @@
 		.viewBlock .row:nth-child(2) > div {
 			border: 1px solid #D8D8D8;
 		}
-/*
-		.panel-heading {
-			background-image: none;
-			background-color: #FF6961;
-			color: antiquewhite;
-			border-radius: 10px;
-			border: 1px solid #FFFFFF;
-			padding: 10px;
-			width: 200px;
-			text-align: center;
-			height: 50px;
-		}
-*/
 	</style>
 @endsection
 @section('js')
@@ -55,7 +42,7 @@
 @section('content')
 
     {{Form::open(['route' => 'species.store', 'id' => 'advancedSearchForm'])}}
-	<button type="submit" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</button>
+<!--	<button type="submit" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</button>-->
 		<div class="form-group">
             <h4>Names</h4>
 			<div class="form-body">
@@ -90,7 +77,7 @@
                     @endif
 
                 @endforeach
-                {{Form::select($scheme, $uses), ['style'=>'background-color: antiquewhite;, color: white;']}}
+                {{Form::select($scheme, $uses, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple', 'style' => 'background-color: white;'])}}
 			  </div>
 		</div>
 	<br>
@@ -108,7 +95,7 @@
                     @endif
 
                 @endforeach
-                {{Form::select($scheme, $habitat), ['style'=>'background-color: antiquewhite;, color: white;']}}
+                {{Form::select($scheme, $habitat, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
 			  </div>
 	</div>
 	<br>
@@ -126,7 +113,7 @@
                     @endif
 
                 @endforeach
-                {{Form::select($scheme, $locations), ['style'=>'background-color:white']}}
+                {{Form::select($scheme, $locations, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
 			  </div>
 	</div>
 	<br>
@@ -144,7 +131,7 @@
                     @endif
 
                 @endforeach
-                {{Form::select($scheme, $growthForms), ['style'=>'background-color:white']}}
+                {{Form::select($scheme, $growthForms, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
 			  </div>
 	</div>
 	<br>
@@ -162,12 +149,12 @@
                     @endif
 
                 @endforeach
-                {{Form::select($scheme, $season), ['style'=>'background-color:white']}}
+                {{Form::select($scheme, $season, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
 			  </div>
 	</div>
     </div>
     <br><br>
-    <a href="#" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</a>
+    <a href="#" class="btn btn-danger" id="advancedSearchBtn" style="float: right;">Search</a>
 	<br>
 <!--    {{Form::submit('Search', ['class'=>'btn btn-primary'])}}-->
     {{Form::close()}}
