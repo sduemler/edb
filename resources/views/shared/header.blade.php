@@ -41,7 +41,7 @@
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('home.index')}}">Home</a></li>
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('search.index')}}">Advanced Search</a></li>
-            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('species.index')}}">All Species</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('species.index')}}">Browse</a></li>
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('bibliography.index')}}">Bibliography</a> </li>
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
