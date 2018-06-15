@@ -109,7 +109,7 @@ class SpeciesController extends Controller
 		select sources.reference_type, sources.content, sources.source, sources.source_date, sources.comments
 		from sources
         WHERE sources.oid = '$speciesOid'
-        ORDER BY sources.source_date
+        ORDER BY sources.source_date DESC
         ");
             
             

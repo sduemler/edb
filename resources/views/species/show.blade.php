@@ -261,14 +261,12 @@
     </a>
     <div id="collapse8" class="panel-collapse collapse in">
         <div class="panel-body">
-         <?php $sourceCount = 1; 
-                $tableCount = count($sourceArr);
-            ?>
+         <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
           <table style="margin-top: 15px;">
               <thead>
                   <tr>
-                      <th>Number</th>
+                      <th>Date</th>
                       <th>Reference Type</th>
                       <th>Content</th>
                       <th>Source</th>
@@ -278,13 +276,12 @@
               <tbody>
                 @foreach($sourceArr as $source)
                      <tr>
-                         <td>{{$sourceCount}}</td>
+                         <td>{{$source->source_date}}</td>
                          <td>{{$source->reference_type}}</td>
                          <td>{{$source->content}}</td>
                          <td>{{$source->source}}</td>
                          <td>{{$source->comments}}</td>
                      </tr>
-                <?php $sourceCount++; ?>
                 @endforeach
               </tbody>
           </table>
