@@ -330,7 +330,8 @@
         <a href="{{route('species.edit', ['id' => $species->id])}}" class="float-right btn btn-outline-primary">Edit This Species</a>
     </div>
     @endif
-
+    
+    <!--
     <div class="col-12">
         <p style="text-align: right; margin: 0; color: gray;">Version: {{$species->version}} </p>
         <p style="text-align: right; margin: 0; color: gray;">Created By: {{\App\User::find($species->user_id)->name}}</p>
@@ -339,5 +340,6 @@
         <p style="text-align: right; margin: 0; color: #941728;">This version hasn't been approved</p>
         @endif
     </div>
+    -->
 </div>
 @endsection
