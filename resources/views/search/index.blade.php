@@ -42,16 +42,16 @@
 @section('content')
 
     {{Form::open(['route' => 'species.store', 'id' => 'advancedSearchForm'])}}
-<!--	<button type="submit" class="btn btn-primary" id="advancedSearchBtn" style="float: right;">Search</button>-->
-		<div class="form-group">
+	<button type="submit" class="btn btn-outline-danger" id="advancedSearchBtn" style="float: right;">Search</button>
+		<div class="panel-group">
             <h4>Names</h4>
-			<div class="form-body">
+			<div class="panel-body">
 				<div class="row">
 				
 				@foreach ($schemeArr as $scheme)
 			@if ($scheme->category == 'name_type' && $scheme->key != 'french_name' && $scheme->key != 'alt_word_form')
 				<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
-					<div class="form-group">
+					<div class="panel-group">
 						{{Form::label($scheme->key, $scheme->displayed_name)}}
 						{{Form::text($scheme->key, '', ['class' => 'form-control'])}}
 					</div>
@@ -66,20 +66,26 @@
 		<div class="form-group">
 			  <div style="margin: 5px;">
 				Uses: 
-                <?php 
+               
+                  <?php 
+                  //Creates an array that stores all the uses
                     $uses = array();
                 ?>
                 @foreach($schemeArr as $scheme)
                     @if($scheme->category == 'uses')
                         <?php 
+                            //While it's looping through the schemes array, if it finds anything with the category of uses, adds to the array
                             array_push($uses, $scheme->name)
                         ?>
                     @endif
 
                 @endforeach
-                {{Form::select($scheme, $uses, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple', 'style' => 'background-color: white;'])}}
+<!--                  Takes the array into account for the selection and displays all the values-->
+                {{Form::select($scheme, $uses, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
 			  </div>
 		</div>
+        
+<!--        Uses the same format for all the different categories below-->
 	<br>
 	<div class="form-group">
 			  <div style="margin: 5px;">
@@ -154,8 +160,7 @@
 	</div>
     </div>
     <br><br>
-    <a href="#" class="btn btn-danger" id="advancedSearchBtn" style="float: right;">Search</a>
+<!--    <a href="#" class="btn btn-danger" id="advancedSearchBtn" style="float: right;">Search</a>-->
 	<br>
-<!--    {{Form::submit('Search', ['class'=>'btn btn-primary'])}}-->
     {{Form::close()}}
 @endsection

@@ -30,6 +30,7 @@ body > .container {
     padding-left: 15px;
 }
 
+/*for the btn class*/
 .btn {
     cursor: pointer;
 }
@@ -39,26 +40,30 @@ body > .container {
 }
 
 
-
+/*Input fields*/
 input:not(.btn), textarea {
     background-color: white!important;
     color: darkslategrey!important;
     border: 1px solid antiquewhite !important;
 }
 
+/*Any input fields (text) when it is selected*/
 input:not(.btn):focus, textarea:focus, select:focus {
     transition-property: border-color;
     transition-duration: 0.4s;
     border-color: #C3142D !important;
 }
 
+/*The background of the dropdown menus*/
 .dropdown-menu {
     background-color: darkslategrey;
 }
 
+/*The text for the dropdown menus*/
 .dropdown-menu > a {
     color: antiquewhite;
 }
+
 
 .dropdown-menu > a:hover {
     background-color: black;
@@ -113,6 +118,7 @@ input[type='radio']:hover {
 
 }
 
+
 input[type='radio']:before {
     content:'';
     display:block;
@@ -133,8 +139,10 @@ input[type='radio'][value='FALSE']:checked:before {
 input[type='radio'][value='FALSE']:focus {
     border-color: #B61E2E !important;
 }
+/*Any select statements for a form*/
 select {
     border: 1px solid antiquewhite !important;
-    background-color: black !important;
+    margin: 13px;
+    background-color: white !important;
     color: antiquewhite !important;
 }
