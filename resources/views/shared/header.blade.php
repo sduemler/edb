@@ -43,7 +43,7 @@
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('search.index')}}">Advanced Search</a></li>
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('species.index')}}">Browse</a></li>
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('bibliography.index')}}">Bibliography</a> </li>
-            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('docs.index')}}">About</a> </li> 
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('docs.index')}}">About</a> </li>
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,11 +51,11 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarActionsLink">
                         <a class="dropdown-item" href="{{url('/species/create')}}">Add Species</a>
-<!--
+                        <!--
                         @if(in_array(Auth::user()->role_id, [1, 2]))
                             <a class="dropdown-item" href="{{url('/species/approval')}}">Approval Page</a>
                         @endif
--->
+                        -->
                         @if(Auth::user()->role_id == 1)
                             <a class="dropdown-item" href="{{url('/user')}}">User Management</a>
 <!--
@@ -70,6 +70,7 @@
             <!--The Docs dropdown menu was deemed unnecessary because only the About page is worthwhile, so it is just commented out, all 
                 the following routes still work, it just isn't showing visually-->
             <!--
+           <!--
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarDocsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Docs
@@ -83,7 +84,6 @@
                 </div>
             </li>
 -->
-
 
             @if (Auth::guest())
                 <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{url('/login')}}">Login</a></li>

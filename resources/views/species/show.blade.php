@@ -276,8 +276,8 @@
               <tbody>
                 @foreach($sourceArr as $source)
                      <tr>
-                         <td>{{$source->source_date}}</td>
-                         <td>{{$source->reference_type}}</td>
+                         <td>&nbsp;{{$source->source_date}}&nbsp;</td>
+                         <td>&nbsp;{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
                          <td>{{$source->source}}</td>
                          <td>{{$source->comments}}</td>
