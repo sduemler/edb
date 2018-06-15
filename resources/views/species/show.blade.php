@@ -29,7 +29,7 @@
 
     .panel-heading {
         background-image: none;
-        background-color: #E82000;
+        background-color: #FF6961;
         color: white;
         border-radius: 10px;
         border: 1px solid #FFFFFF;
