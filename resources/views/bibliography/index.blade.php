@@ -11,6 +11,7 @@
 
 <h1><strong>Bibliography</strong></h1>
 
+@include('bibliography.bib')
 
 
 @endsection
