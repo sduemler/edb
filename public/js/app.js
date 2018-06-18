@@ -12,13 +12,13 @@ $(document).ready(function() {
     $("input:not(.btn), textarea, select").focus(function() {
         $(this).prev().css('transition-property', 'color');
         $(this).prev().css('transition-duration', '0.4s');
-        $(this).prev().css('color', '#5cb85c');
+        $(this).prev().css('color', '#C3142D');
     });
 
     $("input:not(.btn), textarea, select").blur(function() {
         $(this).prev().css('transition-property', 'color');
         $(this).prev().css('transition-duration', '0.4s');
-        $(this).prev().css('color', 'antiquewhite');
+        $(this).prev().css('color', 'darkslategrey');
     });
 
     $("input[type='radio']").focus(function() {
