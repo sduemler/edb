@@ -24,7 +24,7 @@ class SpeciesController extends Controller
     public function index()
     {
         $speciesArr = DB::select("
-		select id, species_name
+		select id, species_name, miami_name, common_name
 		from species
 		inner join 
 			(select oid, max(version) as mv
