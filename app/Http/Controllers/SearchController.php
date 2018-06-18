@@ -54,8 +54,9 @@ class SearchController extends Controller
 			foreach ($q as $key => $value) {
 				if($value == '') unset($q[$key]);
 			}
+            print_r($q);
 			foreach ($q as $key => $value) {
-				$data = Searchy::driver('simple')->search('species')->fields($key)->select('species_name', 'id')->query($value)->get()->toArray();
+				$data = Searchy::driver('fuzzy')->search('species')->fields($key)->query($value)->get()->toArray();
 				if(!count($speciesArr)) {
 					$speciesArr = $data;
 				} else {
@@ -64,7 +65,6 @@ class SearchController extends Controller
 			}
 
 		}
-
 		return view('search.result', ['speciesArr' => $speciesArr]);
     }
 

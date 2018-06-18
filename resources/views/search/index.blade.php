@@ -65,8 +65,8 @@
     <div class="row">
 		<div class="form-group">
 			  <div style="margin: 5px;">
-				Uses: 
-               
+				<strong>Uses: </strong>
+               <br>
                   <?php 
                   //Creates an array that stores all the uses
                     $uses = array();
@@ -75,13 +75,18 @@
                     @if($scheme->category == 'uses')
                         <?php 
                             //While it's looping through the schemes array, if it finds anything with the category of uses, adds to the array
-                            array_push($uses, $scheme->name)
+                            $uses[$scheme->key] = $scheme->name;
                         ?>
                     @endif
 
                 @endforeach
-<!--                  Takes the array into account for the selection and displays all the values-->
-                {{Form::select($scheme, $uses, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
+<!--                  Takes the array into account for the selection and displays all the values-
+                {{Form::select('uses', $uses, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}} -->
+                @foreach($uses as $key => $name)
+                    {{Form::checkbox($key, 'TRUE')}}
+                    {{$name}}
+                    <br>
+                @endforeach
 			  </div>
 		</div>
         
@@ -89,73 +94,105 @@
 	<br>
 	<div class="form-group">
 			  <div style="margin: 5px;">
-				Habitats: 
+				<strong>Habitats: </strong>
+               <br>
                 <?php 
                     $habitat = array();
                 ?>
                 @foreach($schemeArr as $scheme)
                     @if($scheme->category == 'habitat')
                         <?php 
-                            array_push($habitat, $scheme->name)
+                            $habitat[$scheme->key] = $scheme->name;
                         ?>
                     @endif
 
                 @endforeach
+                <!--
                 {{Form::select($scheme, $habitat, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
+                -->
+                @foreach($habitat as $key => $name)
+                    {{Form::checkbox($key, 'TRUE')}}
+                    {{$name}}
+                    <br>
+                @endforeach
 			  </div>
 	</div>
 	<br>
 	<div class="form-group">
 			  <div style="margin: 5px;">
-				Locations: 
+				<strong>Locations: </strong>
+               <br>
                 <?php 
                     $locations = array();
                 ?>
                 @foreach($schemeArr as $scheme)
                     @if($scheme->category == 'locations')
                         <?php 
-                            array_push($locations, $scheme->name)
+                            $locations[$scheme->key] = $scheme->name;
                         ?>
                     @endif
 
                 @endforeach
+                <!--
                 {{Form::select($scheme, $locations, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
+                -->
+                @foreach($locations as $key => $name)
+                    {{Form::checkbox($key, 'TRUE')}}
+                    {{$name}}
+                    <br>
+                @endforeach
 			  </div>
 	</div>
 	<br>
 	<div class="form-group">
 		<div style="margin: 5px;">
-				Growth Forms: 
+				<strong>Growth Forms: </strong>
+               <br>
                 <?php 
                     $growthForms = array();
                 ?>
                 @foreach($schemeArr as $scheme)
                     @if($scheme->category == 'growth_form')
                         <?php 
-                            array_push($growthForms, $scheme->name)
+                            $growthForms[$scheme->key] = $scheme->name;
                         ?>
                     @endif
 
                 @endforeach
+                <!--
                 {{Form::select($scheme, $growthForms, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
+                -->
+                @foreach($growthForms as $key => $name)
+                    {{Form::checkbox($key, 'TRUE')}}
+                    {{$name}}
+                    <br>
+                @endforeach
 			  </div>
 	</div>
 	<br>
 	<div class="form-group">
 		<div style="margin: 5px;">
-				Season: 
+				<strong>Season: </strong>
+               <br>
                 <?php 
                     $season = array();
                 ?>
                 @foreach($schemeArr as $scheme)
                     @if($scheme->category == 'season')
                         <?php 
-                            array_push($season, $scheme->name)
+                            $season[$scheme->key] = $scheme->name;
                         ?>
                     @endif
 
                 @endforeach
+                <!--
                 {{Form::select($scheme, $season, $selected = null, ['class' => 'form-control', 'multiple' => 'multiple'])}}
+                -->
+                @foreach($season as $key => $name)
+                    {{Form::checkbox($key, 'TRUE')}}
+                    {{$name}}
+                    <br>
+                @endforeach
 			  </div>
 	</div>
     </div>
