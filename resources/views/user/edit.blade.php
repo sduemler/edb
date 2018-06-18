@@ -70,7 +70,7 @@
 
 
         <div class="col-12">
-            {{Form::submit('Update', ['class' => 'btn btn-outline-primary'])}}
+            {{Form::submit('Update', ['class' => 'btn btn-outline-danger'])}}
         </div>
 
     </div>

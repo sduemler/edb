@@ -15,7 +15,7 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <a href="{{route('user.create')}}" class="btn btn-outline-primary">Create User</a>
+            <a href="{{route('user.create')}}" class="btn btn-outline-danger">Create User</a>
         </div>
     </div>
     <div class="row" style="margin-top: 15px;">

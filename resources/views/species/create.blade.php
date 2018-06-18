@@ -77,7 +77,7 @@
             @endif
         @endforeach
     </div>
-    {{Form::submit('Submit', ['class' => 'btn btn-primary', 'style' => 'cursor: pointer;'])}}
+    {{Form::submit('Submit', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
     {{Form::close()}}
 
 @endsection

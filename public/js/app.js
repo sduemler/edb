@@ -24,13 +24,13 @@ $(document).ready(function() {
     $("input[type='radio']").focus(function() {
         $($(this).parent().parent().prev().find('label')[0]).css('transition-property', 'color');
         $($(this).parent().parent().prev().find('label')[0]).css('transition-duration', '0.4s');
-        $($(this).parent().parent().prev().find('label')[0]).css('color', '#5cb85c');
+        $($(this).parent().parent().prev().find('label')[0]).css('color', '#C3142D');
     });
 
     $("input[type='radio']").blur(function() {
         $($(this).parent().parent().prev().find('label')[0]).css('transition-property', 'color');
         $($(this).parent().parent().prev().find('label')[0]).css('transition-duration', '0.4s');
-        $($(this).parent().parent().prev().find('label')[0]).css('color', 'antiquewhite');
+        $($(this).parent().parent().prev().find('label')[0]).css('color', 'darkslategrey');
     });
 
 });

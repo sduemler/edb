@@ -72,13 +72,13 @@ input:not(.btn):focus, textarea:focus, select:focus {
 }
 
 .custom-file-control {
-    background-color: black;
+    background-color: white;
     border: 1px solid antiquewhite;
 }
 
 .custom-file-control:before {
-    background-color: black;
-    color: antiquewhite;
+    background-color: white;
+    color: darkslategrey;
     border: 1px solid antiquewhite;
     transition-property: background-color;
     transition-duration: 0.3s;
@@ -87,7 +87,8 @@ input:not(.btn):focus, textarea:focus, select:focus {
 .custom-file:hover > span:before {
     transition-property: background-color;
     transition-duration: 0.3s;
-    background-color: #0275d8;
+    color: antiquewhite;
+    background-color: #C3142D;
 }
 
 pre {
@@ -128,10 +129,10 @@ input[type='radio']:before {
     border-radius:50%;
 }
 input[type='radio']:checked:before {
-    background:antiquewhite;
+    background:darkslategrey;
 }
 input[type='radio'][value='TRUE']:checked:before {
-    background:#5cb85c;
+    background:#C3142D;
 }
 input[type='radio'][value='FALSE']:checked:before {
     background:#B61E2E;

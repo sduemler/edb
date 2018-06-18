@@ -51,7 +51,7 @@
 </div>
 <div class="row" style="margin-top: 15px;">
     <div class="col-12">
-        <a href="javascript:history.go(-1)" class="btn btn-primary">Go Back</a>
+        <a href="javascript:history.go(-1)" class="btn btn-outline-danger">Go Back</a>
     </div>
 </div>
 
