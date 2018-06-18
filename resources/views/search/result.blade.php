@@ -45,11 +45,6 @@
                     <div style="float: left; width: 1000px; text-align: justify; margin-left: 20px;">
                         <h5>{{$species->miami_name ? $species->miami_name : 'No Myaamia name'}}</h5>
                     </div>
-<!--
-                    <div style="float: left; width: calc(100% - 135px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        <h4><a href="{{route('species.show', ['id' => $species->id])}}"><i>{{$species->species_name ? $species->species_name : 'No Species Name'}}</i></a></h4>
-                    </div>
--->
                 </div>
             </div>
         @endforeach
