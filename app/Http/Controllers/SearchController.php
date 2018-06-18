@@ -54,7 +54,6 @@ class SearchController extends Controller
 			foreach ($q as $key => $value) {
 				if($value == '') unset($q[$key]);
 			}
-            print_r($q);
 			foreach ($q as $key => $value) {
 				$data = Searchy::driver('fuzzy')->search('species')->fields($key)->query($value)->get()->toArray();
 				if(!count($speciesArr)) {
