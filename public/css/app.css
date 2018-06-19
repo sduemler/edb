@@ -99,9 +99,16 @@ pre {
     border: 1px solid antiquewhite;
 }
 
-@media(max-width: 1090px) and (min-width: 992px)  {
+@media(min-width: 992px)  {
     #headerSearchBox {
         width: 163px;
+        margin-left: 100px;
+    }
+}
+
+@media(max-width: 992px){
+    #headerSearchBox {
+        margin-left: 0px;
     }
 }
 

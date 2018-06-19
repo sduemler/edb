@@ -9,7 +9,7 @@
 @section('content')
 
 
-<h1><strong>Bibliography</strong></h1>
+<h1 style="text-align:center"><strong>Bibliography</strong></h1>
 
 @include('bibliography.bib')
 
