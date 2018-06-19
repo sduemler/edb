@@ -29,10 +29,10 @@
 
     .panel-heading {
         background-image: none;
-        background-color: #FF6961;
+        background-color: #fff579;
         color: white;
         border-radius: 10px;
-        border: 1px solid #FFFFFF;
+        border: 1px solid darkslategrey;
         padding: 10px; 
         width: 200px;
         text-align: center;
