@@ -45,7 +45,14 @@
     
     table, th, td {
         border: 1px solid black;
+    }
+    
+    th {
         text-align: center;
+    }
+    
+    td {
+        max-width: 30vw;
     }
 </style>
 @endsection
@@ -261,9 +268,10 @@
     </a>
     <div id="collapse8" class="panel-collapse collapse in">
         <div class="panel-body">
+            <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
-          <table style="margin-top: 15px;">
+          <table cellpadding="10" style="margin-top: 15px;">
               <thead>
                   <tr>
                       <th>Date</th>
@@ -276,8 +284,8 @@
               <tbody>
                 @foreach($sourceArr as $source)
                      <tr>
-                         <td>&nbsp;{{$source->source_date}}&nbsp;</td>
-                         <td>&nbsp;{{$source->reference_type}}&nbsp;</td>
+                         <td style="text-align:center">{{$source->source_date}}&nbsp;</td>
+                         <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
                          <td>{{$source->source}}</td>
                          <td>{{$source->comments}}</td>
