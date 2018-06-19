@@ -38,17 +38,7 @@ class SearchController extends Controller
 		if($type != 'advancedSearch') {
 			$speciesArr = Searchy::driver('simple')->search('species')->fields('species_name', 'common_name', 'miami_name')->query($q)->get();
 		} else {
-            //For the advanced search (?)
-            
-            /*
-            I think one of the main reasons it isn't working is because I changed it from the radio buttons to the select. I believe that 
-            this is probably looking for true false variables to do the search, but isn't finding any (hence why it errors out). I also don't know
-            JS at all, and am struggling to understand some of these methods/what some of these variables are doing/where they're coming from. 
-            
-            I'm hoping a fresh set of eyes may also be of great help.
-            
-            If you have any tips or suggestions of places to look please do let me know. 
-            */
+            //For the advanced search
 			$q = json_decode($q, true);
 			if(isset($q['_token'])) unset($q['_token']);
 			foreach ($q as $key => $value) {
