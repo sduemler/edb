@@ -1,6 +1,6 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" style="background-color: antiquewhite !important;">
+<nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" style="background-color: antiquewhite !important;">
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" style="color:black;"></span>
     </button>
     <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0; color: darkslategrey;">
         <img src="{{asset('img/Myaamia_Center.png')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
@@ -19,7 +19,6 @@
                     background-color: antiquewhite !important;
                     color: darkslategrey !important;
                     border: 1px solid #c3142d !important;
-                    margin-left: 100px;
                 }
             </style>
             <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search by Scientific, Common, or Myaamia name" style="width: 386px;">
