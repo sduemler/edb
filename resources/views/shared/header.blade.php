@@ -39,10 +39,12 @@
 
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('home.index')}}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('search.index')}}">Advanced Search</a></li>
-            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('species.index')}}">Browse</a></li>
-            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('bibliography.index')}}">Bibliography</a> </li>
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('docs.index')}}">About</a> </li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('species.index')}}">Browse</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('search.index')}}">Advanced Search</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('bibliography.index')}}">Bibliography</a> </li>
+            <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('contact_us.index')}}">Contact Us</a> </li>
+            
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarActionsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,7 +87,7 @@
 -->
 
             @if (Auth::guest())
-                <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{url('/login')}}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{url('/login')}}">Sign-in</a></li>
             <!--
                 <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Register</a></li>
                 -->
