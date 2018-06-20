@@ -17,7 +17,6 @@
 <a href="http://myaamiacenter.org">http://myaamiacenter.org</a>
 
 <br>
-<br>
 
 @include('contact_us.contact')
    
