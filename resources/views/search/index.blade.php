@@ -49,7 +49,7 @@
 				<div class="row">
 				
 				@foreach ($schemeArr as $scheme)
-			@if ($scheme->category == 'name_type' && $scheme->key != 'french_name' && $scheme->key != 'alt_word_form')
+			@if ($scheme->category == 'name_type' && $scheme->key != 'french_name' && $scheme->key != 'alt_word_form' && $scheme->key != 'family')
 				<div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
 					<div class="panel-group">
 						{{Form::label($scheme->key, $scheme->displayed_name)}}
@@ -152,7 +152,7 @@
                     $growthForms = array();
                 ?>
                 @foreach($schemeArr as $scheme)
-                    @if($scheme->category == 'growth_form')
+                    @if($scheme->category == 'growth_form' && $scheme->key != 'wild')
                         <?php 
                             $growthForms[$scheme->key] = $scheme->name;
                         ?>
@@ -172,13 +172,13 @@
 	<br>
 	<div class="form-group">
 		<div style="margin: 5px;">
-				<strong>Season: </strong>
+				<strong>Harvest Season: </strong>
                <br>
                 <?php 
                     $season = array();
                 ?>
                 @foreach($schemeArr as $scheme)
-                    @if($scheme->category == 'season')
+                    @if($scheme->category == 'season' && $scheme->key != 'unkn' && $scheme->key != 'na')
                         <?php 
                             $season[$scheme->key] = $scheme->name;
                         ?>
