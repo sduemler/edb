@@ -274,20 +274,18 @@
           <table cellpadding="10" style="margin-top: 15px;">
               <thead>
                   <tr>
-                      <th>Date</th>
+                      <th>Source</th>
                       <th>Reference Type</th>
                       <th>Content</th>
-                      <th>Source</th>
                       <th>Comments</th>
                   </tr>
               </thead>
               <tbody>
                 @foreach($sourceArr as $source)
                      <tr>
-                         <td style="text-align:center">{{$source->source_date}}&nbsp;</td>
+                         <td>{{$source->source}}</td>
                          <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->source}}</td>
                          <td>{{$source->comments}}</td>
                      </tr>
                 @endforeach
