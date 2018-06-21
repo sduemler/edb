@@ -33,7 +33,7 @@ class SpeciesController extends Controller
 			group by oid) maxt
 		on (species.oid = maxt.oid and species.version = maxt.mv)
 		where is_approved = 1
-		order by species_name
+		order by species_name IS NULL, species_name ASC
 		");
 
         return view('species.index', ['speciesArr' => $speciesArr]);
