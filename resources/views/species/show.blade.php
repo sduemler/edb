@@ -258,15 +258,31 @@
     </div>
 </div>
 <br>
+<!-- This php gets all the different types of sources into different arrays.-->
+<?php   $archivalSources = array();
+        $botanicalSources = array();
+        $relatedSources = array();
+        foreach($sourceArr as $source){
+            if($source->is_archival){
+                array_push($archivalSources, $source);
+            } elseif ($source->is_botanical){
+                array_push($botanicalSources, $source);
+            } elseif ($source->is_related){
+                array_push($relatedSources, $source);
+            } else {
+                //Figure out what to do if fits none of these
+            }
+        }
+?>
 <div class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <div class="panel-heading">
             <h4 class="panel-title">
-                Sources
+                Archival References
             </h4>
         </div>
     </a>
-    <div id="collapse8" class="panel-collapse collapse in">
+    <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body">
             <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
@@ -281,7 +297,7 @@
                   </tr>
               </thead>
               <tbody>
-                @foreach($sourceArr as $source)
+                @foreach($archivalSources as $source)
                      <tr>
                          <td>{{$source->source}}</td>
                          <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
@@ -294,31 +310,84 @@
           @else
           The data for this species does not have any known sources.
           @endif
-          
-          
-          
-           <!--
-            <div class="row">
-                @foreach ($schemeArr as $scheme)			
-                @if ($scheme->category == 'long_descr' && $scheme->key != 'horticultural_info'  && $scheme->key != 'ecological_info' && $scheme->key != 'researcher_note')
-                <div class="viewBlock col-md-12 col-xs-12">
-                    <div class="row">
-                        <strong>{{$scheme->name}}:</strong>
-                        <span style="position: absolute; top: 0; right: 18px;">
-                            <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
-                        </span>
-                    </div>
-                    <div class="row">
-                        <div class="col-12" style="height: 200px; overflow-y: auto;">
-                            {{$species->getAttribute($scheme->key)}}
-                        </div>
-                    </div>
-                </div>		  
-                @else
-                @endif
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Botanical
+            </h4>
+        </div>
+    </a>
+    <div id="collapse2" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
+         <?php $tableCount = count($sourceArr); ?>
+         @if ($tableCount > 0)
+          <table cellpadding="10" style="margin-top: 15px;">
+              <thead>
+                  <tr>
+                      <th>Source</th>
+                      <th>Reference Type</th>
+                      <th>Content</th>
+                      <th>Comments</th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach($botanicalSources as $source)
+                     <tr>
+                         <td>{{$source->source}}</td>
+                         <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
+                         <td>{{$source->content}}</td>
+                         <td>{{$source->comments}}</td>
+                     </tr>
                 @endforeach
-            </div>
-            -->
+              </tbody>
+          </table>
+          @else
+          The data for this species does not have any known sources.
+          @endif
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                Related Info
+            </h4>
+        </div>
+    </a>
+    <div id="collapse3" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
+         <?php $tableCount = count($sourceArr); ?>
+         @if ($tableCount > 0)
+          <table cellpadding="10" style="margin-top: 15px;">
+              <thead>
+                  <tr>
+                      <th>Source</th>
+                      <th>Reference Type</th>
+                      <th>Content</th>
+                      <th>Comments</th>
+                  </tr>
+              </thead>
+              <tbody>
+                @foreach($relatedSources as $source)
+                     <tr>
+                         <td>{{$source->source}}</td>
+                         <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
+                         <td>{{$source->content}}</td>
+                         <td>{{$source->comments}}</td>
+                     </tr>
+                @endforeach
+              </tbody>
+          </table>
+          @else
+          The data for this species does not have any known sources.
+          @endif
         </div>
     </div>
 </div>

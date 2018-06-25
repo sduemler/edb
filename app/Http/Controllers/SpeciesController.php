@@ -106,7 +106,7 @@ class SpeciesController extends Controller
         //$speciesOid = mysql_real_escape_string($speciesOid);
         
         $sourceArr = DB::select("
-		select sources.reference_type, sources.content, sources.source, sources.source_date, sources.comments
+		select *
 		from sources
         WHERE sources.oid = '$speciesOid'
         ORDER BY sources.source_date DESC
