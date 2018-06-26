@@ -132,7 +132,7 @@
             @endforeach
             @endif
             <span class="historyButton">
-                <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                <a class="historyBtn" style="display: none;" href="{{route('species.historyMultiple', ['id' => $species->id, 'category' => 'uses'])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>

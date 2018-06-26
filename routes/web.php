@@ -62,6 +62,7 @@ Route::group(['middleware' => ['auth', 'contributor', 'preventDeletedUser']], fu
 	Route::delete('/species/{id}', 'SpeciesController@destroy')->name('species.destroy'); // Remove the specified species from species table.
 	Route::put('/species/{id}', 'SpeciesController@update')->name('species.update'); // Update the specified species in species table.
 	Route::get('/species/{id}/history/{key}', 'SpeciesController@history')->name('species.history'); // Display a listing of history for specified species and attribute.
+    Route::get('/species/{id}/history/{category}', 'SpeciesController@historyMultiple')->name('species.historyMultiple'); //Display a listing for specified species category.
 	Route::get('/species/{id}/edit', 'SpeciesController@edit')->name('species.edit'); // Show the form for editing the specified species.
 	Route::get('/request', 'RequestController@index')->name('request.index'); // Show request result page for contributors
 

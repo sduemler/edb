@@ -205,11 +205,11 @@ class SpeciesController extends Controller
      */
     public function history($id, $key)
     {
+        echo "Made it to the history!";
         $oid = Species::find($id)->oid;
         $speciesArr = Species::select([$key, 'species.created_at', 'users.name'])->join('users', 'species.user_id', 'users.id')->where('oid', $oid)->where('is_approved', 1)->orderBy('version', 'desc')->get()->toArray();
         $isFirst = true;
         $oldData = '';
-
         for ($i = count($speciesArr) - 1; $i >= 0; $i--) {
             if ($isFirst) {
                 $isFirst = false;
@@ -230,4 +230,13 @@ class SpeciesController extends Controller
 
         return view('species.history', ['speciesArr' => $speciesArr, 'key' => $key]);
     }
+    
+    
+    public function historyMultiple($id, $category)
+    {
+        echo 'Made it to the method!';
+        return view('species.history', ['speciesArr' => $speciesArr, 'key' => '144']);
+    }
+    
+    
 }
