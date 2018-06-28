@@ -19,7 +19,6 @@ Route::get('/docs', function() { return view('docs.index'); })->name('docs.index
 Route::get('/docs/user', function() { return view('docs.user'); })->name('docs.user'); // user document page
 Route::get('/bibliography', function() { return view('bibliography.index'); })->name('bibliography.index'); // bibliography page
 Route::get('/contact_us', function() { return view('contact_us.index'); })->name('contact_us.index'); // contact us page
-
 Route::get('password/reset2', function() {
     return view('auth.passwords.reset2');
 })->middleware('guest')->name('password.request2');
@@ -61,8 +60,8 @@ Route::group(['middleware' => ['auth', 'contributor', 'preventDeletedUser']], fu
 	Route::get('/species/create', 'SpeciesController@create')->name('species.create'); // Show the page for creating a new species.
 	Route::delete('/species/{id}', 'SpeciesController@destroy')->name('species.destroy'); // Remove the specified species from species table.
 	Route::put('/species/{id}', 'SpeciesController@update')->name('species.update'); // Update the specified species in species table.
+    Route::get('/species/{id}/historyMultiple/{category}', 'SpeciesController@historyMultiple')->name('species.historyMultiple'); //Display a listing for specified species category.
 	Route::get('/species/{id}/history/{key}', 'SpeciesController@history')->name('species.history'); // Display a listing of history for specified species and attribute.
-    Route::get('/species/{id}/history/{category}', 'SpeciesController@historyMultiple')->name('species.historyMultiple'); //Display a listing for specified species category.
 	Route::get('/species/{id}/edit', 'SpeciesController@edit')->name('species.edit'); // Show the form for editing the specified species.
 	Route::get('/request', 'RequestController@index')->name('request.index'); // Show request result page for contributors
 

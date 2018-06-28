@@ -235,7 +235,8 @@ class SpeciesController extends Controller
     public function historyMultiple($id, $category)
     {
         echo 'Made it to the method!';
-        return view('species.history', ['speciesArr' => $speciesArr, 'key' => '144']);
+        $speciesArr = array();
+        return view('species.historyMultiple', ['speciesArr' => $speciesArr, 'category' => $category]);
     }
     
     
