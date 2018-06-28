@@ -20,8 +20,9 @@
                 <th>Date Created</th>
             </tr>
             </thead>
-            <!--
+            
             <tbody>
+            <!--
             @foreach ($speciesArr as $species)
                 <tr>
 
@@ -46,8 +47,9 @@
                     <td>{{$species['created_at']}}</td>
                 </tr>
             @endforeach
-            </tbody>
             -->
+            </tbody>
+            
         </table>
     </div>
 </div>
