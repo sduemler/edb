@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h3>History of: {{$category}}</h3>
+        <h3>History of: {{$category}} column</h3>
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>
             <tr>
@@ -20,36 +20,9 @@
                 <th>Date Created</th>
             </tr>
             </thead>
-            
             <tbody>
-            <!--
-            @foreach ($speciesArr as $species)
-                <tr>
 
-                    <th scope="row">{{$species['version']}}</th>
-                    @if($species[$key] == null)
-                        <td style="color: gray;">(empty)</td>
-                    @else
-                        <td>
-                        @if($key == 'photo')
-                            <img src="{{UrlSigner::sign(url('file/'. $species[$key]), Carbon::now()->addSeconds(10))}}" alt="photo">
-                        @elseif($key == 'audio')
-                            <audio controls>
-                                <source src="{{UrlSigner::sign(url('file/'. $species[$key]), Carbon::now()->addSeconds(300))}}">
-                                Your browser does not support the audio tag.
-                            </audio>
-                        @else
-                            {{$species[$key]}}
-                        @endif
-                        </td>
-                    @endif
-                    <td>{{$species['name']}}</td>
-                    <td>{{$species['created_at']}}</td>
-                </tr>
-            @endforeach
-            -->
             </tbody>
-            
         </table>
     </div>
 </div>
@@ -58,6 +31,7 @@
         <a href="javascript:history.go(-1)" class="btn btn-outline-danger">Go Back</a>
     </div>
 </div>
+
 
 
 @endsection

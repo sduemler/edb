@@ -237,7 +237,7 @@ class SpeciesController extends Controller
         echo 'Made it to the history multiple method!';
         $oid = Species::find($id)->oid;
         $species = Species::all()->where('id', $id);
-        $speciesArr = array();
+        $speciesArr = array($species);
         return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category]);
     }
     
