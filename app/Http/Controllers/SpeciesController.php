@@ -234,11 +234,10 @@ class SpeciesController extends Controller
     
     public function historyMultiple($id, $category)
     {
-        echo 'Made it to the history multiple method!';
         $oid = Species::find($id)->oid;
-        $species = Species::all()->where('id', $id);
-        $speciesArr = array($species);
-        return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category]);
+        $speciesArr = Species::all()->where('oid', $oid)->toArray();
+        $schemeArr = Scheme::select(['key', 'name'])->where('category', $category)->get()->toArray();
+        return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category, 'schemeArr' => $schemeArr]);
     }
     
     
