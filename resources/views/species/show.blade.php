@@ -162,7 +162,7 @@
             @endforeach
             @endif
             <span class="historyButton">
-                <a class="historyBtn" style="display: none;" href="{{route('species.historyMultiple', ['id' => $species->id, 'category' => 'Harvest Season'])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                <a class="historyBtn" style="display: none;" href="{{route('species.historyMultiple', ['id' => $species->id, 'category' => 'season'])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
@@ -192,7 +192,7 @@
             @endforeach
             @endif
             <span class="historyButton">
-                <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                <a class="historyBtn" style="display: none;" href="{{route('species.historyMultiple', ['id' => $species->id, 'category' => 'habitat'])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
@@ -222,7 +222,7 @@
             @endforeach
             @endif
             <span class="historyButton">
-                <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                <a class="historyBtn" style="display: none;" href="{{route('species.historyMultiple', ['id' => $species->id, 'category' => 'locations'])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>
@@ -252,7 +252,7 @@
             @endforeach
             @endif
             <span class="historyButton">
-                <a class="historyBtn" style="display: none;" href="{{route('species.history', ['id' => $species->id, 'key' => $scheme->key])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
+                <a class="historyBtn" style="display: none;" href="{{route('species.historyMultiple', ['id' => $species->id, 'category' => 'growth_form'])}}"><i class="fa fa-history" aria-hidden="true"></i></a>
             </span>
         </div>
     </div>

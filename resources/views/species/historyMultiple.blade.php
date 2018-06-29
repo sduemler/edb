@@ -10,8 +10,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h3>History of: {{$category}} column</h3>
-        <?php print_r($schemeArr); ?>
+        <h3>History of: {{$category}}</h3>
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>
             <tr>
