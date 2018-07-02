@@ -49,7 +49,13 @@
                             
                     ?>
                 <tr>
-                    <th scope="row">{{$species['version']}}</th>
+                    <th scope="row"><?php $version = intval($species['version']);
+                                            if($version == 0){
+                                                echo 'Origin';
+                                            } else {
+                                                echo $version + 1;
+                                            }
+                        ?></th>
                     <td>
                        @foreach($schemeArr as $value)
                            @if($species[$value['key']] == "TRUE")
