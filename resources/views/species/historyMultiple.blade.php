@@ -22,9 +22,40 @@
             </thead>
             
             <tbody>
+               <?php $oldData = ''; ?>
                 @foreach ($speciesArr as $species)
+                    <?php   $currentData = array();
+                            foreach($schemeArr as $value){
+                            if($species[$value['key']] == "TRUE"){
+                                    array_push($currentData, $value['key']);
+                                }
+                            }
+                            $currentDataString = implode(' ', $currentData);
+                            //echo $currentDataString;
+                            //print_r($currentData);
+                            if($oldData == $currentDataString){
+                                continue;
+                            } else {
+                                $oldData = $currentDataString;
+                            }
+                            /*$diff = array_diff($oldData, $currentData);
+                            print_r($diff);
+                            if(count($diff) == 0){
+                                continue;
+                            } else {
+                                $oldData = $currentData;
+                            }
+                            */
+                            
+                    ?>
                 <tr>
-                    <th scope="row">{{$species['version']}}</th>
+                    <th scope="row"><?php $version = intval($species['version']);
+                                            if($version == 0){
+                                                echo 'Origin';
+                                            } else {
+                                                echo $version + 1;
+                                            }
+                        ?></th>
                     <td>
                        @foreach($schemeArr as $value)
                            @if($species[$value['key']] == "TRUE")
