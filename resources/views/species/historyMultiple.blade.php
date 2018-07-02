@@ -20,6 +20,7 @@
                 <th>Date Created</th>
             </tr>
             </thead>
+            
             <tbody>
                 @foreach ($speciesArr as $species)
                 <tr>
@@ -32,11 +33,18 @@
                            @endif
                        @endforeach
                     </td>
-                    <td>{{$species['user_id']}}</td>
+                    <td>
+                         @foreach($userArr as $user)
+                             @if($user['id'] == $species['user_id'])
+                                 {{$user['name']}}
+                             @endif
+                         @endforeach
+                    </td>
                     <td>{{$species['created_at']}}</td>
                 </tr>
                 @endforeach
             </tbody>
+            
         </table>
     </div>
 </div>
@@ -45,7 +53,6 @@
         <a href="javascript:history.go(-1)" class="btn btn-outline-danger">Go Back</a>
     </div>
 </div>
-
 
 
 @endsection

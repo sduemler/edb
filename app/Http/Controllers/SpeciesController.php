@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Common;
+use App\User;
 use App\Species;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,6 @@ class SpeciesController extends Controller
 		where is_approved = 1
 		order by species_name IS NULL, species_name ASC
 		");
-
         return view('species.index', ['speciesArr' => $speciesArr]);
     }
 
@@ -208,6 +208,7 @@ class SpeciesController extends Controller
         echo "Made it to the history!";
         $oid = Species::find($id)->oid;
         $speciesArr = Species::select([$key, 'species.created_at', 'users.name'])->join('users', 'species.user_id', 'users.id')->where('oid', $oid)->where('is_approved', 1)->orderBy('version', 'desc')->get()->toArray();
+        print_r($speciesArr);
         $isFirst = true;
         $oldData = '';
         for ($i = count($speciesArr) - 1; $i >= 0; $i--) {
@@ -236,8 +237,19 @@ class SpeciesController extends Controller
     {
         $oid = Species::find($id)->oid;
         $speciesArr = Species::all()->where('oid', $oid)->toArray();
+        //$speciesArr = Species::select([$id, 'species.created_at', 'users.name'])->join('users', 'species.user_id', 'users.id')->where('oid', $oid)->get()->toArray();
         $schemeArr = Scheme::select(['key', 'name'])->where('category', $category)->get()->toArray();
-        return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category, 'schemeArr' => $schemeArr]);
+        $userArr = User::all()->toArray();
+        /*
+        $speciesArr = DB::select("
+		select *
+		from species
+		join users on species.user_id = users.id
+		where species.oid = '$oid'
+		");
+        */
+        //print_r($speciesArr);
+        return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category, 'schemeArr' => $schemeArr, 'userArr' => $userArr]);
     }
     
     
