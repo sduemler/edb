@@ -146,7 +146,7 @@
                            $growth_forms = array();
                            ?>
                                @foreach($schemeArr as $scheme)
-                                   @if($scheme->category == 'growth_form')
+                                   @if($scheme->category == 'growth_form' && $scheme->key != 'wild')
                                        <?php 
                                            //While it's looping through the schemes array, if it finds anything with the category of uses, adds to the array
                                            $growth_forms[$scheme->key] = $scheme->name;
@@ -177,7 +177,7 @@
                            $season = array();
                            ?>
                                @foreach($schemeArr as $scheme)
-                                   @if($scheme->category == 'season')
+                                   @if($scheme->category == 'season' && $scheme->key != 'unkn' && $scheme->key != 'na')
                                        <?php 
                                            //While it's looping through the schemes array, if it finds anything with the category of uses, adds to the array
                                            $season[$scheme->key] = $scheme->name;
