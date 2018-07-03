@@ -18,24 +18,27 @@
 </script>
 @endsection
 @section('content')
-
+<!--  This route calls the store() method within the species controller. Files => true means that you are allowing the form to accept files  -->
     {{Form::open(['route' => 'species.store', 'files' => true])}}
     <div class="row">
-         <?php 
+<!--    a count variable so that you don't display each of the boolean schemes more than once.     -->
+        <?php 
             $count = 0;
          ?>
+<!--        looping through the schemeArr so that you can grab each of the different types that you want-->
         @foreach ($schemeArr as $scheme)
-            @if ($scheme->type == 'input')
+<!--        Type input is the name_type areas-->
+            @if ($scheme->type == 'input' && $scheme->key != 'earliest_record' && $scheme->key != 'latest_record')
                 <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
                     <div class="form-group">
-                        {{Form::label($scheme->key, $scheme->displayed_name)}}
+                        {{Form::label($scheme->key, $scheme->name)}}
                         {{Form::text($scheme->key, '', ['class' => 'form-control'])}}
                     </div>
                 </div>
-            @elseif ($scheme->type == 'textarea')
+            @elseif ($scheme->type == 'textarea' && $scheme->key != 'horticultural_info')
                 <div class="col-md-6 col-xs-12">
                     <div class="form-group">
-                        {{Form::label($scheme->key, $scheme->displayed_name)}}
+                        {{Form::label($scheme->key, $scheme->name)}}
                         {{Form::textarea($scheme->key, '', ['class' => 'form-control'])}}
                     </div>
                 </div>
@@ -203,7 +206,7 @@
 
                     <div class="row">
                         <div class="col-12">
-                            {{Form::label($scheme->key, $scheme->displayed_name)}}
+                            {{Form::label($scheme->key, $scheme->name)}}
                         </div>
                     </div>
 
