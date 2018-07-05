@@ -284,7 +284,7 @@
     </a>
     <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body">
-            <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
+            <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
           <table cellpadding="10" style="margin-top: 15px;">
@@ -323,7 +323,7 @@
     </a>
     <div id="collapse2" class="panel-collapse collapse in">
         <div class="panel-body">
-            <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
+            <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
           <table cellpadding="10" style="margin-top: 15px;">
@@ -362,7 +362,7 @@
     </a>
     <div id="collapse3" class="panel-collapse collapse in">
         <div class="panel-body">
-            <h3 style="text-align:center"><i>{{$species->species_name}} </i></h3>
+            <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
           <table cellpadding="10" style="margin-top: 15px;">
