@@ -6,27 +6,19 @@ The ethnobotanical database is for the Myaamia Center and research community. Th
 
 ## Contributors
 #### Senior Design Students:
-Mingchao Liao
-
-Joshua Dooley
-
-Meghan Styczynski
-
-Richard Bodziak
+Mingchao Liao  
+Joshua Dooley  
+Meghan Styczynski  
+Richard Bodziak  
 
 #### Agile Launchpad Students:
 ##### 2017:
-Steven Bower
-
-Thomas Burlett
-
-Martin Kohlman
-
-Addy Shubert
-
-Nathan Soundappan
+Steven Bower  
+Thomas Burlett  
+Martin Kohlman  
+Addy Shubert  
+Nathan Soundappan  
 
 ##### 2018:
-Samuel Duemler
-
-Colin Evans
+Samuel Duemler  
+Colin Evans  
