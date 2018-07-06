@@ -10,19 +10,21 @@
 
 <div class="row">
     <div class="col-12">
-        <h3>History of: {{$category}}</h3>
+        <h3>Change Log for {{ucwords($category)}}</h3>
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>
             <tr>
                 <th>Version</th>
-                <th>Value</th>
-                <th>Create User</th>
-                <th>Date Created</th>
+                <th>{{ucwords($category)}}</th>
+                <th>Updated By</th>
+                <th>Date and Time</th>
             </tr>
             </thead>
             
             <tbody>
-               <?php $oldData = ''; ?>
+               <?php $oldData = ''; 
+                     $versionCount = 1;
+                ?>
                 @foreach ($speciesArr as $species)
                     <?php   $currentData = array();
                             foreach($schemeArr as $value){
@@ -31,30 +33,22 @@
                                 }
                             }
                             $currentDataString = implode(' ', $currentData);
-                            //echo $currentDataString;
-                            //print_r($currentData);
                             if($oldData == $currentDataString){
                                 continue;
                             } else {
                                 $oldData = $currentDataString;
                             }
-                            /*$diff = array_diff($oldData, $currentData);
-                            print_r($diff);
-                            if(count($diff) == 0){
-                                continue;
-                            } else {
-                                $oldData = $currentData;
-                            }
-                            */
                             
                     ?>
                 <tr>
-                    <th scope="row"><?php $version = intval($species['version']);
-                                            if($version == 0){
+                    <th scope="row"><?php //$version = intval($species['version']);
+                                            if($versionCount == 1){
                                                 echo 'Origin';
                                             } else {
-                                                echo $version + 1;
+                                                echo $versionCount;
                                             }
+                                            $versionCount++;
+                                            
                         ?></th>
                     <td>
                        @foreach($schemeArr as $value)
@@ -71,7 +65,7 @@
                              @endif
                          @endforeach
                     </td>
-                    <td>{{$species['created_at']}}</td>
+                    <td>{{substr($species['created_at'], 0, 10)}} , {{substr($species['created_at'], 11)}}</td>
                 </tr>
                 @endforeach
             </tbody>
