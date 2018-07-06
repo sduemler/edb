@@ -278,7 +278,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <div class="panel-heading">
             <h4 class="panel-title">
-                Archival References
+                Archival Sources
             </h4>
         </div>
     </a>
@@ -317,7 +317,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
         <div class="panel-heading">
             <h4 class="panel-title">
-                Botanical
+                Botanical Sources
             </h4>
         </div>
     </a>
@@ -356,7 +356,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         <div class="panel-heading">
             <h4 class="panel-title">
-                Related Info
+                Related Sources
             </h4>
         </div>
     </a>
