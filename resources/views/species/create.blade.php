@@ -28,8 +28,8 @@
 <!--        looping through the schemeArr so that you can grab each of the different types that you want-->
         @foreach ($schemeArr as $scheme)
 <!--        Type input is the name_type areas-->
-            @if ($scheme->type == 'input' && $scheme->key != 'earliest_record' && $scheme->key != 'latest_record')
-                <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12">
+            @if ($scheme->type == 'input' && $scheme->key != 'earliest_record' && $scheme->key != 'latest_record' && $scheme->key != 'family')
+                <div class="col-xl-3 col-lg-4 col-md-6 col-xs-12" style="margin-right: 60px;">
                     <div class="form-group">
                         {{Form::label($scheme->key, $scheme->name)}}
                         {{Form::text($scheme->key, '', ['class' => 'form-control'])}}
@@ -43,10 +43,11 @@
                     </div>
                 </div>
             @elseif ($scheme->type == 'boolean')
-               
+                <br>
+                
 <!--                So that you can say the new species has these uses-->
                 @if($scheme->category == 'uses' && $count == 0)
-                    <div class="form-group">
+                    <div class="form-group" style="margin-left: 10">
 			             <div style="margin: 5px;">
 				         <strong>Uses: </strong>
                          <br>
