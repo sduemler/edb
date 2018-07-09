@@ -26,7 +26,7 @@
         <?php 
             $count = 0;
          ?>
-<!--    <input type="hidden" name="_method" value="PUT">-->
+    <input type="hidden" name="_method" value="PUT">
     <div class="row">
         @foreach ($schemeArr as $scheme)
             @if ($scheme->type == 'input' && $scheme->key != 'earliest_record' && $scheme->key != 'latest_record' && $scheme->key != 'family')
@@ -245,5 +245,5 @@
     </div>
     {{Form::submit('Save', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
     {{Form::close()}}
-
+    
 @endsection
