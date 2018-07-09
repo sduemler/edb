@@ -61,7 +61,8 @@ class SpeciesController extends Controller
 
         $data = $request->all();
         unset($data['_token']);
-
+        
+        print_r($data);
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
                 echo "not image";
@@ -150,10 +151,8 @@ class SpeciesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo 'Made it to the update!';
         //Everything except the last 2 lines are the exact same for adding a species, and adding a species works, so It shouldn't necessarily be anything within this
         $data = $request->all();
-        print_r($data);
         unset($data['_token']);
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
@@ -180,9 +179,7 @@ class SpeciesController extends Controller
         }
 
 
-
         $lastInsertedId = Species::updateWithCurrentUser($id, $data);
-        echo $lastInsertedId;
         return redirect(route('species.index'));
     }
 
