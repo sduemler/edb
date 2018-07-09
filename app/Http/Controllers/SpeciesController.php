@@ -61,7 +61,7 @@ class SpeciesController extends Controller
 
         $data = $request->all();
         unset($data['_token']);
-        
+
         print_r($data);
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
@@ -102,18 +102,18 @@ class SpeciesController extends Controller
         $schemeArr = Scheme::get();
 
         $species = Species::where('id', $id)->first();
-        
+
         $speciesOid = $species->oid;
         //$speciesOid = mysql_real_escape_string($speciesOid);
-        
+
         $sourceArr = DB::select("
 		select *
 		from sources
         WHERE sources.oid = '$speciesOid'
         ORDER BY sources.source_date DESC
         ");
-            
-            
+
+
         $photoUrl = '';
         $audioUrl = '';
 
@@ -180,7 +180,8 @@ class SpeciesController extends Controller
 
 
         $lastInsertedId = Species::updateWithCurrentUser($id, $data);
-        return redirect(route('species.index'));
+
+        return $this->show($lastInsertedId);
     }
 
     /**
@@ -230,8 +231,8 @@ class SpeciesController extends Controller
 
         return view('species.history', ['speciesArr' => $speciesArr, 'key' => $key]);
     }
-    
-    
+
+
     public function historyMultiple($id, $category)
     {
         $oid = Species::find($id)->oid;
@@ -250,6 +251,6 @@ class SpeciesController extends Controller
         //print_r($speciesArr);
         return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category, 'schemeArr' => $schemeArr, 'userArr' => $userArr]);
     }
-    
-    
+
+
 }
