@@ -35,13 +35,15 @@ class Species extends Model
 		$data['user_id'] = Auth::user()->id;
 		$data['oid'] = Species::find($id)->oid;
 		$data['version'] = Species::where('oid', Species::find($id)->oid)->select('version')->max('version') + 1;
-
+        
 		if(Auth::user()->role->id == 3) {
 			$data['is_approved'] = 0;
 		}
 
 		$species = Species::create($data);
-
+        
+        echo 'Made it past the species creation';
+        
 		if(Auth::user()->role->id == 3) {
 			Request::create([
 				'user_id' => $data['user_id'],
