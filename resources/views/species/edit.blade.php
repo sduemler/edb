@@ -53,7 +53,7 @@
 				         <strong>Uses: </strong>
                          <br>
                           <?php 
-                          //Creates an array that stores all the uses
+                          //Creates an array that stores all the uses and one to store whether they are currently true/false
                             $uses = array();
                             $usesValues = array();
                           ?>
@@ -62,6 +62,8 @@
                                     <?php 
                                         //While it's looping through the schemes array, if it finds anything with the category of uses, adds to the array
                                         $uses[$scheme->key] = $scheme->name;
+                                        //This gets the true false value for each attribute so the page can load with the correct boxes checked
+                                        //May be a better way to do this, however this is the only thing I could get to work
                                         $usesValues[$scheme->name] = $species->getAttribute($scheme->key)
                                     ?>
                                 @endif
@@ -69,7 +71,10 @@
 
         <!--                  Takes the array into account for the selection and displays all the values- -->
                             @foreach($uses as $key => $name)
-                                {{Form::checkbox($scheme->key, 'TRUE', $usesValues[$name]==='TRUE'?true:false)}}
+<!--                           How it goes about getting the correct information to fill in. I believe that this is where the issue lies
+                               I'm assuming that it just has something to do with how the array is going through and what is being sent when
+                               the form is submitted. I just don't know what the issue is-->
+                                {{Form::checkbox($key, 'TRUE', $usesValues[$name]==='TRUE'?true:false)}}
                                 {{$name}}
                                 <br>
                             @endforeach
@@ -79,6 +84,9 @@
                         </div>
                     </div>
                 @endif
+        
+<!--        Everything for the rest of the boolean fields works the same as the uses above-->
+        
                 <!--                So that you can say the new species is found in these habitats-->
                 @if($scheme->category == 'habitat' && $count == 1)
                    <div class="form-group">
@@ -102,7 +110,7 @@
                            @endforeach
         <!--                 Takes the array into account for the selection and displays all the values- -->
                            @foreach($habitat as $key => $name)
-                               {{Form::checkbox($scheme->key, 'TRUE', $habitatValues[$name]==='TRUE'?true:false)}}
+                               {{Form::checkbox($key, 'TRUE', $habitatValues[$name]==='TRUE'?true:false)}}
                                {{$name}}
                                <br>
                            @endforeach
@@ -136,7 +144,7 @@
                            @endforeach
         <!--                 Takes the array into account for the selection and displays all the values- -->
                            @foreach($locations as $key => $name)
-                               {{Form::checkbox($scheme->key, 'TRUE', $locationsValues[$name]==='TRUE'?true:false)}}
+                               {{Form::checkbox($key, 'TRUE', $locationsValues[$name]==='TRUE'?true:false)}}
                                {{$name}}
                                <br>
                            @endforeach
@@ -169,7 +177,7 @@
                                @endforeach
             <!--                 Takes the array into account for the selection and displays all the values- -->
                                @foreach($growth_forms as $key => $name)
-                                   {{Form::checkbox($scheme->key, 'TRUE', $growth_formsValues[$name]==='TRUE'?true:false)}}
+                                   {{Form::checkbox($key, 'TRUE', $growth_formsValues[$name]==='TRUE'?true:false)}}
                                    {{$name}}
                                    <br>
                                @endforeach
@@ -202,7 +210,7 @@
                                @endforeach
             <!--                 Takes the array into account for the selection and displays all the values- -->
                                @foreach($season as $key => $name)
-                                   {{Form::checkbox($scheme->key, 'TRUE', $seasonValues[$name]==='TRUE'?true:false)}}
+                                   {{Form::checkbox($key, 'TRUE', $seasonValues[$name]==='TRUE'?true:false)}}
                                    {{$name}}
                                    <br>
                                @endforeach
