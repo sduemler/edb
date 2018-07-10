@@ -89,7 +89,7 @@
 <br>
 <div class="row">
     @foreach ($schemeArr as $scheme)			
-    @if ($scheme->category == 'name_type' && $scheme->key != 'alt_word_form' && $scheme->key != 'french_name')
+    @if ($scheme->category == 'name_type' && $scheme->key != 'alt_word_form' && $scheme->key != 'french_name' && $scheme->key != 'family')
     <div class="viewBlock col-xl-12 col-lg-12 col-md-12 col-xs-12">
         <div class="row">
             <strong>{{$scheme->name}}: &nbsp;</strong>
