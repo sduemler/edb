@@ -62,7 +62,6 @@ class SpeciesController extends Controller
         $data = $request->all();
         unset($data['_token']);
 
-        print_r($data);
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
                 echo "not image";
@@ -179,8 +178,8 @@ class SpeciesController extends Controller
 
 
         $lastInsertedId = Species::updateWithCurrentUser($id, $data);
-
-        return $this->show($lastInsertedId);
+        echo $lastInsertedId;
+        return redirect(route('species.index'));
     }
 
     /**
