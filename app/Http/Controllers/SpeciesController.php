@@ -178,8 +178,8 @@ class SpeciesController extends Controller
 
 
         $lastInsertedId = Species::updateWithCurrentUser($id, $data);
-        echo $lastInsertedId;
-        return redirect(route('species.index'));
+    
+        return $this->show($lastInsertedId);
     }
 
     /**
