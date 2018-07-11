@@ -86,8 +86,8 @@ class SpeciesController extends Controller
             unset($data['audio']);
         }
 
-        Species::createWithCurrentUser($data);
-        return redirect(route('species.index'));
+        $newId = Species::createWithCurrentUser($data);
+        return $this->show($newId);
     }
 
     /**
