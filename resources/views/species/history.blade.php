@@ -10,14 +10,14 @@
 
 <div class="row">
     <div class="col-12">
-        <h3>History of: {{$key}} column</h3>
+        <h3>Change log for {{$key}}</h3>
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>
             <tr>
                 <th>Version</th>
-                <th>Value</th>
-                <th>Create User</th>
-                <th>Date Created</th>
+                <th>{{$key}}</th>
+                <th>Updated By</th>
+                <th>Date and Time</th>
             </tr>
             </thead>
             <tbody>
@@ -41,7 +41,7 @@
                         </td>
                     @endif
                     <td>{{$species['name']}}</td>
-                    <td>{{$species['created_at']}}</td>
+                    <td>{{substr($species['created_at'], 0, 10)}} , {{substr($species['created_at'], 11)}}</td>
                 </tr>
             @endforeach
             </tbody>
