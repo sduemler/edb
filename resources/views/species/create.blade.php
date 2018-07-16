@@ -20,6 +20,9 @@
 @section('content')
 <!--  This route calls the store() method within the species controller. Files => true means that you are allowing the form to accept files  -->
     {{Form::open(['route' => 'species.store', 'files' => true])}}
+    {{Form::submit('Submit', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
+    <br>
+    <br>
     <div class="row">
 <!--    a count variable so that you don't display each of the boolean schemes more than once.     -->
         <?php 
@@ -35,13 +38,7 @@
                         {{Form::text($scheme->key, '', ['class' => 'form-control'])}}
                     </div>
                 </div>
-            @elseif ($scheme->type == 'textarea' && $scheme->key != 'horticultural_info')
-                <div class="col-md-6 col-xs-12">
-                    <div class="form-group">
-                        {{Form::label($scheme->key, $scheme->name)}}
-                        {{Form::textarea($scheme->key, '', ['class' => 'form-control'])}}
-                    </div>
-                </div>
+    
             @elseif ($scheme->type == 'boolean')
                 <br>
                 
@@ -203,6 +200,7 @@
                 @endif
 
             @elseif ($scheme->type == 'photo' || $scheme->type == 'audio')
+<!--
                 <div class="col-md-6 col-xs-12">
 
                     <div class="row">
@@ -220,6 +218,7 @@
                         </div>
                     </div>
                 </div>
+-->
             @else
 
             @endif

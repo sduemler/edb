@@ -22,6 +22,8 @@
     {{Form::open(['route' => ['species.update', $species->id], 'files' => true])}}
     {{Form::submit('Save', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
 
+    <br>
+    <br>
 <!--    a count variable so that you don't display each of the boolean schemes more than once.     -->
         <?php 
             $count = 0;
@@ -36,13 +38,7 @@
                         {{Form::text($scheme->key, $species->getAttribute($scheme->key), ['class' => 'form-control'])}}
                     </div>
                 </div>
-            @elseif ($scheme->type == 'textarea' && $scheme->key != 'horticultural_info')
-                <div class="col-md-6 col-xs-12">
-                    <div class="form-group">
-                        {{Form::label($scheme->key, $scheme->displayed_name)}}
-                        {{Form::textarea($scheme->key, $species->getAttribute($scheme->key), ['class' => 'form-control'])}}
-                    </div>
-                </div>
+           
             @elseif ($scheme->type == 'boolean')
                 <br>
                 
@@ -221,6 +217,7 @@
                     </div>
                 @endif
             @elseif ($scheme->type == 'photo' || $scheme->type == 'audio')
+<!--
                 <div class="col-md-6 col-xs-12">
 
                     <div class="row">
@@ -238,6 +235,7 @@
                         </div>
                     </div>
                 </div>
+-->
             @else
 
             @endif
