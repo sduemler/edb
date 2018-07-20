@@ -222,8 +222,8 @@ class SpeciesController extends Controller
         }
         $speciesArr = array_values($speciesArr);
         for ($i = 0; $i < count($speciesArr); $i++) {
-            if ($i == 0) $speciesArr[$i]['version'] = 'latest';
-            elseif ($i == count($speciesArr) - 1) $speciesArr[$i]['version'] = 'Original';
+            //if ($i == 0) $speciesArr[$i]['version'] = 'latest';
+            if ($i == count($speciesArr) - 1) $speciesArr[$i]['version'] = 'Original';
             else $speciesArr[$i]['version'] = count($speciesArr) - $i;
         }
 

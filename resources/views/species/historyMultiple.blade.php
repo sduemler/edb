@@ -24,6 +24,8 @@
             <tbody>
                <?php $oldData = ''; 
                      $versionCount = 1;
+                     $speciesArr = array_reverse($speciesArr);
+                     $speciesCount = count($speciesArr);
                 ?>
                 @foreach ($speciesArr as $species)
                     <?php   $currentData = array();
@@ -41,13 +43,12 @@
                             
                     ?>
                 <tr>
-                    <th scope="row"><?php //$version = intval($species['version']);
-                                            if($versionCount == 1){
+                    <th scope="row"><?php  if($speciesCount == 1){
                                                 echo 'Original';
                                             } else {
-                                                echo $versionCount;
+                                                echo $speciesCount;
                                             }
-                                            $versionCount++;
+                                            $speciesCount--;
                                             
                         ?></th>
                     <td>
