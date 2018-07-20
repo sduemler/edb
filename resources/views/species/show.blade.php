@@ -330,7 +330,6 @@
               <thead>
                   <tr>
                       <th>Source</th>
-                      <th>Reference Type</th>
                       <th>Content</th>
                       <th>Comments</th>
                   </tr>
@@ -339,7 +338,6 @@
                 @foreach($botanicalSources as $source)
                      <tr>
                          <td>{{$source->source}}</td>
-                         <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
                          <td>{{$source->comments}}</td>
                      </tr>
@@ -369,7 +367,6 @@
               <thead>
                   <tr>
                       <th>Source</th>
-                      <th>Reference Type</th>
                       <th>Content</th>
                       <th>Comments</th>
                   </tr>
@@ -378,7 +375,6 @@
                 @foreach($relatedSources as $source)
                      <tr>
                          <td>{{$source->source}}</td>
-                         <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
                          <td>{{$source->comments}}</td>
                      </tr>
