@@ -223,7 +223,7 @@ class SpeciesController extends Controller
         $speciesArr = array_values($speciesArr);
         for ($i = 0; $i < count($speciesArr); $i++) {
             if ($i == 0) $speciesArr[$i]['version'] = 'latest';
-            elseif ($i == count($speciesArr) - 1) $speciesArr[$i]['version'] = 'Origin';
+            elseif ($i == count($speciesArr) - 1) $speciesArr[$i]['version'] = 'Original';
             else $speciesArr[$i]['version'] = count($speciesArr) - $i;
         }
 
@@ -235,18 +235,8 @@ class SpeciesController extends Controller
     {
         $oid = Species::find($id)->oid;
         $speciesArr = Species::all()->where('oid', $oid)->toArray();
-        //$speciesArr = Species::select([$id, 'species.created_at', 'users.name'])->join('users', 'species.user_id', 'users.id')->where('oid', $oid)->get()->toArray();
         $schemeArr = Scheme::select(['key', 'name'])->where('category', $category)->get()->toArray();
         $userArr = User::all()->toArray();
-        /*
-        $speciesArr = DB::select("
-		select *
-		from species
-		join users on species.user_id = users.id
-		where species.oid = '$oid'
-		");
-        */
-        //print_r($speciesArr);
         return view('species.historyMultiple', ['id' => $id, 'speciesArr' => $speciesArr, 'category' => $category, 'schemeArr' => $schemeArr, 'userArr' => $userArr]);
     }
 

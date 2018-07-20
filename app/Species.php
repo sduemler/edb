@@ -40,9 +40,9 @@ class Species extends Model
 			$data['is_approved'] = 0;
 		}
 
-		$species = Species::create($data);
+        print_r($data);
         
-        echo 'Made it past the species creation';
+		$species = Species::create($data);
         
 		if(Auth::user()->role->id == 3) {
 			Request::create([
@@ -52,6 +52,6 @@ class Species extends Model
 			]);
 		}
 
-		return $species->id;
+		return $species->oid;
 	}
 }

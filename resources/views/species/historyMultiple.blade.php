@@ -43,7 +43,7 @@
                 <tr>
                     <th scope="row"><?php //$version = intval($species['version']);
                                             if($versionCount == 1){
-                                                echo 'Origin';
+                                                echo 'Original';
                                             } else {
                                                 echo $versionCount;
                                             }
