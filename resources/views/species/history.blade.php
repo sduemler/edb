@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h3>Change log for {{$key}}</h3>
+        <h3>Change log for "{{$key}}" category</h3>
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>
             <tr>

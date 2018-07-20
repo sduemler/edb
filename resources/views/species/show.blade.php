@@ -119,7 +119,7 @@
         <div class="row">
             <strong>Uses: &nbsp;</strong>
     @if (count($uses) == 0)
-        This species does not have any known uses.
+         Undetermined
     @else
             <?php $useCount = 0; ?>
             @foreach($uses as $use)
@@ -149,7 +149,7 @@
     <div class="row">
     <strong>Harvest Seasons: &nbsp;</strong>
     @if (count($harvestSeasons) == 0)
-        This species does not have any known harvest seasons.
+        Undetermined
     @else
             <?php $harvestCount = 0; ?>
             @foreach($harvestSeasons as $harvest)
@@ -179,7 +179,7 @@
     <div class="row">
     <strong>Habitats: &nbsp;</strong>
     @if (count($habitats) == 0)
-        This species does not have any known habitats.
+        Undetermined
     @else
             <?php $habitatCount = 0; ?>
             @foreach($habitats as $habitat)
@@ -209,7 +209,7 @@
     <div class="row">
     <strong>Locations: &nbsp;</strong>
     @if (count($locations) == 0)
-        This species is not located on any Myaamia property.
+        Undetermined
     @else
             <?php $locationCount = 0; ?>
             @foreach($locations as $location)
@@ -239,7 +239,7 @@
     <div class="row">
     <strong>Growth Forms: &nbsp;</strong>
     @if (count($growthForms) == 0)
-        This species does not have any known growth forms.
+        Undetermined
     @else
             <?php $growthCount = 0; ?>
             @foreach($growthForms as $form)
