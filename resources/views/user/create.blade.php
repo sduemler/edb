@@ -47,7 +47,7 @@
 
             <div class="col-12">
                 <div class="form-group">
-                    {{Form::submit("Add User", ['class' => 'btn btn-outline-primary'])}}
+                    {{Form::submit("Add User", ['class' => 'btn btn-outline-danger'])}}
                 </div>
             </div>
 
