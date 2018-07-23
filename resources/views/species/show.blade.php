@@ -263,11 +263,11 @@
         $botanicalSources = array();
         $relatedSources = array();
         foreach($sourceArr as $source){
-            if($source->is_archival){
+            if($source->source_type == 0){
                 array_push($archivalSources, $source);
-            } elseif ($source->is_botanical){
+            } elseif ($source->source_type == 1){
                 array_push($botanicalSources, $source);
-            } elseif ($source->is_related){
+            } elseif ($source->source_type == 2){
                 array_push($relatedSources, $source);
             } else {
                 //Figure out what to do if fits none of these
