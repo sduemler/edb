@@ -226,6 +226,9 @@
         
       
     </div>
+    <br>
+    Number of Sources
+    {{Form::text('num_sources', '', ['class' => 'form-control'])}}
     <div class="row">
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>

@@ -62,7 +62,9 @@ class SpeciesController extends Controller
         $data = $request->all();
         unset($data['_token']);
 
-        print_r($data);
+        $data['user_id'] = Auth::user()->id;
+		$data['oid'] = Common::makeObjectId();
+        
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
                 echo "not image";
@@ -87,15 +89,35 @@ class SpeciesController extends Controller
             unset($data['audio']);
         }
         
-        $sourceData = array(
-                            'oid' => 'oid',
-                            'reference_type' => 'Habitat',
-                            'content' => 'this is the content'
+        for($x = 0; $x < $data['num_sources']; $x++){
+            $sourceData = array(
+                            'oid' => $data['oid'],
+                            'reference_type' => $data['reference_type'][$x]['reference_type'],
+                            'content' => $data['content'][$x]['content'],
+                            'source' => $data['source'][$x]['source'],
+                            'source_date' => $data['source_date'][$x]['source_date'],
+                            'summary' => $data['summary'][$x]['summary'],
+                            'comments' => $data['comments'][$x]['comments'],
+                            'comment_user_id' => $data['user_id'],
+                            'source_type' => $data['source_type'][$x]['source_type'],
+                            'citation' => $data['citation'][$x]['citation']
                             );
 
-        DB::table('sources')->insert($sourceData);
-        //print_r($sourceData);
-        //$newId = Species::createWithCurrentUser($data);
+            DB::table('sources')->insert($sourceData);
+            
+        }
+        //MAKE this a loop eventually
+        unset($data['num_sources']);
+        unset($data['reference_type']);
+        unset($data['content']);
+        unset($data['source']);
+        unset($data['source_date']);
+        unset($data['summary']);
+        unset($data['comments']);
+        unset($data['source_type']);
+        unset($data['citation']);
+        print_r($data);
+        $newId = Species::createWithCurrentUser($data);
         return $this->show($newId);
     }
 
