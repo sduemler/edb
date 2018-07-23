@@ -64,8 +64,6 @@ class SpeciesController extends Controller
 
         $data['user_id'] = Auth::user()->id;
 		$data['oid'] = Common::makeObjectId();
-
-        print_r($data);
         
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
@@ -92,7 +90,6 @@ class SpeciesController extends Controller
         }
         
         for($x = 0; $x < $data['num_sources']; $x++){
-            
             $sourceData = array(
                             'oid' => $data['oid'],
                             'reference_type' => $data['reference_type'][$x]['reference_type'],
@@ -109,15 +106,6 @@ class SpeciesController extends Controller
             DB::table('sources')->insert($sourceData);
             
         }
-        /*
-        $sourceData = array(
-                            'oid' => 'oid',
-                            'reference_type' => 'Habitat',
-                            'content' => 'this is the content'
-                            );
-
-        DB::table('sources')->insert($sourceData);
-        */
         //MAKE this a loop eventually
         unset($data['num_sources']);
         unset($data['reference_type']);
