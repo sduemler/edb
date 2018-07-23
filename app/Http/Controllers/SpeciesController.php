@@ -65,6 +65,8 @@ class SpeciesController extends Controller
         $data['user_id'] = Auth::user()->id;
 		$data['oid'] = Common::makeObjectId();
         
+        print_r($data);
+        
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
                 echo "not image";

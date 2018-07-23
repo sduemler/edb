@@ -228,7 +228,7 @@
     </div>
     <br>
     Number of Sources
-    {{Form::text('num_sources', '', ['class' => 'form-control'])}}
+    {{Form::text('num_sources', '0', ['class' => 'form-control'])}}
     <div class="row">
         <table class="table table-bordered" style="margin-top: 15px;">
             <thead>
@@ -249,14 +249,14 @@
                     $source_types = array('Archival', 'Botanical', 'Related');
                     for($x = 0; $x <= 10; $x++){ ?>
                     <tr>
-                        <td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td>
-                        <td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td>
-                        <td>{!! Form::text('source[][source]', null, ['class' => 'form-control']) !!}</td>
-                        <td>{!! Form::text('source_date[][source_date]', null, ['class' => 'form-control']) !!}</td>
-                        <td>{!! Form::text('summary[][summary]', null, ['class' => 'form-control']) !!}</td>
-                        <td>{!! Form::text('comments[][comments]', null, ['class' => 'form-control']) !!}</td>
-                        <td>{!! Form::select('source_type[][source_type]', $source_types, null, array('class' => 'form-control')) !!}</td>
-                        <td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('reference_type[][reference_type]', '', ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('content[][content]', '', ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('source[][source]', '', ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('source_date[][source_date]', '', ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('summary[][summary]', '', ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('comments[][comments]', '', ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::select('source_type[][source_type]', $source_types, 0, array('class' => 'form-control')) !!}</td>
+                        <td>{!! Form::text('citation[][citation]', '', ['class' => 'form-control']) !!}</td>
                     </tr>
                 <?php } ?>
                 
