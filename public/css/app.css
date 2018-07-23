@@ -146,7 +146,7 @@ input[type='radio'][value='FALSE']:focus {
 /*Any select statements for a form*/
 select {
     border: 1px solid antiquewhite !important;
-    margin: 13px;
+    margin-right: auto;
     background-color: white !important;
     color: darkslategrey!important;
 }
