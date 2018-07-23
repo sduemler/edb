@@ -10,8 +10,8 @@ class Species extends Model
 	protected $guarded = [];
 
 	static function createWithCurrentUser($data) {
-		$data['user_id'] = Auth::user()->id;
-		$data['oid'] = Common::makeObjectId();
+		//$data['user_id'] = Auth::user()->id;
+		//$data['oid'] = Common::makeObjectId();
 
 		if(Auth::user()->role->id == 3) {
 			$data['is_approved'] = 0;
