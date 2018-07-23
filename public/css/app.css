@@ -122,10 +122,6 @@ input[type='radio'] {
     box-shadow:0 0 5px 0px gray inset;
 }
 
-input[type='radio']:hover {
-
-}
-
 
 input[type='radio']:before {
     content:'';
@@ -152,5 +148,5 @@ select {
     border: 1px solid antiquewhite !important;
     margin: 13px;
     background-color: white !important;
-    color: antiquewhite !important;
+    color: darkslategrey!important;
 }
