@@ -25,7 +25,6 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>UID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
@@ -43,7 +42,6 @@
                         <tr>
                             @endif
 
-                            <th scope="row" class="user-id">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>
