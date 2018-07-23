@@ -223,6 +223,45 @@
 
             @endif
         @endforeach
+        
+      
+    </div>
+    <div class="row">
+        <table class="table table-bordered" style="margin-top: 15px;">
+            <thead>
+                <tr>
+                    <th>Reference Type</th>
+                    <th>Content</th>
+                    <th>Source</th>
+                    <th>Source Date</th>
+                    <th>Summary</th>
+                    <th>Comments</th>
+                    <th>Archival</th>
+                    <th>Botanical</th>
+                    <th>Related</th>
+                    <th>Citation</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <?php for($x = 0; $x <= 10; $x++){ ?>
+                    <tr>
+                        <td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('source[][source]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('source_date[][source_date]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('summary[][summary]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('comments[][comments]', null, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::checkbox('is_archival[][is_archival]', 0, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::checkbox('is_botanical[][is_botanical]', 0, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::checkbox('is_related[][is_related]', 0, ['class' => 'form-control']) !!}</td>
+                        <td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td>
+                    </tr>
+                <?php } ?>
+                
+            </tbody>
+        </table>
+        
     </div>
     {{Form::submit('Submit', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
     {{Form::close()}}

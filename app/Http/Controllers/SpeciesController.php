@@ -62,6 +62,7 @@ class SpeciesController extends Controller
         $data = $request->all();
         unset($data['_token']);
 
+        print_r($data);
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
                 echo "not image";
@@ -85,8 +86,16 @@ class SpeciesController extends Controller
         } else {
             unset($data['audio']);
         }
+        
+        $sourceData = array(
+                            'oid' => 'oid',
+                            'reference_type' => 'Habitat',
+                            'content' => 'this is the content'
+                            );
 
-        $newId = Species::createWithCurrentUser($data);
+        DB::table('sources')->insert($sourceData);
+        //print_r($sourceData);
+        //$newId = Species::createWithCurrentUser($data);
         return $this->show($newId);
     }
 

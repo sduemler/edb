@@ -16,7 +16,7 @@ class Species extends Model
 		if(Auth::user()->role->id == 3) {
 			$data['is_approved'] = 0;
 		}
-
+        
 		$species = Species::create($data);
 
 		if(Auth::user()->role->id == 3) {
