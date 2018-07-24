@@ -39,8 +39,6 @@ class Species extends Model
 		if(Auth::user()->role->id == 3) {
 			$data['is_approved'] = 0;
 		}
-
-        print_r($data);
         
 		$species = Species::create($data);
         
@@ -52,6 +50,6 @@ class Species extends Model
 			]);
 		}
 
-		return $species->oid;
+		return $species->id;
 	}
 }

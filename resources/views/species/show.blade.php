@@ -393,7 +393,9 @@
     @if (Auth::guest())
     @else
     <div class="col-12">
-        <a href="{{route('species.destroy', ['id' => $species->id])}}" onclick="return confirm('Warning: This action will delete all versions of this species. Are you sure you want to proceed?')" class="float-right btn btn-outline-danger" style="margin-left: 15px;">Delete Species</a>
+        {{ Form::open(['route' => ['species.destroy', 'id' => $species->id], 'method' => 'delete']) }}
+        <button type="submit" onclick="return confirm('Warning: This action will delete all versions of this species. Are you sure you want to proceed?')" class="float-right btn btn-outline-danger" style="margin-left: 15px;">Delete This Species</button>
+        {{ Form::close() }}
         <a href="#" id="showHistoryBtn" class="no-loading btn btn-outline-danger float-right" style="margin-left: 15px;">Show Change Log Buttons</a>
         <a href="#" id="hideHistoryBtn" class="no-loading btn btn-outline-danger float-right" style="margin-left: 15px; display: none;">Hide Change Log Buttons</a>
         <a href="{{route('species.edit', ['id' => $species->id])}}" class="float-right btn btn-outline-danger">Edit This Species</a>
