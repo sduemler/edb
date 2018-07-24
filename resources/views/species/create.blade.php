@@ -23,6 +23,7 @@
     {{Form::submit('Submit', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
     <br>
     <br>
+    <h2>Species</h2>
     <div class="row">
 <!--    a count variable so that you don't display each of the boolean schemes more than once.     -->
         <?php 
@@ -227,6 +228,7 @@
       
     </div>
     <br>
+    <h2>Sources</h2>
     Number of Sources
     {{Form::text('num_sources', '0', ['class' => 'form-control'])}}
     <div class="row">
