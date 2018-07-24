@@ -65,7 +65,6 @@ class SpeciesController extends Controller
         $data['user_id'] = Auth::user()->id;
 		$data['oid'] = Common::makeObjectId();
         
-        print_r($data);
         
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
@@ -94,49 +93,19 @@ class SpeciesController extends Controller
         $sourceData = array();
         
         for($x = 0; $x < $data['num_sources']; $x++){
-            if($data['oid'] != null){
-                $sourceData['oid'] = $data['oid'];
-            }
-            if($data['reference_type'] != null){
-                $sourceData['reference_type'] = $data['reference_type'][$x]['reference_type'];
-            }
-            if($data['content'] != null){
-                $sourceData['content'] = $data['content'][$x]['content'];
-            }
-            if($data['source'] != null){
-                $sourceData['source'] = $data['source'][$x]['source'];
-            }
-            if($data['source_date'] != null){
-                $sourceData['source_date'] = $data['source_date'][$x]['source_date'];
-            }
-            if($data['summary'] != null){
-                $sourceData['summary'] = $data['summary'][$x]['summary'];
-            }
-            if($data['comments'] != null){
-                $sourceData['comments'] = $data['comments'][$x]['comments'];
-            }
-            if($data['user_id'] != null){
-                $sourceData['comment_user_id'] = $data['user_id'];
-            }
-            if($data['source_type'] != null){
-                $sourceData['source_type'] = $data['source_type'][$x]['source_type'];
-            }
-            if($data['citation'] != null){
-                $sourceData['citation'] = $data['citation'][$x]['citation'];
-            }
-            
-//            $sourceData = array(
-//                            'oid' => $data['oid'],
-//                            'reference_type' => $data['reference_type'][$x]['reference_type'],
-//                            'content' => $data['content'][$x]['content'],
-//                            'source' => $data['source'][$x]['source'],
-//                            'source_date' => $data['source_date'][$x]['source_date'],
-//                            'summary' => $data['summary'][$x]['summary'],
-//                            'comments' => $data['comments'][$x]['comments'],
-//                            'comment_user_id' => $data['user_id'],
-//                            'source_type' => $data['source_type'][$x]['source_type'],
-//                            'citation' => $data['citation'][$x]['citation']
-//                            );
+
+            $sourceData = array(
+                            'oid' => $data['oid'],
+                            'reference_type' => $data['reference_type'][$x]['reference_type'],
+                            'content' => $data['content'][$x]['content'],
+                            'source' => $data['source'][$x]['source'],
+                            'source_date' => $data['source_date'][$x]['source_date'],
+                            'summary' => $data['summary'][$x]['summary'],
+                            'comments' => $data['comments'][$x]['comments'],
+                            'comment_user_id' => $data['user_id'],
+                            'source_type' => $data['source_type'][$x]['source_type'],
+                            'citation' => $data['citation'][$x]['citation']
+                            );
 
             DB::table('sources')->insert($sourceData);
             
@@ -151,7 +120,6 @@ class SpeciesController extends Controller
         unset($data['comments']);
         unset($data['source_type']);
         unset($data['citation']);
-        print_r($data);
         $newId = Species::createWithCurrentUser($data);
         return $this->show($newId);
     }
