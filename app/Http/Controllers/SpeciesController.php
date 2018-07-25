@@ -215,6 +215,38 @@ class SpeciesController extends Controller
         } else {
             unset($data['audio']);
         }
+        
+        $sourceData = array();
+        
+        for($x = 0; $x < $data['num_sources']; $x++){
+
+            $sourceData = array(
+                            'oid' => $data['oid'],
+                            'reference_type' => $data['reference_type'][$x]['reference_type'],
+                            'content' => $data['content'][$x]['content'],
+                            'source' => $data['source'][$x]['source'],
+                            'source_date' => $data['source_date'][$x]['source_date'],
+                            'summary' => $data['summary'][$x]['summary'],
+                            'comments' => $data['comments'][$x]['comments'],
+                            'comment_user_id' => $data['user_id'],
+                            'source_type' => $data['source_type'][$x]['source_type'],
+                            'citation' => $data['citation'][$x]['citation']
+                            );
+
+            DB::table('sources')->insert($sourceData);
+            
+        }
+        //MAKE this a loop eventually
+        unset($data['num_sources']);
+        unset($data['reference_type']);
+        unset($data['content']);
+        unset($data['source']);
+        unset($data['source_date']);
+        unset($data['summary']);
+        unset($data['comments']);
+        unset($data['source_type']);
+        unset($data['citation']);
+
 
 
         $lastInsertedId = Species::updateWithCurrentUser($id, $data);

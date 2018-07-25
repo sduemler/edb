@@ -49,7 +49,7 @@
 				         <strong>Uses: </strong>
                          <br>
                           <?php 
-                          //Creates an array that stores all the uses and one to store whether they are currently true/false
+                         //Creates an array that stores all the uses and one to store the boolean values of this specific species
                             $uses = array();
                             $usesValues = array();
                           ?>
@@ -90,7 +90,7 @@
 				        <strong>Habitats: </strong>
                         <br>
                          <?php 
-                         //Creates an array that stores all the uses
+                         //Creates an array that stores all the habitats and one to store the boolean values of this specific species
                            $habitat = array();
                            $habitatValues = array();
                            ?>
@@ -124,7 +124,7 @@
 				        <strong>Locations: </strong>
                    <br>
                          <?php 
-                         //Creates an array that stores all the uses
+                         //Creates an array that stores all the locations and one to store the boolean values of this specific species
                            $locations = array();
                            $locationsValues = array();
                            ?>
@@ -157,7 +157,7 @@
 				        <strong>Growth Forms: </strong>
                    <br>
                          <?php 
-                         //Creates an array that stores all the uses
+                         //Creates an array that stores all the growth forms and one to store the boolean values of this specific species
                            $growth_forms = array();
                            $growth_formValues = array();
                            ?>
@@ -190,7 +190,7 @@
 				        <strong>Seasons: </strong>
                    <br>
                          <?php 
-                         //Creates an array that stores all the uses
+                         //Creates an array that stores all the seasons and one to store the boolean values of this specific species
                            $season = array();
                            $seasonValues = array();
                            ?>
@@ -246,14 +246,22 @@
     <br>
 
     <?php
-            
+            $specificSources = array();
             $sourcesCount = 0;
             foreach($sourcesArr as $source){
                 if($source->oid == $species->oid){
+                    $specificSources[] = array($source->reference_type, $source->content, $source->source, 
+                                                          $source->source_date, $source->summary, $source->comments, $source->source_type, $source->citation);
                     $sourcesCount++;
                 }
             }
-        ?>
+            $emptyCount = 10 - $sourcesCount;
+            while($emptyCount < 10){
+                $specificSources[$emptyCount] = array(null, null, null, null, null, null, null, null);
+                $emptyCount++;
+            }
+            print_r($specificSources[6][0]);
+    ?>
     <h2>Sources</h2>
         Number of Sources
         {{Form::text('num_sources', $sourcesCount, ['class' => 'form-control'])}}
@@ -275,18 +283,20 @@
                 <tbody>
                     <?php 
                         $source_types = array('Archival', 'Botanical', 'Related');
-                        for($x = 0; $x < 10; $x++){ ?>
+                        for($x = 0; $x < 10; $x++){                             
+                    ?>
                         <tr>
-                            <td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td>
-                            <td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td>
-                            <td>{!! Form::text('source[][source]', null, ['class' => 'form-control']) !!}</td>
-                            <td>{!! Form::text('source_date[][source_date]', null, ['class' => 'form-control']) !!}</td>
-                            <td>{!! Form::text('summary[][summary]', null, ['class' => 'form-control']) !!}</td>
-                            <td>{!! Form::text('comments[][comments]', null, ['class' => 'form-control']) !!}</td>
-                            <td>{!! Form::select('source_type[][source_type]', $source_types, 0, array('class' => 'form-control')) !!}</td>
-                            <td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::text('reference_type[][reference_type]', $specificSources[$x][0], ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::text('content[][content]', $specificSources[$x][1], ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::text('source[][source]', $specificSources[$x][2], ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::text('source_date[][source_date]', $specificSources[$x][3], ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::text('summary[][summary]', $specificSources[$x][4], ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::text('comments[][comments]', $specificSources[$x][5], ['class' => 'form-control']) !!}</td>
+                            <td>{!! Form::select('source_type[][source_type]', $source_types, $specificSources[$x][6], array('class' => 'form-control')) !!}</td>
+                            <td>{!! Form::text('citation[][citation]', $specificSources[$x][7], ['class' => 'form-control']) !!}</td>
                         </tr>
-                    <?php } ?>
+                    <?php 
+                        } ?>
 
                 </tbody>
             </table>
