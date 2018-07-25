@@ -302,7 +302,7 @@
                          <td>{{$source->source}}</td>
                          <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->comments}}</td>
+                         <td>{{$source->comments}} &ndash; {{$source->name}}</td>
                      </tr>
                 @endforeach
               </tbody>
@@ -339,7 +339,7 @@
                      <tr>
                          <td>{{$source->source}}</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->comments}}</td>
+                         <td>{{$source->comments}} &ndash; {{$source->name}}</td>
                      </tr>
                 @endforeach
               </tbody>
@@ -376,7 +376,7 @@
                      <tr>
                          <td>{{$source->source}}</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->comments}}</td>
+                         <td>{{$source->comments}} &ndash; {{$source->name}}</td>
                      </tr>
                 @endforeach
               </tbody>

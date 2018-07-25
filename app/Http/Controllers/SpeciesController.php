@@ -142,6 +142,7 @@ class SpeciesController extends Controller
         $sourceArr = DB::select("
 		select *
 		from sources
+        join users on sources.comment_user_id = users.id 
         WHERE sources.oid = '$speciesOid'
         ORDER BY sources.source_date DESC
         ");
