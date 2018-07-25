@@ -171,9 +171,14 @@ class SpeciesController extends Controller
     public function edit($id)
     {
         $schemeArr = Scheme::get();
+        
+        $sourcesArr = DB::select("
+		SELECT *
+		FROM sources
+        ");
         $species = Species::where('is_approved', 1)->where('id', $id)->firstOrFail();
 
-        return view('species.edit', ['species' => $species, 'schemeArr' => $schemeArr]);
+        return view('species.edit', ['species' => $species, 'schemeArr' => $schemeArr, 'sourcesArr' => $sourcesArr]);
     }
 
     /**
