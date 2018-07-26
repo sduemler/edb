@@ -237,12 +237,12 @@
                 <tr>
                     <th>Reference Type</th>
                     <th>Content</th>
-                    <th>Source</th>
+                    <th>Author and Date</th>
                     <th>Source Date</th>
                     <th>Summary</th>
                     <th>Comments</th>
                     <th>Source Type</th>
-                    <th>Citation</th>
+                    <th>Full Citation</th>
                 </tr>
             </thead>
             
