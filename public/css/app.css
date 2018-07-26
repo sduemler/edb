@@ -151,6 +151,8 @@ select {
     color: darkslategrey!important;
 }
 
+
+/*CSS for the tables on the site*/
 table.table-bordered{
     border:1px solid darkslategrey;
     margin-top:20px;

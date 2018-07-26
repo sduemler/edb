@@ -43,7 +43,7 @@
                             
                     ?>
                 <tr>
-                    <th scope="row"><?php  if($speciesCount == 1){
+                    <th scope="row" style="border:1px solid darkslategrey;"><?php  if($speciesCount == 1){
                                                 echo 'Original';
                                             } else {
                                                 echo $speciesCount;
