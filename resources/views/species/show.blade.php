@@ -32,8 +32,9 @@
         background-color: antiquewhite;
         color: darkslategrey;
         border-radius: 10px;
-        border: 1px solid antiquewhite;
-        padding: 10px; 
+        border: 1px solid darkslategrey;
+        padding: 10px;
+        margin-bottom: 10px;
         width: 200px;
         text-align: center;
     }
