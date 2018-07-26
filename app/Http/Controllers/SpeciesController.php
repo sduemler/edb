@@ -63,9 +63,9 @@ class SpeciesController extends Controller
         unset($data['_token']);
 
         $data['user_id'] = Auth::user()->id;
-		$data['oid'] = Common::makeObjectId();
-        
-        
+        $data['oid'] = Common::makeObjectId();
+
+
         if (isset($data['photo']) && $request->file('photo')) {
             if (!in_array($request->file('photo')->getClientOriginalExtension(), ['jpeg', 'jpg', 'bmp', 'gif', 'png'])) {
                 echo "not image";
@@ -89,26 +89,26 @@ class SpeciesController extends Controller
         } else {
             unset($data['audio']);
         }
-        
+
         $sourceData = array();
-        
+
         for($x = 0; $x < $data['num_sources']; $x++){
 
             $sourceData = array(
-                            'oid' => $data['oid'],
-                            'reference_type' => $data['reference_type'][$x]['reference_type'],
-                            'content' => $data['content'][$x]['content'],
-                            'source' => $data['source'][$x]['source'],
-                            'source_date' => $data['source_date'][$x]['source_date'],
-                            'summary' => $data['summary'][$x]['summary'],
-                            'comments' => $data['comments'][$x]['comments'],
-                            'comment_user_id' => $data['user_id'],
-                            'source_type' => $data['source_type'][$x]['source_type'],
-                            'citation' => $data['citation'][$x]['citation']
-                            );
+                'oid' => $data['oid'],
+                'reference_type' => $data['reference_type'][$x]['reference_type'],
+                'content' => $data['content'][$x]['content'],
+                'source' => $data['source'][$x]['source'],
+                'source_date' => $data['source_date'][$x]['source_date'],
+                'summary' => $data['summary'][$x]['summary'],
+                'comments' => $data['comments'][$x]['comments'],
+                'comment_user_id' => $data['user_id'],
+                'source_type' => $data['source_type'][$x]['source_type'],
+                'citation' => $data['citation'][$x]['citation']
+            );
 
             DB::table('sources')->insert($sourceData);
-            
+
         }
         //MAKE this a loop eventually
         unset($data['num_sources']);
@@ -171,12 +171,17 @@ class SpeciesController extends Controller
     public function edit($id)
     {
         $schemeArr = Scheme::get();
-        
+
+//        print_r($id);
+
         $sourcesArr = DB::select("
 		SELECT *
 		FROM sources
         ");
+
         $species = Species::where('is_approved', 1)->where('id', $id)->firstOrFail();
+
+//        print_r($species);
 
         return view('species.edit', ['species' => $species, 'schemeArr' => $schemeArr, 'sourcesArr' => $sourcesArr]);
     }
@@ -215,26 +220,26 @@ class SpeciesController extends Controller
         } else {
             unset($data['audio']);
         }
-        
+
         $sourceData = array();
-        
+
         for($x = 0; $x < $data['num_sources']; $x++){
 
             $sourceData = array(
-                            'oid' => $data['oid'],
-                            'reference_type' => $data['reference_type'][$x]['reference_type'],
-                            'content' => $data['content'][$x]['content'],
-                            'source' => $data['source'][$x]['source'],
-                            'source_date' => $data['source_date'][$x]['source_date'],
-                            'summary' => $data['summary'][$x]['summary'],
-                            'comments' => $data['comments'][$x]['comments'],
-                            'comment_user_id' => $data['user_id'],
-                            'source_type' => $data['source_type'][$x]['source_type'],
-                            'citation' => $data['citation'][$x]['citation']
-                            );
+                'oid' => $data['oid'],
+                'reference_type' => $data['reference_type'][$x]['reference_type'],
+                'content' => $data['content'][$x]['content'],
+                'source' => $data['source'][$x]['source'],
+                'source_date' => $data['source_date'][$x]['source_date'],
+                'summary' => $data['summary'][$x]['summary'],
+                'comments' => $data['comments'][$x]['comments'],
+                'comment_user_id' => $data['user_id'],
+                'source_type' => $data['source_type'][$x]['source_type'],
+                'citation' => $data['citation'][$x]['citation']
+            );
 
-            DB::table('sources')->insert($sourceData);
-            
+            DB::table('sources')->update($sourceData);
+
         }
         //MAKE this a loop eventually
         unset($data['num_sources']);
@@ -250,7 +255,7 @@ class SpeciesController extends Controller
 
 
         $lastInsertedId = Species::updateWithCurrentUser($id, $data);
-    
+
         return $this->show($lastInsertedId);
     }
 
