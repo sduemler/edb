@@ -23,7 +23,7 @@
             <tbody>
             @foreach ($speciesArr as $species)
                 <tr>
-                    <th scope="row">{{$species['version']}}</th>
+                    <th scope="row" style="border:1px solid darkslategrey;">{{$species['version']}}</th>
                     @if($species[$key] == null)
                         <td style="color: gray;">(empty)</td>
                     @else
