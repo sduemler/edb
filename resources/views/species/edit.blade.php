@@ -276,7 +276,7 @@
                 <th>Summary</th>
                 <th>Comments</th>
                 <th>Source Type</th>
-                <th>Citation</th>
+                <th>Full Citation</th>
             </tr>
             </thead>
 
