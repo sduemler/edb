@@ -16,6 +16,32 @@
         });
     });
 </script>
+<?php $source_types = array('Archival', 'Botanical', 'Related'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){      
+      var postURL = "<?php echo url('addmore'); ?>";
+      var i=1;  
+
+
+      $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('source[][source]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('source_date[][source_date]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('summary[][summary]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('comments[][comments]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::select('source_type[][source_type]', $source_types, 0, array('class' => 'form-control')) !!}</td><td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">Remove</button></td></tr>');  
+      });  
+
+
+      $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+      });  
+
+
+      $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+    });  
+</script>
 @endsection
 @section('content')
 <!--  This route calls the store() method within the species controller. Files => true means that you are allowing the form to accept files  -->
@@ -228,11 +254,12 @@
       
     </div>
     <br>
-    <h2>Sources</h2>
-    Number of Sources
-    {{Form::text('num_sources', '0', ['class' => 'form-control'])}}
+<h2>Sources</h2>
+    
     <div class="row">
-        <table class="table table-bordered" style="margin-top: 15px;">
+      <button type="button" name="add" id="add" class="btn btn-outline-danger">Add Another Source</button>
+       <div class="table-responsive">
+        <table class="table table-bordered" id="dynamic_field" style="margin-top: 15px;">
             <thead>
                 <tr>
                     <th>Reference Type</th>
@@ -247,9 +274,6 @@
             </thead>
             
             <tbody>
-                <?php 
-                    $source_types = array('Archival', 'Botanical', 'Related');
-                    for($x = 0; $x < 10; $x++){ ?>
                     <tr>
                         <td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td>
                         <td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td>
@@ -260,13 +284,12 @@
                         <td>{!! Form::select('source_type[][source_type]', $source_types, 0, array('class' => 'form-control')) !!}</td>
                         <td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td>
                     </tr>
-                <?php } ?>
-                
             </tbody>
-        </table>
-        
-    </div>
-    {{Form::submit('Submit', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
-    {{Form::close()}}
+           </table>
+        </div>
+</div>
+   
+{{Form::submit('Submit', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
+{{Form::close()}}
 
 @endsection

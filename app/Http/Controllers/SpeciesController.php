@@ -92,7 +92,7 @@ class SpeciesController extends Controller
 
         $sourceData = array();
 
-        for($x = 0; $x < $data['num_sources']; $x++){
+        for($x = 0; $x < count($data['reference_type']); $x++){
 
             $sourceData = array(
                 'oid' => $data['oid'],
