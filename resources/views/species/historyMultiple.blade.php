@@ -36,6 +36,7 @@
                             }
                             $currentDataString = implode(' ', $currentData);
                             if($oldData == $currentDataString){
+                                $speciesCount--;
                                 continue;
                             } else {
                                 $oldData = $currentDataString;
