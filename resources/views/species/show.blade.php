@@ -303,7 +303,11 @@
                          <td>{{$source->source}}</td>
                          <td style="text-align:center">{{$source->reference_type}}&nbsp;</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->comments}} &ndash; {{$source->name}}</td>
+                         @if ($source->comments == NULL)
+                             <td>{{$source->comments}}</td>
+                         @else 
+                             <td>{{$source->comments}} &ndash; {{$source->name}}</td>
+                         @endif
                      </tr>
                 @endforeach
               </tbody>
@@ -340,7 +344,11 @@
                      <tr>
                          <td>{{$source->source}}</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->comments}} &ndash; {{$source->name}}</td>
+                         @if ($source->comments == NULL)
+                             <td>{{$source->comments}}</td>
+                         @else 
+                             <td>{{$source->comments}} &ndash; {{$source->name}}</td>
+                         @endif
                      </tr>
                 @endforeach
               </tbody>
@@ -377,7 +385,11 @@
                      <tr>
                          <td>{{$source->source}}</td>
                          <td>{{$source->content}}</td>
-                         <td>{{$source->comments}} &ndash; {{$source->name}}</td>
+                         @if ($source->comments == NULL)
+                             <td>{{$source->comments}}</td>
+                         @else 
+                             <td>{{$source->comments}} &ndash; {{$source->name}}</td>
+                         @endif
                      </tr>
                 @endforeach
               </tbody>
