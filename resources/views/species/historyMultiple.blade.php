@@ -23,12 +23,13 @@
             
             <tbody>
                <?php $oldData = ''; 
-                     $versionCount = 1;
+                     $versionCount = 0;
                      $speciesArr = array_reverse($speciesArr);
                      $speciesCount = count($speciesArr);
                 ?>
                 @foreach ($speciesArr as $species)
-                    <?php   $currentData = array();
+                    <?php   print($speciesCount);
+                            $currentData = array();
                             foreach($schemeArr as $value){
                             if($species[$value['key']] == "TRUE"){
                                     array_push($currentData, $value['key']);
@@ -40,11 +41,12 @@
                                 continue;
                             } else {
                                 $oldData = $currentDataString;
+                                $versionCount++;
                             }
                             
                     ?>
                 <tr>
-                    <th scope="row" style="border:1px solid darkslategrey;"><?php  if($speciesCount == 1){
+                    <th scope="row" style="border:1px solid darkslategrey;"><?php  if($speciesCount == 1 || $versionCount == 1){
                                                 echo 'Original';
                                             } else {
                                                 echo $speciesCount;
