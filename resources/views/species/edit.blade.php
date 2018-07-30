@@ -16,6 +16,33 @@
             });
         });
     </script>
+   <?php $source_types = array('Archival', 'Botanical', 'Related'); 
+         $javascriptSourceCount = count($sourcesArr); ?>
+    <script type="text/javascript">
+    $(document).ready(function(){      
+      var postURL = "<?php echo url('addmore'); ?>";
+      var i= "$javascriptSourceCount";  
+
+
+      $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('source[][source]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('source_date[][source_date]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('summary[][summary]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::text('comments[][comments]', null, ['class' => 'form-control']) !!}</td><td>{!! Form::select('source_type[][source_type]', $source_types, 0, array('class' => 'form-control')) !!}</td><td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">Remove</button></td></tr>');  
+      });  
+
+
+      $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");
+           $('#row'+button_id+'').remove();  
+      });  
+
+
+      $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+    });  
+    </script>
 @endsection
 @section('content')
 
@@ -255,18 +282,12 @@
             $sourcesCount++;
         }
     }
-    $emptyCount = 10 - $sourcesCount;
-    while($emptyCount < 10){
-        $specificSources[$emptyCount] = array(null, null, null, null, null, null, 0, null);
-        $emptyCount++;
-    }
-    //            print_r($specificSources[0][0]);
     ?>
     <h2>Sources</h2>
-    Number of Sources
-    {{Form::text('num_sources', $sourcesCount, ['class' => 'form-control'])}}
     <div class="row">
-        <table class="table table-bordered" style="margin-top: 15px;">
+       <button type="button" name="add" id="add" class="btn btn-outline-danger">Add Another Source</button>
+       <div class="table-responsive">
+        <table class="table table-bordered" id="dynamic_field" style="margin-top: 15px;">
             <thead>
             <tr>
                 <th>Reference Type</th>
@@ -282,10 +303,11 @@
 
             <tbody>
             <?php
-            $source_types = array('Archival', 'Botanical', 'Related');
-            for($x = 0; $x < 10; $x++){
+            for($x = 0; $x < $sourcesCount; $x++){
+                $rowNumber = $x + 1;
+                $rowString = "row" . $rowNumber;
             ?>
-            <tr>
+            <tr id={{$rowString}} class="dynamic-added">
                 <td>{!! Form::text('reference_type[][reference_type]', $specificSources[$x][0], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('content[][content]', $specificSources[$x][1], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('source[][source]', $specificSources[$x][2], ['class' => 'form-control']) !!}</td>
@@ -294,13 +316,14 @@
                 <td>{!! Form::text('comments[][comments]', $specificSources[$x][5], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::select('source_type[][source_type]', $source_types, $specificSources[$x][6], array('class' => 'form-control')) !!}</td>
                 <td>{!! Form::text('citation[][citation]', $specificSources[$x][7], ['class' => 'form-control']) !!}</td>
+                <td><button type="button" name="remove" id={{$rowNumber}} class="btn btn-danger btn_remove">Remove</button></td>
             </tr>
             <?php
             } ?>
 
             </tbody>
         </table>
-
+        </div>
     </div>
     {{Form::submit('Save', ['class' => 'btn btn-outline-danger', 'style' => 'cursor: pointer;'])}}
     {{Form::close()}}

@@ -274,6 +274,7 @@
             </thead>
             
             <tbody>
+                   <!--
                     <tr>
                         <td>{!! Form::text('reference_type[][reference_type]', null, ['class' => 'form-control']) !!}</td>
                         <td>{!! Form::text('content[][content]', null, ['class' => 'form-control']) !!}</td>
@@ -284,6 +285,7 @@
                         <td>{!! Form::select('source_type[][source_type]', $source_types, 0, array('class' => 'form-control')) !!}</td>
                         <td>{!! Form::text('citation[][citation]', null, ['class' => 'form-control']) !!}</td>
                     </tr>
+                    -->
             </tbody>
            </table>
         </div>
