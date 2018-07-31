@@ -17,7 +17,7 @@
         });
     </script>
    <?php $source_types = array('Archival', 'Botanical', 'Related'); 
-         $javascriptSourceCount = count($sourcesArr); ?>
+         $javascriptSourceCount = count($sourceArr); ?>
     <script type="text/javascript">
     $(document).ready(function(){      
       var postURL = "<?php echo url('addmore'); ?>";
@@ -275,10 +275,9 @@
     <?php
     $specificSources = array();
     $sourcesCount = 0;
-    foreach($sourcesArr as $source){
+    foreach($sourceArr as $source){
         if($source->oid == $species->oid){
-            $specificSources[] = array($source->reference_type, $source->content, $source->source,
-                $source->source_date, $source->summary, $source->comments, $source->source_type, $source->citation);
+            $specificSources[] = array($source->reference_type, $source->content, $source->source, $source->source_date, $source->summary, $source->comments, $source->comment_user_id, $source->source_type, $source->citation);
             $sourcesCount++;
         }
     }
@@ -308,14 +307,15 @@
                 $rowString = "row" . $rowNumber;
             ?>
             <tr id={{$rowString}} class="dynamic-added">
+                {!! Form::hidden('user_id[][user_id]', $specificSources[$x][6], ['class' => 'form-control']) !!}
                 <td>{!! Form::text('reference_type[][reference_type]', $specificSources[$x][0], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('content[][content]', $specificSources[$x][1], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('source[][source]', $specificSources[$x][2], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('source_date[][source_date]', $specificSources[$x][3], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('summary[][summary]', $specificSources[$x][4], ['class' => 'form-control']) !!}</td>
                 <td>{!! Form::text('comments[][comments]', $specificSources[$x][5], ['class' => 'form-control']) !!}</td>
-                <td>{!! Form::select('source_type[][source_type]', $source_types, $specificSources[$x][6], array('class' => 'form-control')) !!}</td>
-                <td>{!! Form::text('citation[][citation]', $specificSources[$x][7], ['class' => 'form-control']) !!}</td>
+                <td>{!! Form::select('source_type[][source_type]', $source_types, $specificSources[$x][7], array('class' => 'form-control')) !!}</td>
+                <td>{!! Form::text('citation[][citation]', $specificSources[$x][8], ['class' => 'form-control']) !!}</td>
                 <td><button type="button" name="remove" id={{$rowNumber}} class="btn btn-danger btn_remove">Remove</button></td>
             </tr>
             <?php
