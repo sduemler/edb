@@ -25,11 +25,30 @@
                <?php $oldData = ''; 
                      $versionCount = 0;
                      $speciesArr = array_reverse($speciesArr);
-                     $speciesCount = count($speciesArr);
                 ?>
+                <!--this for loop is to count the number of versions
+                so that they can be displayed backwards -->
+                 @foreach ($speciesArr as $species)
+                    <?php   $countData = array();
+                            foreach($schemeArr as $value){
+                            if($species[$value['key']] == "TRUE"){
+                                    array_push($countData, $value['key']);
+                                }
+                            }
+                            $countDataString = implode(' ', $countData);
+                            if($oldData == $countDataString){
+                                continue;
+                            } else {
+                                $oldData = $countDataString;
+                                $versionCount++;
+                            }
+                            
+                    ?>
+                @endforeach
+                <?php $oldData = '' ?>
+                <!--this is the real for loop that does everything-->
                 @foreach ($speciesArr as $species)
-                    <?php   print($speciesCount);
-                            $currentData = array();
+                    <?php   $currentData = array();
                             foreach($schemeArr as $value){
                             if($species[$value['key']] == "TRUE"){
                                     array_push($currentData, $value['key']);
@@ -37,21 +56,19 @@
                             }
                             $currentDataString = implode(' ', $currentData);
                             if($oldData == $currentDataString){
-                                $speciesCount--;
                                 continue;
                             } else {
                                 $oldData = $currentDataString;
-                                $versionCount++;
                             }
                             
                     ?>
                 <tr>
-                    <th scope="row" style="border:1px solid darkslategrey;"><?php  if($speciesCount == 1 || $versionCount == 1){
+                    <th scope="row" style="border:1px solid darkslategrey;"><?php  if($versionCount == 1){
                                                 echo 'Original';
                                             } else {
-                                                echo $speciesCount;
+                                                echo $versionCount;
                                             }
-                                            $speciesCount--;
+                                            $versionCount--;
                                             
                         ?></th>
                     <td>

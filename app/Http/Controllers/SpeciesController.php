@@ -227,7 +227,11 @@ class SpeciesController extends Controller
         
         DB::table('sources')->where('oid', $speciesOid)->delete();
         
-        $user_id_count = count($data['user_id']);
+        if(array_key_exists('user_id', $data)){
+            $user_id_count = count($data['user_id']);
+        } else {
+            $user_id_count = 0;
+        }
         
         if(array_key_exists('reference_type', $data)){
         $sourceData = array();
@@ -261,6 +265,7 @@ class SpeciesController extends Controller
         unset($data['source_date']);
         unset($data['summary']);
         unset($data['comments']);
+        unset($data['user_id']);
         unset($data['source_type']);
         unset($data['citation']);
         }
