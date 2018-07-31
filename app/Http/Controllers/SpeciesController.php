@@ -221,11 +221,17 @@ class SpeciesController extends Controller
         } else {
             unset($data['audio']);
         }
-
         
         $data['user_id'] = Auth::user()->id;
         $species = Species::where('id', $id)->first();
         $speciesOid = $species->oid;
+        
+        $sourceUser = DB::select("
+		SELECT comment_user_id
+		FROM sources
+        WHERE sources.oid = '$speciesOid'
+        ");
+        
         DB::table('sources')->where('oid', $speciesOid)->delete();
         
         if(array_key_exists('reference_type', $data)){

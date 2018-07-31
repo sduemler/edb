@@ -275,6 +275,7 @@
             }
         }
 ?>
+<div class="row">
 <div class="panel panel-default">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <div class="panel-heading">
@@ -288,7 +289,7 @@
             <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
-          <table cellpadding="10" style="margin-top: 15px;">
+          <table cellpadding="10" style="margin-bottom: 15px;">
               <thead>
                   <tr>
                       <th>Source</th>
@@ -318,6 +319,8 @@
         </div>
     </div>
 </div>
+</div>
+<div class="row">
 <div class="panel panel-default">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
         <div class="panel-heading">
@@ -331,7 +334,7 @@
             <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
-          <table cellpadding="10" style="margin-top: 15px;">
+          <table cellpadding="10" style="margin-bottom: 15px;">
               <thead>
                   <tr>
                       <th>Source</th>
@@ -359,6 +362,8 @@
         </div>
     </div>
 </div>
+</div>
+<div class="row">
 <div class="panel panel-default">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         <div class="panel-heading">
@@ -372,7 +377,7 @@
             <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($sourceArr); ?>
          @if ($tableCount > 0)
-          <table cellpadding="10" style="margin-top: 15px;">
+          <table cellpadding="10" style="margin-bottom: 15px;">
               <thead>
                   <tr>
                       <th>Source</th>
@@ -399,6 +404,7 @@
           @endif
         </div>
     </div>
+</div>
 </div>
 <br>
 
