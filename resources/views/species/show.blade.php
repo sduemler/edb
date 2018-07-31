@@ -287,7 +287,7 @@
     <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body">
             <h3><i>{{$species->species_name}} </i></h3>
-         <?php $tableCount = count($sourceArr); ?>
+         <?php $tableCount = count($archivalSources); ?>
          @if ($tableCount > 0)
           <table cellpadding="10" style="margin-bottom: 15px;">
               <thead>
@@ -332,7 +332,7 @@
     <div id="collapse2" class="panel-collapse collapse in">
         <div class="panel-body">
             <h3><i>{{$species->species_name}} </i></h3>
-         <?php $tableCount = count($sourceArr); ?>
+         <?php $tableCount = count($botanicalSources); ?>
          @if ($tableCount > 0)
           <table cellpadding="10" style="margin-bottom: 15px;">
               <thead>
@@ -375,7 +375,7 @@
     <div id="collapse3" class="panel-collapse collapse in">
         <div class="panel-body">
             <h3><i>{{$species->species_name}} </i></h3>
-         <?php $tableCount = count($sourceArr); ?>
+         <?php $tableCount = count($relatedSources); ?>
          @if ($tableCount > 0)
           <table cellpadding="10" style="margin-bottom: 15px;">
               <thead>
