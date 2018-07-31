@@ -98,9 +98,11 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarUserLink">
                         <a class="dropdown-item" href="{{route('user.edit', ['id' => Auth::user()->id])}}">Profile</a>
+<!--
                         @if(Auth::user()->role_id == 3)
                             <a class="dropdown-item" href="{{url('/request')}}">Request Result</a>
                         @endif
+-->
 
                         <a class="dropdown-item" href="{{ route('cas.logout') }}"
                            onclick="event.preventDefault();
