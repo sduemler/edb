@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="no-loading btn btn-primary">
+                    <button type="submit" class="no-loading btn btn-outline-danger">
                         Login
                     </button>
 
