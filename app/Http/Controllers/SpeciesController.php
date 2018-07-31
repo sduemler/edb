@@ -298,6 +298,8 @@ class SpeciesController extends Controller
      */
     public function history($id, $key)
     {
+        $nameArr = Scheme::select(['name'])->where('key', $key)->get()->toArray();
+        $name = $nameArr[0]['name'];
         $oid = Species::find($id)->oid;
         $speciesArr = Species::select([$key, 'species.created_at', 'users.name'])->join('users', 'species.user_id', 'users.id')->where('oid', $oid)->where('is_approved', 1)->orderBy('version', 'desc')->get()->toArray();
         $isFirst = true;
@@ -320,7 +322,7 @@ class SpeciesController extends Controller
             else $speciesArr[$i]['version'] = count($speciesArr) - $i;
         }
 
-        return view('species.history', ['speciesArr' => $speciesArr, 'key' => $key]);
+        return view('species.history', ['speciesArr' => $speciesArr, 'key' => $key, 'name' => $name]);
     }
 
 
