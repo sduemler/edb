@@ -286,6 +286,9 @@ class SpeciesController extends Controller
     {
         $species = Species::findOrFail($id);
         Species::where(['oid' => $species->oid])->delete();
+        DB::table('sources')->where('oid', $species->oid)->delete();
+        
+        
         return redirect(route('species.index'));
     }
 
