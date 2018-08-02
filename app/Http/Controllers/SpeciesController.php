@@ -150,9 +150,11 @@ class SpeciesController extends Controller
         ");
 
 
+        
         $photoUrl = '';
         $audioUrl = '';
 
+        /*
         if($species->photo) {
             $photoUrl = UrlSigner::sign(url('file/'. $species->photo), Carbon::now()->addSeconds(10));
         }
@@ -160,7 +162,8 @@ class SpeciesController extends Controller
         if($species->audio) {
             $audioUrl = UrlSigner::sign(url('file/'. $species->audio), Carbon::now()->addSeconds(300));
         }
-
+        */
+        
         return view('species.show', ['species' => $species, 'schemeArr' => $schemeArr, 'sourceArr' => $sourceArr, 'photoUrl' => $photoUrl, 'audioUrl' => $audioUrl]);
     }
 
