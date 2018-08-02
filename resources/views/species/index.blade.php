@@ -13,7 +13,7 @@
             <div class="col-md-6 col-xs-12 speciesNameCard" style="padding: 0px 30px; margin-top: 15px;">
                 <div class="row" style="border: 1px solid darkslategrey; padding: 15px;">
                     <!--The below two divs are for the latin name (and link) of the species and the general description of it-->
-                        <h4><a href="{{route('species.show', ['id' => $species->id])}}"><i>{{$species->species_name ? $species->species_name : 'No Species Name'}}</i></a></h4>
+                        <h4><a href="{{route('species.show', ['id' => $species->id])}}"><i>{{$species->species_name ? $species->species_name : 'Undetermined'}}</i></a></h4>
                     <!--This is supposed to be the Common name and Myaamia name, however I'm not sure why it only works with the species name TODO-->
                     <div style="float: left; width: 1000px; text-align: justify; margin-left: 20px;">
                         <h5>{{$species->common_name ? $species->common_name : 'No common name'}}</h5>
