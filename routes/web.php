@@ -15,7 +15,7 @@ use Intervention\Image\Facades\Image;
 Route::get('file/photo/{filename}', ['middleware' => ['signedurl'], function ($filename) {
     return Image::make(storage_path('app/photo/' . $filename))->response();
 }]);
-Route::get('/docs', function() { return view('docs.index'); })->name('docs.index'); // documentation home page
+Route::get('/about', function() { return view('docs.index'); })->name('docs.index'); // documentation home page
 Route::get('/docs/user', function() { return view('docs.user'); })->name('docs.user'); // user document page
 Route::get('/bibliography', function() { return view('bibliography.index'); })->name('bibliography.index'); // bibliography page
 Route::get('/contact_us', function() { return view('contact_us.index'); })->name('contact_us.index'); // contact us page
