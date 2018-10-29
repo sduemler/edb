@@ -2,10 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12" style="text-align: center; color: grey;">
-                &copy; 2018 <a href="http://myaamiacenter.org/">Myaamia Center</a> &middot; 200 Bonham House &middot; <a
-                        href="http://miamioh.edu/">Miami University</a> &middot; Oxford &middot; OH &middot; 45056 &middot;
-                <a href="tel:513-529-5648">513-529-5648</a> &middot; 
-                <a href="mailto:myaamiacenter@miamioh.edu?subject=Ethnobotanical Database Feedback">Submit Feedback</a>
+                &copy; 2018 Miami Tribe of Oklahoma &#124; 3410 P Street &#124; Miami, OK 74354 &#124; 513-529-5648 &#124;
+                @if (Auth::guest())
+                <a style="color: darkslategrey" href="{{url('/login')}}">Sign-in</a>
+                @else
+                <a href="{{ route('cas.logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            Logout ({{ Auth::user()->name }})
+                        </a>
+
+                        <form id="logout-form" action="{{ route('cas.logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                @endif
             </div>
         </div>
     </div>
