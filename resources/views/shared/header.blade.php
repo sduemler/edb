@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" style="background-color: antiquewhite !important;">
+<nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" style="background-color: #97c388 !important;">
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color:black;"></span>
     </button>
@@ -12,11 +12,11 @@
                     color: #c3142d;
                 }
                 #headerSearchBtn:hover > i {
-                    color: antiquewhite;
+                    color: #97c388;
                 }
 
                 #headerSearchBox {
-                    background-color: antiquewhite !important;
+                    background-color: #97c388 !important;
                     color: darkslategrey !important;
                     border: 1px solid #c3142d !important;
                 }

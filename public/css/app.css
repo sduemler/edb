@@ -10,7 +10,7 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: antiquewhite;
+    background-color: #97c388;
 }
 
 .footer {
@@ -44,7 +44,7 @@ body > .container {
 input:not(.btn), textarea {
     background-color: white!important;
     color: darkslategrey!important;
-    border: 1px solid antiquewhite !important;
+    border: 1px solid #97c388 !important;
 }
 
 /*Any input fields (text) when it is selected*/
@@ -61,25 +61,25 @@ input:not(.btn):focus, textarea:focus, select:focus {
 
 /*The text for the dropdown menus*/
 .dropdown-menu > a {
-    color: antiquewhite;
+    color: #97c388;
 }
 
 
 .dropdown-menu > a:hover {
     background-color: black;
-    color: antiquewhite;
+    color: #97c388;
     opacity: 0.5;
 }
 
 .custom-file-control {
     background-color: white;
-    border: 1px solid antiquewhite;
+    border: 1px solid #97c388;
 }
 
 .custom-file-control:before {
     background-color: white;
     color: darkslategrey;
-    border: 1px solid antiquewhite;
+    border: 1px solid #97c388;
     transition-property: background-color;
     transition-duration: 0.3s;
 }
@@ -87,7 +87,7 @@ input:not(.btn):focus, textarea:focus, select:focus {
 .custom-file:hover > span:before {
     transition-property: background-color;
     transition-duration: 0.3s;
-    color: antiquewhite;
+    color: #97c388;
     background-color: #C3142D;
 }
 
@@ -96,7 +96,7 @@ pre {
     padding: 10px;
     color: #bd4147 !important;
     background-color: #111111 !important;
-    border: 1px solid antiquewhite;
+    border: 1px solid #97c388;
 }
 
 @media(min-width: 992px)  {
@@ -148,7 +148,7 @@ input[type='radio'][value='FALSE']:focus {
 }
 /*Any select statements for a form*/
 select {
-    border: 1px solid antiquewhite !important;
+    border: 1px solid #97c388 !important;
     margin-right: auto;
     background-color: white !important;
     color: darkslategrey!important;
@@ -179,6 +179,5 @@ div#AboutMain {
 div#contributors {
     font-size: 12px;
     float: right;
-    /*border-left-style: solid;*/
     padding-right: 10px;
 }

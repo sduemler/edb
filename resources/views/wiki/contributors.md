@@ -1,4 +1,4 @@
-#### Contributors
+#### Student Contributors
 ###### 2018
  - Steven Bower
  - Samuel Duemler
