@@ -1,5 +1,3 @@
-#### Database References USED (Cited or used w/o citation) 
-
 Aatotankiki myaamiaki. 1998-2006. Miami, Oklahoma: Official publication of the Miami 
 	Nation.
 
