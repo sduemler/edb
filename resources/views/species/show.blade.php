@@ -280,7 +280,7 @@
     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         <div class="panel-heading">
             <h4 class="panel-title">
-                Archival Sources
+                Myaamia Archival Sources
             </h4>
         </div>
     </a>
@@ -294,7 +294,7 @@
                   <tr>
                       <th>Source</th>
                       <th>Reference Type</th>
-                      <th>Content</th>
+                      <th>Archival Data</th>
                       <th>Comments</th>
                   </tr>
               </thead>
@@ -338,7 +338,7 @@
               <thead>
                   <tr>
                       <th>Source</th>
-                      <th>Content</th>
+                      <th>Archival Data</th>
                       <th>Comments</th>
                   </tr>
               </thead>
@@ -381,7 +381,7 @@
               <thead>
                   <tr>
                       <th>Source</th>
-                      <th>Content</th>
+                      <th>Archival Data</th>
                       <th>Comments</th>
                   </tr>
               </thead>

@@ -85,12 +85,12 @@
                 </div>
             </li>
 -->
-
+            <!--
             @if (Auth::guest())
                 <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{url('/login')}}">Sign-in</a></li>
-            <!--
+            
                 <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Register</a></li>
-                -->
+                
             @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -98,11 +98,11 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarUserLink">
                         <a class="dropdown-item" href="{{route('user.edit', ['id' => Auth::user()->id])}}">Profile</a>
-<!--
+
                         @if(Auth::user()->role_id == 3)
                             <a class="dropdown-item" href="{{url('/request')}}">Request Result</a>
                         @endif
--->
+
 
                         <a class="dropdown-item" href="{{ route('cas.logout') }}"
                            onclick="event.preventDefault();
@@ -116,6 +116,7 @@
                     </div>
                 </li>
             @endif
+            -->
         </ul>
 
     </div>
