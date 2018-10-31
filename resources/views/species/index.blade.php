@@ -10,21 +10,8 @@
 @section('content')
     <div class="row"> 
         @foreach ($speciesArr as $species)
-            <div class="col-md-6 col-xs-12 speciesNameCard" style="padding: 0px 30px; margin-top: 15px;">
-                <div class="row" style="border: 1px solid darkslategrey; padding: 15px;">
-                    <!--The below two divs are for the latin name (and link) of the species and the general description of it-->
-                        <h4><a href="{{route('species.show', ['id' => $species->id])}}"><i>{{$species->species_name ? $species->species_name : 'Undetermined'}}</i></a></h4>
-                    <div style="float: left; width: 1000px; text-align: justify; margin-left: 20px;">
-                        <h5>{{$species->common_name ? $species->common_name : 'No common name'}}</h5>
-                    </div>
-                    <div style="float: left; width: 1000px; text-align: justify; margin-left: 20px;">
-                        <h5>{{$species->miami_name ? $species->miami_name : 'No Myaamia name'}}</h5>
-                    </div>
-                    
-                    
-                    
-
-                </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 speciesNameCard" style="padding: 0px 30px; margin-top: 15px;">
+                <h4><a href="{{route('species.show', ['id' => $species->id])}}"><i>{{$species->species_name ? $species->species_name : 'Undetermined'}}</i> &#124; {{$species->common_name ? $species->common_name : 'No common name'}} &#124; {{$species->miami_name ? $species->miami_name : 'No Myaamia name'}}</a></h4>
             </div>
         @endforeach
     </div>
