@@ -2,23 +2,16 @@
 
 ## About EDB
 
-The ethnobotanical database is for the Myaamia Center and research community. This database stores data about plant types, species, genus, habitat, cultural uses, etc. The database has a front-end user interface for data entry. In addition, the web application is intuitive, customizable, and flexible allowing for continuous improvement and enhancement throughout its lifespan.
+A history of Myaamia ethnobotany research and database development
 
-## Contributors
-#### Senior Design Students:
-Mingchao Liao  
-Joshua Dooley  
-Meghan Styczynski  
-Richard Bodziak  
+Prior to the 1990s Myaamiaki Eemamwiciki (the Miami Tribe’s revitalization movement), Myaamia botanical information could mainly be found in the memories of a handful of community elders and hidden within the historical and linguistic documentation in various archives in the U.S. and Canada. As linguists did their work reconstructing the Myaamia language from archival materials, they continually found references to uses of many different kinds of plants. Much of this early archival botanical data was simply set aside for another time as much of the resources of the day were directed towards language reconstruction and the beginning stages of revitalization.
 
-#### Agile Launchpad Students:
-##### 2017:
-Steven Bower  
-Thomas Burlett  
-Martin Kohlman  
-Addy Shubert  
-Nathan Soundappan  
+In 2001 the Miami Tribe of Oklahoma and Miami University partnered to create the Myaamia Center (formally the Myaamia Project). This tribally-directed research center supports a wide range of topics for developing tribal educational programs. Michael Gonella, then a graduate student in botany, approached the center with a proposal to conduct an ethnobotanical survey of Myaamia plant use. This provided an opportunity to begin organizing botanical data from archival materials and also document remaining plant knowledge among tribal elders. 
 
-##### 2018:
-Samuel Duemler  
-Colin Evans  
+From 2002 to 2007 Gonella carried out the first comprehensive ethnobotanical survey ever done on Myaamia plant knowledge and use. This research culminated in a 2007 dissertation titled Myaamia Ethnobotany, along with an extensive MS Access database of over 250 species. This collection of botanical references has become valuable to the Miami Tribe language and cultural revitalization process and has aided in our understanding of Myaamia Ecological Knowledge (MEK) as an educational topic.
+
+After 2007, work continued across a broad spectrum of activities. Plant inventories were obtained from tribal properties, a wide range of ecological information was infused in tribal programs and curricula, tribal linguists and historians continued to find new botanical references, and research technology evolved beyond the initial Access database. It became apparent that a different database format was needed for the entry and acquisition of stored Myaamia plant knowledge by scholars and community members.
+
+In the fall of 2017 an undergraduate class from Miami University’s Computer Science and Software Engineering program took the data from the original Access database and developed some prototypes for a web-based searchable botanical database. It was from these new platforms for displaying botanical data that we transitioned into the current myaamia mahkihkiwa ‘Myaamia Herbs’ online database. During the summer of 2018 and continuing in the 2018-19 academic year, students continued to make refinements to arrive at the current form.
+  
+The current online version is intended to be easily searchable and contain all known historical and contemporary information on any given plant. In the future we may modify the program so that  tribal members and other interested people can submit new information to be added to the archive. Feel free to provide us with feedback and input that would lead us to unknown sources or improve the current program.

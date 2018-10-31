@@ -11,7 +11,15 @@
 
 @endsection
 @section('content')
+	<div class="container">
+		<div class="row">
+		    <div class="col-10" id="AboutMain">
+		        @include('wiki.about')
+		    </div>
 
-    @include('wiki.about')
-
+		    <div class="col" id="contributors">
+		        @include('wiki.contributors');
+		    </div>
+	    </div>
+    </div>
 @endsection

@@ -104,6 +104,9 @@ pre {
         width: 163px;
         margin-left: 100px;
     }
+    div#contributors {
+        border-left-style: solid;
+    }
 }
 
 @media(max-width: 992px){
@@ -162,4 +165,20 @@ table.table-bordered > thead > tr > th{
 }
 table.table-bordered > tbody > tr > td{
     border:1px solid darkslategrey;
+}
+
+/*CSS for the About Page*/
+div#AboutFrame {
+    overflow: auto;
+}
+
+div#AboutMain {
+    max-width: 900px;
+}
+
+div#contributors {
+    font-size: 12px;
+    float: right;
+    /*border-left-style: solid;*/
+    padding-right: 10px;
 }
