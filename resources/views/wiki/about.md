@@ -1,6 +1,6 @@
 <h1 align="center">Ethnobotanical Database Project</h1>
 
-## About EDB
+## About the Ethnobotanical Database
 
 A history of Myaamia ethnobotany research and database development
 
