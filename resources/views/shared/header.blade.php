@@ -55,59 +55,9 @@
                     </div>
                 </li>
             @endif
-
-            <!--The Docs dropdown menu was deemed unnecessary because only the About page is worthwhile, so it is just commented out, all 
-                the following routes still work, it just isn't showing visually-->
-            <!--
-           <!--
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarDocsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Docs
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDocsLink">
-                    <a class="dropdown-item" href="{{route('docs.index')}}">About</a>
-                    <a class="dropdown-item" href="{{route('docs.user')}}">User FAQs</a>
-                    @if(!Auth::guest() && Auth::user()->role_id == 1)
-                        <a class="dropdown-item" href="{{route('docs.admin')}}">Admin Document</a>
-                    @endif
-                </div>
-            </li>
--->
-            <!--
-            @if (Auth::guest())
-                <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{url('/login')}}">Sign-in</a></li>
-            
-                <li class="nav-item"><a class="nav-link" href="{{url('/register')}}">Register</a></li>
-                
-            @else
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="color: darkslategrey" href="#" id="navbarUserLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->name }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarUserLink">
-                        <a class="dropdown-item" href="{{route('user.edit', ['id' => Auth::user()->id])}}">Profile</a>
-
-                        @if(Auth::user()->role_id == 3)
-                            <a class="dropdown-item" href="{{url('/request')}}">Request Result</a>
-                        @endif
-
-
-                        <a class="dropdown-item" href="{{ route('cas.logout') }}"
-                           onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('cas.logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </div>
-                </li>
-            @endif
-            -->
         </ul>
-
     </div>
+    
     <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 20px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 40px;" id="headerSepBar"></div>
 
 </nav>
