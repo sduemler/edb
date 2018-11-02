@@ -167,6 +167,20 @@ table.table-bordered > tbody > tr > td{
     border:1px solid darkslategrey;
 }
 
+/*CSS for the Header*/
+#headerSearchBtn > i {
+    color: #c3142d;
+}
+#headerSearchBtn:hover > i {
+    color: #97c388;
+}
+
+#headerSearchBox {
+    background-color: #97c388 !important;
+    color: darkslategrey !important;
+    border: 1px solid #c3142d !important;
+}
+
 /*CSS for the About Page*/
 div#AboutFrame {
     overflow: auto;

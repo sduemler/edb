@@ -1,26 +1,14 @@
 <nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" style="background-color: #97c388 !important;">
+
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color:black;"></span>
     </button>
     <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0; color: darkslategrey;">
         <img src="{{asset('img/Myaamia_Center.png')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
-        EDB</a>
+        EDB
+    </a>
     <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
         <form class="form-inline mr-auto">
-            <style>
-                #headerSearchBtn > i {
-                    color: #c3142d;
-                }
-                #headerSearchBtn:hover > i {
-                    color: #97c388;
-                }
-
-                #headerSearchBox {
-                    background-color: #97c388 !important;
-                    color: darkslategrey !important;
-                    border: 1px solid #c3142d !important;
-                }
-            </style>
             <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search by Scientific, Common, or Myaamia name" style="width: 386px;">
             <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-danger my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
             <script>
