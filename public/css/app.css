@@ -176,9 +176,9 @@ table.table-bordered > tbody > tr > td{
 }
 
 #headerSearchBox {
-    background-color: #97c388 !important;
+    background-color: white!important;
     color: darkslategrey !important;
-    border: 1px solid #c3142d !important;
+    border: 1px solid black !important;
 }
 
 /*CSS for the About Page*/
@@ -194,4 +194,46 @@ div#contributors {
     font-size: 12px;
     float: right;
     padding-right: 10px;
+}
+
+.searchModule {
+    text-align: center;
+    vertical-align: top;
+}
+
+.searchElements {
+    display: inline-block;
+}
+
+#searchBox {
+    float: left;
+}
+
+#searchBtn {
+    background-color: green;
+    border: none;
+    cursor: pointer;
+    float: left;
+}
+
+#browseBtn {
+    background-color: green;
+    margin-left: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+}
+
+#advancedSearchBtn {
+    background-color: green;
+    margin-left: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+}
+
+input {
+    padding-left: 5px;
 }
