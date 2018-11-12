@@ -7,6 +7,8 @@
 
 @endsection
 @section('content')
+   
+   @include('search.searchModule')
     <div class="row">
         @if(!count($speciesArr))
             <div class="col-12">
