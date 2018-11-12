@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0; color: darkslategrey;">
         <img src="{{asset('img/ethnobotanybanner.jpg')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
     </a>
-    <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
 
 
         <ul class="navbar-nav">

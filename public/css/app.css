@@ -181,6 +181,11 @@ table.table-bordered > tbody > tr > td{
     border: 1px solid black !important;
 }
 
+#navbarCollapse {
+    display: flex;
+    justify-content: right;
+}
+
 /*CSS for the About Page*/
 div#AboutFrame {
     overflow: auto;
