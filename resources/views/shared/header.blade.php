@@ -4,26 +4,10 @@
         <span class="navbar-toggler-icon" style="color:black;"></span>
     </button>
     <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0; color: darkslategrey;">
-        <img src="{{asset('img/Myaamia_Center.png')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
-        EDB
+        <img src="{{asset('img/ethnobotanybanner.jpg')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
     </a>
     <div class="collapse navbar-collapse justify-content-right" id="navbarCollapse">
-        <form class="form-inline mr-auto">
-            <input id="headerSearchBox" class="form-control mr-sm-2" type="text" placeholder="Search by Scientific, Common, or Myaamia name" style="width: 386px;">
-            <button id="headerSearchBtn" type="submit" class="no-loading btn btn-outline-danger my-2 my-sm-0"><i class="fa fa-search" aria-hidden="true"></i></button>
-            <script>
-                $( document ).ready(function() {
-                    $('#headerSearchBtn').click(function(e) {
-                        e.preventDefault();
-                        var q = $('#headerSearchBox').val();
-                        if(!q) return;
-                        loading();
-                        window.location.href = "{{route('search.result')}}?q=" + q;
-                    });
-                });
-            </script>
-            {{--<a class="btn btn-outline-success my-2 my-sm-0" href="{{route('search.index')}}" style="margin-left: 8px;">Advanced Search</a>--}}
-        </form>
+
 
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" style="color: darkslategrey" href="{{route('home.index')}}">Home</a></li>
