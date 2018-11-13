@@ -115,6 +115,12 @@ pre {
         margin-left: 0px;
     }
 
+    #navbarCollapse {
+        display: flex;
+        justify-content: right;
+        padding: 10px 10px 10px 10px;
+    }
+
     #bannerImgContainer {
         width: 130px;
         line-height: 40px; 
