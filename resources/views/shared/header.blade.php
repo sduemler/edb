@@ -1,7 +1,7 @@
 <nav id="headerNavbar" class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" >
 
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color:black;"></span>
+        <span class="navbar-toggler-icon" style="background-color: #ef1c23 !important;"></span>
     </button>
     <a id="bannerImgContainer" class="navbar-brand" href="{{route('home.index')}}">
         <img id="bannerImg" src="{{asset('img/ethnobotanybanner.jpg')}}" alt=".">
