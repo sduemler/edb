@@ -181,9 +181,32 @@ table.table-bordered > tbody > tr > td{
     border: 1px solid black !important;
 }
 
+#headerNavbar { /*This houses navbarCollapse and bannerImg*/
+    background-color: black !important;
+    padding: 0 0 0 0;
+}
+
 #navbarCollapse {
     display: flex;
     justify-content: right;
+    padding: 10px 10px 10px 10px;
+}
+#bannerImgContainer {
+    line-height: 40px; 
+    vertical-align: middle; 
+    font-size: 1.6em; 
+    width: 130px; 
+    padding: 0; 
+    margin: 0; 
+    color: darkslategrey;
+}
+
+#bannerImg {
+    vertical-align: middle; 
+    max-width: 50vw;
+    max-height: auto;
+    margin-top: -7px;
+    padding: 5px 0 0 0;
 }
 
 /*CSS for the About Page*/

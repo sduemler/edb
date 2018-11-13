@@ -1,10 +1,10 @@
-<nav class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" style="background-color: #97c388 !important;">
+<nav id="headerNavbar" class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" >
 
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color:black;"></span>
     </button>
-    <a class="navbar-brand" href="{{route('home.index')}}" style="line-height: 40px; height: 40px; vertical-align: middle; font-size: 1.6em; width: 130px; padding: 0; margin: 0; color: darkslategrey;">
-        <img src="{{asset('img/ethnobotanybanner.jpg')}}" style="vertical-align: middle; height: 40px; margin-top: -7px;" alt=".">
+    <a id="bannerImgContainer" class="navbar-brand" href="{{route('home.index')}}">
+        <img id="bannerImg" src="{{asset('img/ethnobotanybanner.jpg')}}" alt=".">
     </a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
 
@@ -42,6 +42,6 @@
         </ul>
     </div>
     
-    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 20px;  background-image: url({{asset("img/newribbonwork1.png")}}); background-color: black; background-repeat: repeat-x; background-size: 40px;" id="headerSepBar"></div>
+    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 20px;  background-image: url({{asset("img/MIDAribbon.jpg")}}); background-color: black; background-repeat: repeat-x; background-size: 80px;" id="headerSepBar"></div>
 
 </nav>
