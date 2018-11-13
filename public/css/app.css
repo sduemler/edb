@@ -114,6 +114,17 @@ pre {
     #headerSearchBox {
         margin-left: 0px;
     }
+
+    #bannerImgContainer {
+        width: 130px;
+        line-height: 40px; 
+
+        vertical-align: middle; 
+        font-size: 1.6em; 
+        padding: 0; 
+        margin: 0; 
+        color: darkslategrey;
+    }
 }
 
 input[type='radio'] {
@@ -187,21 +198,6 @@ table.table-bordered > tbody > tr > td{
     padding: 0 0 0 0;
 }
 
-#navbarCollapse {
-    display: flex;
-    justify-content: right;
-    padding: 10px 10px 10px 10px;
-}
-#bannerImgContainer {
-    line-height: 40px; 
-    vertical-align: middle; 
-    font-size: 1.6em; 
-    width: 130px; 
-    padding: 0; 
-    margin: 0; 
-    color: darkslategrey;
-}
-
 #bannerImg {
     vertical-align: middle; 
     max-width: 50vw;
@@ -209,6 +205,7 @@ table.table-bordered > tbody > tr > td{
     margin-top: -7px;
     padding: 5px 0 0 0;
 }
+
 
 /*CSS for the About Page*/
 div#AboutFrame {
