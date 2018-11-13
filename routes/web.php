@@ -19,6 +19,8 @@ Route::get('/about', function() { return view('docs.index'); })->name('docs.inde
 Route::get('/docs/user', function() { return view('docs.user'); })->name('docs.user'); // user document page
 Route::get('/bibliography', function() { return view('bibliography.index'); })->name('bibliography.index'); // bibliography page
 Route::get('/contact_us', function() { return view('contact_us.index'); })->name('contact_us.index'); // contact us page
+Route::get('/contact', 'ContactController@create')->name('contact_us.create');
+Route::post('contact', 'ContactController@store')->name('contact_us.store');
 Route::get('password/reset2', function() {
     return view('auth.passwords.reset2');
 })->middleware('guest')->name('password.request2');
