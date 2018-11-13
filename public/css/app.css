@@ -105,27 +105,28 @@ pre {
         width: 163px;
         margin-left: 100px;
     }
-    div#contributors {
+    #contributors {
         border-left-style: solid;
     }
+    #ribbonWork{
+        position: absolute;
+    }  
 }
 
 @media(max-width: 992px){
     #headerSearchBox {
         margin-left: 0px;
     }
-
-
     #bannerImgContainer {
-        width: 130px;
-        line-height: 40px; 
-
-        vertical-align: middle; 
-        font-size: 1.6em; 
-        padding: 0; 
-        margin: 0; 
-        color: darkslategrey;
+    width: 130px;
+    line-height: 40px; 
+    vertical-align: middle; 
+    font-size: 1.6em; 
+    padding: 0; 
+    margin: 0; 
+    color: darkslategrey;
     }
+
 }
 
 input[type='radio'] {
@@ -207,6 +208,13 @@ table.table-bordered > tbody > tr > td{
     padding: 5px 0 0 0;
 }
 
+#ribbonWork {
+    width: 100%;
+    top: 56px;
+    left: 0;
+    right: 0;
+    height: 20px;
+}
 
 /*CSS for the About Page*/
 div#AboutFrame {

@@ -1,7 +1,7 @@
 <nav id="headerNavbar" class="navbar navbar-toggleable-md navbar-light fixed-top bg-inverse" >
 
     <button class="no-loading navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="background-color: #ef1c23 !important;"></span>
+        <span class="navbar-toggler-icon" style="background-color: grey !important;"></span>
     </button>
     <a id="bannerImgContainer" class="navbar-brand" href="{{route('home.index')}}">
         <img id="bannerImg" src="{{asset('img/ethnobotanybanner.jpg')}}" alt=".">
@@ -31,6 +31,6 @@
         </ul>
     </div>
     
-    <div style="width: 100%; position: absolute; top: 56px; left: 0; right: 0; height: 20px;  background-image: url({{asset("img/MIDAribbon.jpg")}}); background-color: black; background-repeat: repeat-x; background-size: 80px;" id="headerSepBar"></div>
+    <div id="ribbonWork" style="background-image: url({{asset("img/MIDAribbon.jpg")}}); background-color: black; background-repeat: repeat-x; background-size: 80px;" id="headerSepBar"></div>
 
 </nav>
