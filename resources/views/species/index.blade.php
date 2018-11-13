@@ -8,6 +8,8 @@
 
 @endsection
 @section('content')
+   @include('search.searchModule')
+   
     <div class="row"> 
         @foreach ($speciesArr as $species)
             <div class="col-lg-12 col-md-12 col-xs-12 speciesNameCard" style="padding: 0px 30px; margin-top: 15px;">
