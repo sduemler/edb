@@ -12,17 +12,16 @@
 
 <br>
 
-@include('contact_us.contact')
-  
-@include('contact_us.create')
-  
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @include('contact_us.contact')
+        </div>
+        <div class="col-6">
+            @include('contact_us.create')
+        </div>
     </div>
-@endif  
+</div>
+  
+ 
 @endsection
