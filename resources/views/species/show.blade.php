@@ -289,7 +289,7 @@
             <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($archivalSources); ?>
          @if ($tableCount > 0)
-          <table cellpadding="10" style="margin-bottom: 15px;">
+          <table class="sourceTable" cellpadding="10" style="margin-bottom: 15px;">
               <thead>
                   <tr>
                       <th>Source</th>
@@ -334,7 +334,7 @@
             <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($botanicalSources); ?>
          @if ($tableCount > 0)
-          <table cellpadding="10" style="margin-bottom: 15px;">
+          <table class="sourceTable" cellpadding="10" style="margin-bottom: 15px;">
               <thead>
                   <tr>
                       <th>Source</th>
@@ -377,7 +377,7 @@
             <h3><i>{{$species->species_name}} </i></h3>
          <?php $tableCount = count($relatedSources); ?>
          @if ($tableCount > 0)
-          <table cellpadding="10" style="margin-bottom: 15px;">
+          <table class="sourceTable" cellpadding="10" style="margin-bottom: 15px;">
               <thead>
                   <tr>
                       <th>Source</th>

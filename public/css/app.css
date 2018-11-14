@@ -299,3 +299,7 @@ input {
     display: flex;
     justify-content: center;
 }
+
+.sourceTable {
+    background-color: antiquewhite;
+}
