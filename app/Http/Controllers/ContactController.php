@@ -20,6 +20,6 @@ class ContactController extends Controller
         
         //flash('Your message has been sent!')->sucess();
         
-        return redirect()->route('contact_us.index');
+        return redirect()->route('contact_us.index')->with('message', 'Message sent!');
     }
 }
