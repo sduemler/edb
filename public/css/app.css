@@ -303,3 +303,27 @@ input {
 .sourceTable {
     background-color: antiquewhite;
 }
+
+#deleteBtn {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+#showHistoryBtn {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+#hideHistoryBtn{
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+#editSpeciesBtn{
+    background-color: green;
+    color: white;
+    border: none;
+}
