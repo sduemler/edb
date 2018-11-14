@@ -111,6 +111,10 @@ pre {
     #ribbonWork{
         position: absolute;
     }  
+    #bannerImg{
+        height: 10vh;
+    }
+    
 }
 
 @media(max-width: 992px){
@@ -125,6 +129,9 @@ pre {
     padding: 0; 
     margin: 0; 
     color: darkslategrey;
+    }
+    #bannerImg {
+        height: 50px;
     }
 
 }
@@ -203,17 +210,17 @@ table.table-bordered > tbody > tr > td{
 #bannerImg {
     vertical-align: middle; 
     max-width: 50vw;
-    max-height: auto;
     margin-top: -7px;
     padding: 5px 0 0 0;
 }
 
 #ribbonWork {
     width: 100%;
-    top: 56px;
+    top: 9vh;
     left: 0;
     right: 0;
     height: 20px;
+
 }
 
 /*CSS for the About Page*/
