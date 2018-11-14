@@ -227,7 +227,7 @@ table.table-bordered > tbody > tr > td{
 }
 
 .headerButton {
-    padding-top: 1vh;
+    padding-top: -1vh;
 }
 
 
@@ -238,14 +238,16 @@ div#AboutFrame {
 
 div#AboutMain {
     max-width: 900px;
+    padding-left: 2vw;
 }
 
 div#contributors {
     font-size: 12px;
     float: right;
-    padding-right: 10px;
+    padding-right: 2vw;
 }
 
+/*Search module CSS*/
 .searchModule {
     text-align: center;
     vertical-align: top;
