@@ -112,9 +112,8 @@ pre {
         position: absolute;
     }  
     #bannerImg{
-        height: 10vh;
+        height: 8vh;
     }
-    
 }
 
 @media(max-width: 992px){
@@ -216,12 +215,13 @@ table.table-bordered > tbody > tr > td{
 
 #ribbonWork {
     width: 100%;
-    top: 9vh;
+    top: 7vh;
     left: 0;
     right: 0;
     height: 20px;
 
 }
+
 
 /*CSS for the About Page*/
 div#AboutFrame {
