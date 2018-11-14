@@ -6,13 +6,13 @@
                 @if (Auth::guest())
                 <a style="color: darkslategrey" href="{{url('/login')}}">Sign-in</a>
                 @else
-                <a href="{{ route('cas.logout') }}"
+                <a href="{{ route('logout.logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             Logout ({{ Auth::user()->name }})
                         </a>
 
-                        <form id="logout-form" action="{{ route('cas.logout') }}" method="POST" style="display: none;">
+                        <form id="logout-form" action="{{ route('logout.logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
                 @endif
