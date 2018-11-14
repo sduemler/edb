@@ -114,6 +114,10 @@ pre {
     #bannerImg{
         height: 8vh;
     }
+    #navbarCollapse{
+        margin-left: 30vw;
+        margin-bottom: 2vh;
+    }
 }
 
 @media(max-width: 992px){
