@@ -2,7 +2,7 @@
 
 
 <div class="form-group">
-    {!! Form::label('name', 'Your Name') !!}
+    {!! Form::label('name', 'Name') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -14,11 +14,12 @@
 
 
 <div class="form-group">
-    {!! Form::textarea('msg', null, ['class' => 'form-control']) !!}
+    {!! Form::label('msg', 'Feedback') !!}
+    {!! Form::textarea('msg', null, ['class' => 'form-control', ]) !!}
 </div>
 
 
-{!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+{!! Form::submit('Submit', ['class' => 'btn btn-info', 'style' => 'background-color:green; color:white;']) !!}
 
 
 {!! Form::close() !!}
