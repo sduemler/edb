@@ -226,6 +226,10 @@ table.table-bordered > tbody > tr > td{
 
 }
 
+.headerButton {
+    padding-top: 1vh;
+}
+
 
 /*CSS for the About Page*/
 div#AboutFrame {

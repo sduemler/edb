@@ -10,10 +10,10 @@
 
 
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" style="color: white" href="{{route('home.index')}}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" style="color: white" href="{{route('docs.index')}}">About</a> </li>
-            <li class="nav-item"><a class="nav-link" style="color: white" href="{{route('bibliography.index')}}">Bibliography</a> </li>
-            <li class="nav-item"><a class="nav-link" style="color: white" href="{{route('contact_us.index')}}">Contact</a> </li>
+            <li class="nav-item headerButton"><a class="nav-link" style="color: white" href="{{route('home.index')}}">Home</a></li>
+            <li class="nav-item headerButton"><a class="nav-link" style="color: white" href="{{route('docs.index')}}">About</a> </li>
+            <li class="nav-item headerButton"><a class="nav-link" style="color: white" href="{{route('bibliography.index')}}">Bibliography</a> </li>
+            <li class="nav-item headerButton"><a class="nav-link" style="color: white" href="{{route('contact_us.index')}}">Contact</a> </li>
             
             @if(!Auth::guest() && Auth::user()->role_id != 4)
                 <li class="nav-item dropdown">
