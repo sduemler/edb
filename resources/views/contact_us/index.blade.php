@@ -8,6 +8,12 @@
 @endsection
 @section('content')
 
+@if(Session::has('message'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{ Session::get('message', '') }}
+    </div>
+@endif
 <h1 style="text-align: center;">Contact Us</h1>
 
 <div class="container">
